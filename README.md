@@ -34,6 +34,68 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 
 > You can use ES6 [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) replace markrun.string
 
+## options
+
+### template
+
+```js
+markrun(content, {
+    template: markrun.string(function () {
+/*!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<body>
+<%= content %>
+</body>
+</html>
+*/
+    })
+})
+```
+
+### compile
+
+```shell
+npm i babel babel-preset-es2015 babel-preset-react -D
+```
+
+```js
+var babel = require('babel')
+var content = markrun.string(function () {
+/*!
+````js
+ReactDOM.render(
+    (<div>markrun</div>),
+    document.getElementById('demo')
+)
+````
+*/
+})
+markrun(content, {
+    compile: {
+        'js': function (source, data) {
+            var code = babel.transform(source, {
+                presets: [
+                     require('babel-preset-es2015'),
+                     require('babel-preset-react')
+                ]
+            }).code
+            return {
+                lang: 'js',
+                code: code
+            }
+        }
+    }
+})
+```
+> compile[lang] Should be returned `lang: js css html` `code: Run in the browser's code`
+
 ## 🔨 development
 
 ```shell
