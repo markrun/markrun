@@ -69,6 +69,7 @@ npm i babel babel-preset-es2015 babel-preset-react -D
 var babel = require('babel')
 var content = markrun.string(function () {
 /*!
+<!-- {some: 'abc'} -->
 ````js
 ReactDOM.render(
     (<div>markrun</div>),
@@ -80,6 +81,14 @@ ReactDOM.render(
 markrun(content, {
     compile: {
         'js': function (source, data) {
+            /*!
+            source:
+                ReactDOM.render(
+                    (<div>markrun</div>),
+                    document.getElementById('demo')
+                )
+            data: {some: 'abc'}
+            */
             var code = babel.transform(source, {
                 presets: [
                      require('babel-preset-es2015'),
@@ -94,7 +103,22 @@ markrun(content, {
     }
 })
 ```
-> compile[lang] Should be returned `lang: js css html` `code: Run in the browser's code`
+compile[lang] Should be returned
+
+```js
+{
+    lang: 'css',
+    code: 'body{font-size:12px;}'
+}
+{
+    lang: 'js',
+    code: 'console.log(1)'
+}
+{
+    lang: 'html',
+    code: '<div>hello</div>'
+}
+```
 
 ## 🔨 development
 
