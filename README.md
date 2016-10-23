@@ -55,6 +55,8 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 |------|---------|---------|------|
 | MlastRun `Boolean` | `true` | `false` `true` | Script append body  |
 
+[About render data](./renderdata.md)
+
 ## options
 
 ### options.template
