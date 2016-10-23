@@ -187,6 +187,8 @@ markrun(content, {
 
 #### Turns async function into sync
 
+> If compile function need asynchronous operations, Please use deasync
+
 > DeAsync turns async function into sync, implemented with a blocking mechanism by calling Node.js event loop at JavaScript layer. The core of deasync is writen in C++.
 
 ```shell
