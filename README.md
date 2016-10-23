@@ -62,7 +62,26 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 ### options.template
 
 ```js
+var content = markrun.string(function () {
+/*!
+# some
+
+<!--
+MARKRUN-TEMPLATE-DATA
+{
+    "theme": "bs"
+}
+-->
+
+```js
+console.log('markrun')
+```
+*/
+})
 markrun(content, {
+    templateDefaultData: {
+        theme: ''
+    },
     template: markrun.string(function () {
 /*!
 <!DOCTYPE html>
@@ -72,6 +91,9 @@ markrun(content, {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= title %></title>
+    <% if (theme === 'bs') {%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <%= } %>
 </head>
 <body>
 <%= content %>
