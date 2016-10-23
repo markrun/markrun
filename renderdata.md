@@ -30,12 +30,15 @@ markrun(content, {
 
 ```js
 markrun(content, {
+    codeTemplateDefaultData: {
+        MlastRun: true
+    },
     codeTemplate: markrun.string(function () {
 /*!
 <div class="markrun markrun--<%= lang %>">
     <div class="markrun-code">
     <% if(lang === 'js') {%>
-    <script data-markrun-lastrun="<%= MlastRUn %>" >
+    <script data-markrun-lastrun="<%= MlastRun %>" >
         <%= __code %>
     </script>
     <% } %>
@@ -58,3 +61,9 @@ markrun(content, {
 ```
 
 **!!!** An `codeTemplate` in an `<script>` must have `data-markrun-lastrun="<%= MlastRUn %>"`
+
+`<script data-markrun-lastrun="true" >` Will be append body.
+
+```js
+$('script[data-markrun-lastrun]').append('body')
+```
