@@ -34,9 +34,30 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 
 > You can use ES6 [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) replace markrun.string
 
+## Code snippets render data
+
+    ````js
+    document.getElementById('demoA').innerHTML = 'change demoA text'
+    ````
+    <div id="demoA">demoA</div>
+
+    <!-- {
+        MlastRun: false
+    } -->
+    ````js
+    document.getElementById('demoB').innerHTML = 'change demoB text'
+    ````
+    <div id="demoB">demoB</div>
+
+> `M` at the beginning of is makrun rendering method
+
+| attr | default | example | desc |
+|------|---------|---------|------|
+| MlastRun `Boolean` | `true` | `false` `true` | Script append body  |
+
 ## options
 
-### template
+### options.template
 
 ```js
 markrun(content, {
@@ -59,7 +80,7 @@ markrun(content, {
 })
 ```
 
-### compile
+### options.compile
 
 ```shell
 npm i babel babel-preset-es2015 babel-preset-react -D
