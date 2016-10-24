@@ -83,6 +83,22 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 
     */})
 
+    var content = markrun.string(function () {/*!
+
+    # some
+
+    <!--
+    MARKRUN-TEMPLATE-DATA
+    {
+        "theme": "bs"
+    }
+    -->
+
+    ```js
+    console.log('markrun')
+    ```
+
+    */})
 
 ```js
 markrun(content, {
