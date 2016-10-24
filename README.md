@@ -2,9 +2,7 @@
 
 > Let your markdown to run, \`\`\`\`js to &lt;pre&gt; & &lt;script&gt;
 
-[![Build Status](https://api.travis-ci.org/markrun/markrun.svg)](https://travis-ci.org/markrun/markrun)
-[![NPM version](https://img.shields.io/npm/v/markrun.svg?style=flat)](https://npmjs.org/package/markrun)
-[![NPM downloads](http://img.shields.io/npm/dm/markrun.svg?style=flat)](https://npmjs.org/package/markrun)
+[![Build Status](https://api.travis-ci.org/markrun/markrun.svg)](https://travis-ci.org/markrun/markrun) [![NPM version](https://img.shields.io/npm/v/markrun.svg?style=flat)](https://npmjs.org/package/markrun) [![NPM downloads](http://img.shields.io/npm/dm/markrun.svg?style=flat)](https://npmjs.org/package/markrun)
 
 ## 📦 Install
 
@@ -12,7 +10,7 @@
 npm i markrun -D
 ```
 
-```
+```html
 <script src="http://markrun.github.com/ajax/libs/markrun/0.1.0/markrun.js" ></script>
 ```
 
@@ -20,68 +18,32 @@ npm i markrun -D
 
 `markrun(md [,options])`
 
-    var md = markrun.string(function () {/*!
-
-    ````js
-    document.title = new Date().getTime()
-    ````
-
-    */})
-
 ```js
 var markrun = require('markrun')
-var content = markrun(md)
+var content = markrun("````js\n document.title = new Date().getTime() \n````")
+
 var fs = require('fs')
 var path = require('path')
 fs.writeFileSync(path.join(__dirname, 'demo.html'))
 ```
 
+## markrun.string
+
 > You can use ES6 [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) replace markrun.string
 
-## MARKRUN-HTML
-
-    var md = markrun.string(function() {/*!
-
-    abc
-    <!-- MARKRUN-HTML
-    This text is display
-    -->
-    123
-
+    markrun.string(function() {/*!
+    ````js
+    console.log("markrun")
+    ````
     */})
 
 ```js
-markrun(md)
-/*
-abc
-This text is display
-123
-*/
+markrun.string([
+'````js',
+'console.log("markrun")',
+'````'
+])
 ```
-
-## Code snippets render data
-
-    ````js
-    document.getElementById('demoA').innerHTML = 'change demoA text'
-    ````
-    <div id="demoA">demoA</div>
-
-    <!-- {
-        M_lastRun: false
-    } -->
-    ````js
-    document.getElementById('demoB').innerHTML = 'change demoB text'
-    ````
-    <div id="demoB">demoB</div>
-
-
-| attr | default | example | desc |
-|------|---------|---------|------|
-| M_lastRun `Boolean` | `true` | `false` `true` | Script append body  |
-
-> `M_` at the beginning of is makrun rendering method.
-
-[About render data](./render-data.md)
 
 ## options
 
@@ -183,7 +145,7 @@ markrun(md, {
 })
 ```
 
-compile[lang] Should be returned
+`compile[lang]` Should be returned
 
 ```js
 {
@@ -283,13 +245,54 @@ markrun(md, {
 
 if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
 
+## Code snippets render data
 
-## Only need to parse code fragment
+    ````js
+    document.getElementById('demoA').innerHTML = 'change demoA text'
+    ````
+    <div id="demoA">demoA</div>
 
+    <!-- {
+        M_lastRun: false
+    } -->
+    ````js
+    document.getElementById('demoB').innerHTML = 'change demoB text'
+    ````
+    <div id="demoB">demoB</div>
+
+
+| attr | default | example | desc |
+|------|---------|---------|------|
+| M_lastRun `Boolean` | `true` | `false` `true` | Script append body  |
+
+> `M_` at the beginning of is makrun rendering method.
+
+[About render data](./render-data.md)
+
+## MARKRUN-HTML
+
+    var md = markrun.string(function() {/*!
+
+    abc
+    <!-- MARKRUN-HTML
+    This text is display
+    -->
+    123
+
+    */})
+
+```js
+markrun(md)
+/*
+abc
+This text is display
+123
+*/
+```
 
 ## placeholder&reduction
 
-## 🔨 development
+## 🔨 Development
 
 ```shell
 npm i
