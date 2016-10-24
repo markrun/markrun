@@ -128,7 +128,9 @@ This text is display
 ```js
 markrun(content, {
     templateDefaultData: {
-        theme: ''
+        theme: '',
+        keywords: '',
+        description: ''
     },
     template: template
 })
