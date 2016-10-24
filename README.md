@@ -253,7 +253,7 @@ if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
     <div id="demoA">demoA</div>
 
     <!-- {
-        M_lastRun: false
+        markrun_lastrun: false
     } -->
     ````js
     document.getElementById('demoB').innerHTML = 'change demoB text'
@@ -263,9 +263,9 @@ if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
 
 | attr | default | example | desc |
 |------|---------|---------|------|
-| M_lastRun `Boolean` | `true` | `false` `true` | Script append body  |
+| markrun_lastrun `Boolean` | `true` | `false` `true` | Script append body  |
 
-> `M_` at the beginning of is makrun rendering method.
+> `markrun_` at the beginning of is makrun rendering method.
 
 [About render data](./render-data.md)
 
