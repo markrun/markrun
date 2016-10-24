@@ -12,6 +12,10 @@
 npm i markrun -D
 ```
 
+```
+<script src="http://markrun.github.com/ajax/libs/markrun/0.1.0/markrun.js" ></script>
+```
+
 ## 📄 Usage
 
 `markrun(md [,options])`
@@ -34,12 +38,12 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 
 > You can use ES6 [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) replace markrun.string
 
-## MARKRUN-CODE
+## MARKRUN-HTML
 
     var md = markrun.string(function() {/*!
 
     abc
-    <!-- MARKRUN-CODE
+    <!-- MARKRUN-HTML
     This text is display
     -->
     123
@@ -263,8 +267,24 @@ catch(err){
 console.log('done');
 ```
 
+## options.markdownParser
+
+| attr | default | example | desc |
+|-----|----------|---------|------|
+| marked | `false` | `require('marked')`` | markdown parser |
+
+```js
+markrun(md, {
+    markdownParser: require('marked')
+})
+```
+
+if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
+
 ## 🔨 development
 
 ```shell
+npm i
 npm run test
+# or mocha -w
 ```
