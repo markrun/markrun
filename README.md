@@ -34,6 +34,27 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 
 > You can use ES6 [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) replace markrun.string
 
+## MARKRUN-CODE
+
+    var md = markrun.string(function() {/*!
+
+    abc
+    <!-- MARKRUN-CODE
+    This text is display
+    -->
+    123
+
+    */})
+
+```js
+markrun(md)
+/*
+abc
+This text is display
+123
+*/
+```
+
 ## Code snippets render data
 
     ````js
