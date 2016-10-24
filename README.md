@@ -1,6 +1,6 @@
 # markrun
 
-> Let your markdown to run, ````js to <pre> & <script>
+> Let your markdown to run, \`\`\`\`js to &lt;pre&gt; & &lt;script&gt;
 
 [![Build Status](https://api.travis-ci.org/markrun/markrun.svg)](https://travis-ci.org/markrun/markrun)
 [![NPM version](https://img.shields.io/npm/v/markrun.svg?style=flat)](https://npmjs.org/package/markrun)
@@ -16,17 +16,17 @@ npm i markrun -D
 
 `markrun(md [,options])`
 
+    var md = markrun.string(function () {/*!
+
+    ````js
+    document.title = new Date().getTime()
+    ````
+
+    */})
+
 ```js
 var markrun = require('markrun')
-var content = markrun(
-    markrun.string(function () {
-/*!
-````js
-document.title = new Date().getTime()
-````
-*/
-    })
-)
+var content = markrun(md)
 var fs = require('fs')
 var path = require('path')
 fs.writeFileSync(path.join(__dirname, 'demo.html'))
@@ -42,18 +42,19 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
     <div id="demoA">demoA</div>
 
     <!-- {
-        MlastRun: false
+        M_lastRun: false
     } -->
     ````js
     document.getElementById('demoB').innerHTML = 'change demoB text'
     ````
     <div id="demoB">demoB</div>
 
-> `M` at the beginning of is makrun rendering method
 
 | attr | default | example | desc |
 |------|---------|---------|------|
-| MlastRun `Boolean` | `true` | `false` `true` | Script append body  |
+| M_lastRun `Boolean` | `true` | `false` `true` | Script append body  |
+
+> `M_` at the beginning of is makrun rendering method.
 
 [About render data](./renderdata.md)
 
@@ -61,32 +62,12 @@ fs.writeFileSync(path.join(__dirname, 'demo.html'))
 
 ### options.template
 
-```js
-var content = markrun.string(function () {
-/*!
-# some
 
-<!--
-MARKRUN-TEMPLATE-DATA
-{
-    "theme": "bs"
-}
--->
+    var template = markrun.string(function () {/*!
 
-```js
-console.log('markrun')
-```
-*/
-})
-markrun(content, {
-    templateDefaultData: {
-        theme: ''
-    },
-    template: markrun.string(function () {
-/*!
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -94,13 +75,21 @@ markrun(content, {
     <% if (theme === 'bs') {%>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
     <%= } %>
-</head>
-<body>
-<%= content %>
-</body>
-</html>
-*/
-    })
+    </head>
+    <body>
+    <%= content %>
+    </body>
+    </html>
+
+    */})
+
+
+```js
+markrun(content, {
+    templateDefaultData: {
+        theme: ''
+    },
+    template: template
 })
 ```
 
@@ -110,20 +99,22 @@ markrun(content, {
 npm i babel babel-preset-es2015 babel-preset-react -D
 ```
 
+    var md = markrun.string(function () {/*!
+
+    <!-- {some: 'abc'} -->
+    ````js
+    ReactDOM.render(
+        (<div>markrun</div>),
+        document.getElementById('demo')
+    )
+    ````
+
+    */})
+
 ```js
+
 var babel = require('babel')
-var content = markrun.string(function () {
-/*!
-<!-- {some: 'abc'} -->
-````js
-ReactDOM.render(
-    (<div>markrun</div>),
-    document.getElementById('demo')
-)
-````
-*/
-})
-markrun(content, {
+markrun(md, {
     compile: {
         'js': function (source, data) {
             /*!
@@ -148,6 +139,7 @@ markrun(content, {
     }
 })
 ```
+
 compile[lang] Should be returned
 
 ```js
