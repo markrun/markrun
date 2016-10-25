@@ -53,5 +53,45 @@ describe('markrun error message', function() {
             expect(errorMessage).to.eql(file.html.trim())
         })
     })
+    describe('# compile not return lang & code', function() {
+        it('should return "return object.lang is undefined"', function() {
+            var file = util.read('error', 'compileNotReturnLang')
+            var errorMessage = false
+            try {
+                util.eql(
+                    markrun(file.md, {
+                        compile: {
+                            demo: function (source, data) {return {code: source}}
+                        }
+                    }),
+                    file.html,
+                    file.path
+                )
+            }
+            catch (e) {
+                errorMessage = e.message
+            }
+            expect(errorMessage).to.be.a('string')
+        })
+        it('should return "return object.code is undefined"', function() {
+            var file = util.read('error', 'compileNotReturnCode')
+            var errorMessage = false
+            try {
+                util.eql(
+                    markrun(file.md, {
+                        compile: {
+                            demo: function (source, data) {return {lang: 'js'}}
+                        }
+                    }),
+                    file.html,
+                    file.path
+                )
+            }
+            catch (e) {
+                errorMessage = e.message
+            }
+            expect(errorMessage).to.be.a('string')
+        })
+    })
 
 })

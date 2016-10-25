@@ -1,0 +1,9 @@
+props.compile[demo] return object.lang is undefined
+function (source, data) {return {code: source}}
+Just like:
+function (source, data){
+	return 	{
+		lang: "js",
+		code: source
+	}
+}
