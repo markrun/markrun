@@ -16,15 +16,15 @@ npm i markrun -D
 
 ## 📄 Usage
 
-`markrun(md [,options])`
+`markrun(md [,props])`
 
 ```js
 var markrun = require('markrun')
-var content = markrun("````js\n document.title = new Date().getTime() \n````")
+var html = markrun("````js\n document.title = new Date().getTime() \n````")
 
 var fs = require('fs')
 var path = require('path')
-fs.writeFileSync(path.join(__dirname, 'demo.html'))
+fs.writeFileSync(path.join(__dirname, 'demo.html'), html)
 ```
 
 ## markrun.string
@@ -45,9 +45,9 @@ markrun.string([
 ])
 ```
 
-## options
+## props
 
-### options.template
+### props.template
 
 
     var template = markrun.string(function () {/*!
@@ -98,13 +98,13 @@ markrun(content, {
 })
 ```
 
-### options.compile
+### props.compile
 
 ```shell
 npm i babel babel-preset-es2015 babel-preset-react -D
 ```
 
-    var md = markrun.string(function () {/*!
+    var content = markrun.string(function () {/*!
 
     <!-- {some: 'abc'} -->
     ````js
@@ -119,7 +119,7 @@ npm i babel babel-preset-es2015 babel-preset-react -D
 ```js
 
 var babel = require('babel')
-markrun(md, {
+markrun(content, {
     compile: {
         'js': function (source, data) {
             /*!
@@ -231,14 +231,14 @@ catch(err){
 console.log('done');
 ```
 
-## options.markdownParser
+## props.markdownParser
 
 | attr | default | example | desc |
 |-----|----------|---------|------|
 | marked | `false` | `require('marked')`` | markdown parser |
 
 ```js
-markrun(md, {
+markrun(content, {
     markdownParser: require('marked')
 })
 ```
@@ -271,7 +271,7 @@ if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
 
 ## MARKRUN-HTML
 
-    var md = markrun.string(function() {/*!
+    var content = markrun.string(function() {/*!
 
     abc
     <!-- MARKRUN-HTML
@@ -282,7 +282,7 @@ if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
     */})
 
 ```js
-markrun(md)
+markrun(content)
 /*
 abc
 This text is display
@@ -290,7 +290,16 @@ This text is display
 */
 ```
 
-## placeholder&reduction
+## props.highlight
+
+```js
+var highlight = require('highlight.js')
+makrun(content, {
+    highlight: function (source) {
+        return highlight.highlightAuto(source).value
+    }
+})
+```
 
 ## 🔨 Development
 
