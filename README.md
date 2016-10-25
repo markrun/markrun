@@ -75,7 +75,7 @@ markrun.string([
     # some
 
     <!--
-    MARKRUN-TEMPLATE-DATA
+    MARKRUN-DATA
     {
         "theme": "bs"
     }
