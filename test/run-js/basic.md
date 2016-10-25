@@ -1,10 +1,12 @@
 # basic
 
 <!-- {
-    markrun_lastrun: false
+    markrun_lastrun: false,
+    html: "<div id=\"demo\">demo</div>"
 } -->
 ````js
 document.title = "js - basic 1"
+document.getElementById('demo').innerHTML = new Date().getTime()
 ````
 
 
