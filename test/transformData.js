@@ -3,7 +3,7 @@ var util = require('./util/index')
 var expect = require('expect.js')
 var md5 = require('md5')
 var marked = require('marked')
-describe('transformData', function() {
+describe('transformData.js', function() {
     describe('# codeTemplate', function() {
         it('should <!-- {md: ""} --> md => html', function() {
             var file = util.read('transformData', 'codeTemplate')

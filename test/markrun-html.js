@@ -1,7 +1,7 @@
 var markrun = require('../index')
 var util = require('./util/index')
 var expect = require('expect.js')
-describe('MARKRUN-HTML', function() {
+describe('markrun-html.js', function() {
     describe('# basic', function() {
         it('should return "This text is display"', function() {
             var file = util.read('markrun-html', 'basic')

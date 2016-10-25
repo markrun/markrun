@@ -1,10 +1,10 @@
 # template
 
 <!-- MARKRUN-DATA {
-    titleprefix: "markrun"
+    some: "markrun"
 } -->
 
 
 ````js
-console.log('template')
+console.log('MARKRUN-DATA')
 ````
