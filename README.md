@@ -162,50 +162,6 @@ markrun(content, {
 }
 ```
 
-#### markrun-compile-webpack
-
-```shell
-npm i markrun-compile-webpack webpack -D
-npm i babel-core babel-loader babel-preset-es2015 -D
-```
-
-```js
-var markrunCompileWebpack = require('markrun-compile-webpack')
-var webpackConfig = {
-    module: {
-        loaders: [
-            {
-                // You must add md
-                test: /\.(js|md)$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                   presets: [
-                       "es2015"
-                   ]
-                }
-            }
-        ]
-    }
-}
-var webpackCompile = markrunCompileWebpack({
-    webpack: require('webpack'),
-    // "1.0" "2.0"
-    version: '1.0'
-})
-markrun(content, {
-    compile: {
-        js: function (source, data) {
-            var code = webpackCompile(source, webpackConfig)
-            return {
-                lang: 'js',
-                code: code
-            }
-        }
-    }
-})
-```
-
 #### Turns async function into sync
 
 > If compile function need asynchronous operations, Please use deasync
