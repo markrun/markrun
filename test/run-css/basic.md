@@ -16,4 +16,17 @@ body {
     overflow-x: hidden;
     border:1px solid blue
 }
+<div>
+demo div
+</div>
+````
+
+<!--{
+    html: "<div class='b' >b</div>"
+}-->
+````css
+.b {
+    color:orange;
+    text-decoration: underline;
+}
 ````
