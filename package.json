@@ -1,6 +1,6 @@
 {
   "name": "markrun",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Let your markdown to run, ````js to <pre> & <script>",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/markrun/markrun#readme",
   "dependencies": {
-    "cheerio": "^0.20.0",
     "ejs": "^2.5.2",
     "extend": "^3.0.0",
     "jsonnet": "^0.5.0-beta",

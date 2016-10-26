@@ -14,7 +14,7 @@ npm i markrun -D
 > engines node >= 0.11.0
 
 ```html
-<script src="http://markrun.github.com/ajax/libs/markrun/0.1.0/markrun.js" ></script>
+<script src="http://markrun.github.com/ajax/libs/markrun/0.2.0/markrun.js" ></script>
 ```
 
 ## 📄 Usage
