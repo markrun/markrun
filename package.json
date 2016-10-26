@@ -30,7 +30,11 @@
     "md5": "^2.1.0"
   },
   "devDependencies": {
+    "deasync": "^0.1.8",
     "expect.js": "^0.3.1",
-    "mocha": "^3.1.2"
+    "memory-fs": "^0.3.0",
+    "mocha": "^3.1.2",
+    "proxy-fs": "0.0.10",
+    "webpack": "^1.13.2"
   }
 }
