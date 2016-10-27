@@ -67,13 +67,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	var reduction = __webpack_require__(185)
 	var template = __webpack_require__(187)
 	var extend = __webpack_require__(184)
-	/*
+	/**
 	 *  Please read README.md
-	*/
-	var markrun = function (content, props) {
+	 */
+	var markrun = function (content, props, info) {
+	    info = info || {}
 	    props = extend(true, {}, defaultProps, props)
 	    // 1 placeholder
-	    var collectData = placeholder(content, props)
+	    var collectData = placeholder(content, props, info)
 	    content = collectData.content.trim()
 
 	    // 2 markdownParser
@@ -104,19 +105,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	// If this file is modified, it is necessary to consider version 1.y.z => 2.y.z
 	var defaultProps = {
 	    compile: {
-	        'js': function (source, data) {
+	        'js': function (source, data, info) {
 	            return {
 	                lang: 'js',
 	                code: source
 	            }
 	        },
-	        'css': function (source, data) {
+	        'css': function (source, data, info) {
 	            return {
 	                lang: 'css',
 	                code: source
 	            }
 	        },
-	        'html': function (source, data) {
+	        'html': function (source, data, info) {
 	            return {
 	                lang: 'html',
 	                code: source
@@ -16530,9 +16531,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var highlight = __webpack_require__(4)
 	var renderer = new marked.Renderer()
 	renderer.heading = function (text, level) {
-	    var escapedText = encodeURI(text)
+	    var escapedText = text.toLowerCase().replace(/\./g,'').replace(/[^\w]+/g, '-')
 	    return '<h' + level + '>'+
-	                '<a name="anchor-' + escapedText +'" class="markrun-anchor" href="#anchor-' + escapedText +'">' +
+	                '<a name="' + escapedText +'" class="markrun-anchor" href="#' + escapedText +'">' +
 	                    '<span class="markrun-anchor-link"></span>' +
 	                '</a>' +
 	                text +
@@ -17856,16 +17857,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    placeholder compile ````js result & <!--MARKRUN-HTML ... --> to hash
 	    @param {string} content markdown text
 	    @param {object} props markrun(conten, props)
+	    @parm {object} info
 	    @return {object.string} object.content placeholder ````js\n code \n```` to hash
 	    @return {object.object} object.hash ````js\n code \n```` hash map
 	        {
 	            'a459be06efeeb46ae4afb5265eadf215': "````js\n code \n````"
 	        }
 	*/
-	module.exports = function (content, props) {
+	module.exports = function (content, props, info) {
 	    var output
 	    var compileOutput
-	    compileOutput = compile.collect(content, props, {
+	    compileOutput = compile.collect(content, props, info, {
 	        code: ejs.compile(props.codeTemplate, ejsCompileConf)
 	    })
 	    output = markrunHTML.collect(compileOutput.content)
@@ -19552,6 +19554,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /*
 	        @param {string} content markdown text
 	        @param {object} props
+	        @parm {object} info
 	        @param {object} render
 	        @param {object} render.code ejs.compile(...)
 	        @return {object.string} object.content placeholder ````js\n code \n```` to hash
@@ -19560,7 +19563,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'a459be06efeeb46ae4afb5265eadf215': "````js\n code \n````"
 	            }
 	    */
-	    collect: function (content, props, render) {
+	    collect: function (content, props, info, render) {
 	        var hash = {}
 	        content = content.replace(rRunPre, function (pre, $1,$2, codeData, compileName, source) {
 	            // console.log(arguments)
@@ -19582,7 +19585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                throw new Error('Not find compile:' + compileName + '\n' + pre)
 	            }
 	            compileFn = props.compile[compileName]
-	            compileOutput = compileFn(source) || {}
+	            compileOutput = compileFn(source, codeData, info) || {}
 	            if (typeof compileOutput.lang === 'undefined') {
 	                throw new Error('props.compile[' + compileName + '] return object.lang is undefined\n' + compileFn.toString() + '\nJust like:\n' + 'function (source, data){\n\treturn \t{\n\t\tlang: "js",\n\t\tcode: source\n\t}\n}' + '\n')
 	            }
@@ -19805,7 +19808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.2.0",
+		"version": "0.3.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
