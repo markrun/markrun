@@ -19,7 +19,7 @@ npm i markrun -D
 
 ## 📄 Usage
 
-`markrun(md [,props])`
+`markrun(md [,props][,info])`
 
 ```js
 var markrun = require('markrun')
@@ -126,7 +126,7 @@ npm i babel babel-preset-es2015 babel-preset-react -D
 var babel = require('babel')
 markrun(content, {
     compile: {
-        'js': function (source, data) {
+        'js': function (source, data, info) {
             /*!
             source:
                 ReactDOM.render(
