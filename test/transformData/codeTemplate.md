@@ -2,7 +2,7 @@
 
 <!--
 {
-    md: "[link](#link)"
+    "md": "[link](#link)"
 }
  -->
 ````js

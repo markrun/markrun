@@ -22,7 +22,7 @@ demo div
 ````
 
 <!--{
-    html: "<div class='b' >b</div>"
+    "html": "<div class='b' >b</div>"
 }-->
 ````css
 .b {

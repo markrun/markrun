@@ -1,8 +1,8 @@
 # basic
 
 <!-- {
-    markrun_lastrun: false,
-    html: "<div id=\"demo\">demo</div>"
+    "markrun_lastrun": false,
+    "html": "<div id=\"demo\">demo</div>"
 } -->
 ````js
 document.title = "js - basic 1"
@@ -29,8 +29,8 @@ document.title = "js - basic 4"
 ````
 
 <!-- {"markrun_lastrun": false,
-    obj: {
-        name: "nimo"
+    "obj": {
+        "name": "nimo"
     }
 } -->
 ````js
@@ -38,20 +38,20 @@ document.title = "js - basic 5"
 ````
 
 <!-- {"markrun_lastrun": false,
-    obj: {
-        name: "nimo}"
+    "obj": {
+        "name": "nimo}"
     }
 } -->
 ````js
 document.title = "js - basic 6"
 ````
 
-<!-- {aa:"1"}-->
+<!-- {"a":"1"}-->
 ````js
 document.title = "js - basic 7"
 ````
 
-<!--{aa:"1"}-->
+<!--{"a":"1"}-->
 ````js
 document.title = "js - basic 8"
 ````
@@ -59,7 +59,7 @@ document.title = "js - basic 8"
 ---
 
 
-<!--    {aa:"1", some: "aa:" + self.aa}-->
+<!--    {"a":"1"}-->
 ````js
 document.title = "js - basic 9"
 ````
@@ -90,12 +90,12 @@ document.title = "js - basic 12"
 <!--{
 
 
-a:1}-->
+"a":1}-->
 ````js
 document.title = "js - basic 13"
 ````
 
-<!--{a:1
+<!--{"a":1
 
 }-->
 ````js
@@ -104,7 +104,7 @@ document.title = "js - basic 14"
 
 <!--
 
-{a:1
+{"a":1
 
 }-->
 ````js
@@ -113,7 +113,7 @@ document.title = "js - basic 15"
 
 <!--
 
-{a:{
+{"a":{
     "some": [1,2]
 }
 

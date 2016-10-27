@@ -3,7 +3,7 @@
 `markrun` support completely customize the renderings.
 
     <!-- {
-        author: 'nimo'
+        "author": "nimo"
     } -->
     ````js
     console.log('markrun')
@@ -33,30 +33,29 @@ markrun(content, {
     codeTemplateDefaultData: {
         markrun_lastrun: true
     },
-    codeTemplate: markrun.string(function () {
-/*!
-<div class="markrun markrun--<%= lang %>">
-    <div class="markrun-code">
-    <% if(lang === 'js') {%>
-    <script data-markrun-lastrun="<%= markrun_lastrun %>" >
-        <%= __code %>
-    </script>
-    <% } %>
-    <% if(lang === 'css') {%>
-    <style>
-        <%= __code %>
-    </style>
-    <% } %>
-    <% if(lang === 'html') {%>
-        <%= __code %>
-    <% } %>
-    </div>
-    <div class="markrun-source">
-        <pre class="markrun-source-pre" ><%= __source %></pre>
-    </div>
-</div>
-*/
-    })
+    codeTemplate: markrun.string([
+'<div class="markrun markrun--<%- __lang %>">',
+'    <div class="markrun-html"><%- html %></div>',
+'    <div class="markrun-code">',
+'    <% if(__lang === "js") {%>',
+'    <script data-markrun-lastrun="<%- markrun_lastrun %>">',
+'        <%- __code %>',
+'    </script>',
+'    <% } %>',
+'    <% if(__lang === "css") {%>',
+'    <style>',
+'        <%- __code %>',
+'    </style>',
+'    <% } %>',
+'    <% if(__lang === "html") {%>',
+'        <%- __code %>',
+'    <% } %>',
+'    </div>',
+'    <div class="markrun-source">',
+'        <pre class="markrun-source-pre"><%- __source %></pre>',
+'    </div>',
+'</div>'
+    ])
 })
 ```
 

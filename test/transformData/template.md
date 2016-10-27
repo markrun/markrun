@@ -1,7 +1,7 @@
 # template
 
 <!-- MARKRUN-DATA {
-    some: "markrun"
+    "some": "markrun"
 } -->
 
 

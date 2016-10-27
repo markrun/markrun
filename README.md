@@ -214,7 +214,7 @@ if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
     <div id="demoA">demoA</div>
 
     <!-- {
-        markrun_lastrun: false
+        "markrun_lastrun": false
     } -->
     ````js
     document.getElementById('demoB').innerHTML = 'change demoB text'

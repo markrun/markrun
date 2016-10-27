@@ -3,6 +3,6 @@
 <!-- MARKRUN-DATA
 
 {
-    some:
+    "some":
 }
  -->

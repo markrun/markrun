@@ -10,7 +10,7 @@ console.log('markrun')
 
 
 <!-- {
-    b: 1
+    "b": 1
 } -->
 ````js
 console.log('b1')
