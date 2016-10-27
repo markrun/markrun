@@ -32,8 +32,12 @@ module.exports = {
         }
     },
     eql: function (output, should, path, writeHTMLFile) {
-        if (true) {
-            console.log('debug writeHTMLFile: ' + path + '.html')
+        if (writeHTMLFile) {
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            console.log('Debug writeHTMLFile: ' + path + '.html')
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
             fs.writeFileSync(path + '.html',output)
             return
         }
