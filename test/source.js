@@ -16,9 +16,9 @@ describe('source.js', function() {
             util.eql(
                 markrun(file.md, {
                     compile: {
-                        'html': function (source) {
+                        'jsx': function (source) {
                             return {
-                                lang: 'jsx',
+                                lang: 'html',
                                 code: source,
                                 source: source.replace(/class=/g, "className=")
                             }
@@ -26,7 +26,7 @@ describe('source.js', function() {
                     }
                 }),
                 file.html,
-                file.path
+                file.path,true
             )
         })
     })
