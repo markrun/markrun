@@ -13,10 +13,6 @@ npm i markrun -D
 ```
 > engines node >= 0.11.0
 
-```html
-<script src="http://markrun.github.io/ajax/libs/markrun/0.3.0/markrun.js" ></script>
-```
-
 ## 📄 Usage
 
 `markrun(md [,props][,info])`
@@ -143,7 +139,8 @@ markrun(content, {
             }).code
             return {
                 lang: 'js',
-                code: code
+                code: code,
+                source: source
             }
         }
     }
