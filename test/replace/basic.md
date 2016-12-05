@@ -1,9 +1,9 @@
 # replace
 
-[props.js](./lib.props.js)
+[props.js](./props.js)
 <!-- MARKRUN-REPLACE
 {
-    "file": "./lib.props.js",
+    "file": "./props.js",
     "type": "pre"
 }
 -->

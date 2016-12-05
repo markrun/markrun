@@ -266,3 +266,43 @@ npm i
 npm run test
 # or mocha -w
 ```
+
+## props.replace
+
+### default type: "pre"
+
+**props.js**
+```js
+{
+    "name": "some props",
+    "age": 23
+}
+```
+**write**
+```markdown
+[props.js](./props.js)
+<!-- MARKRUN-REPLACE
+{
+    "file": "./props.js",
+    "type": "pre"
+}
+-->
+```
+**build**
+![image](https://cloud.githubusercontent.com/assets/3949015/20963675/5a16e22c-bca9-11e6-8dd0-bd94d1f9bf9b.png)
+
+**default props**
+```js
+{
+    replace: {
+        pre: function (data, props, info) {
+            var path = require('path')
+            var fs = require('fs')
+            var targetFilepath = path.join(path.dirname(info.filepath), data.file)
+            var code = fs.readFileSync(targetFilepath, 'utf-8').toString()
+            code = '<pre class="markrun-source-pre" >' + props.highlight(code) + '</pre>'
+            return code
+        }
+    }
+}
+```

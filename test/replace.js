@@ -6,7 +6,7 @@ describe('replace.js', function() {
         it('replace', function() {
             var file = util.read('replace', 'basic')
             util.eql(
-                markrun(file.md),
+                markrun(file.md, {}, {filepath: file.path + '.md'}),
                 file.html,
                 file.path
             )
