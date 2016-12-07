@@ -140,6 +140,7 @@ markrun(content, {
             return {
                 lang: 'js',
                 code: code,
+                // source not required
                 source: source
             }
         }

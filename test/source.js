@@ -26,7 +26,7 @@ describe('source.js', function() {
                     }
                 }),
                 file.html,
-                file.path,true
+                file.path
             )
         })
     })
