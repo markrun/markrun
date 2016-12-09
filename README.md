@@ -299,9 +299,12 @@ npm run test
         pre: function (data, props, info) {
             var path = require('path')
             var fs = require('fs')
-            var targetFilepath = path.join(path.dirname(info.filepath), data.file)
-            var code = fs.readFileSync(targetFilepath, 'utf-8').toString()
-            code = '<pre class="markrun-source-pre" >' + props.highlight(code) + '</pre>'
+            var fullpath = path.join(path.dirname(info.filepath), data.file)
+            var code = fs.readFileSync(fullpath, 'utf-8').toString()
+            info.deps = info.deps || []
+            info.deps.push(fullpath)
+            code = '<pre class="markrun-source-pre" >' + props.highlight(code) + '</pre>' +
+            '<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
             return code
         }
     }
