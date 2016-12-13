@@ -17,3 +17,19 @@ abcdef-->
 
 <!--MARKRUN-HTML
 abcdef-->
+
+
+<!--MARKRUN_HTML
+abcdef-->
+
+
+<!-- MH
+
+abcdef
+-->
+
+
+<!-- MH
+<div>div</div>
+abcdef
+-->
