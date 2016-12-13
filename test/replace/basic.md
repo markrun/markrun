@@ -16,3 +16,20 @@
     "type": "pre"
 }
 -->
+
+
+[props.js](./props.js)
+<!-- MARKRUN_REPLACE
+{
+    "file": "./props.js",
+    "type": "pre"
+}
+-->
+
+[props.js](./props.js)
+<!-- MR
+{
+    "file": "./props.js",
+    "type": "pre"
+}
+-->
