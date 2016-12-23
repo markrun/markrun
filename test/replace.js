@@ -11,8 +11,8 @@ describe('replace.js', function() {
                 file.html,
                 file.path
             )
-            expect(markrun.uniq(info.deps).length).to.equal(1)
-            expect(markrun.uniq(info.deps)[0]).to.match(/props\.js/)
+            expect(markrun._.uniq(info.deps).length).to.equal(1)
+            expect(markrun._.uniq(info.deps)[0]).to.match(/props\.js/)
         })
     })
 })
