@@ -6,7 +6,7 @@ This text is display
 End
 
 
-<!--MARKRUN-HTML
+<!--MR-H
 abcdef
 -->
 

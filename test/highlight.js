@@ -4,6 +4,9 @@ var expect = require('expect.js')
 var highlight = require('../lib/vendor/highlight.js/lib/index.js')
 describe('highlight.js', function() {
     describe('# basic', function() {
+        it('markrun.hljs', function() {
+            expect(typeof markrun.hljs).to.be('object')
+        })
         it('should return no highlight ', function() {
             var file = util.read('highlight', 'basic')
             util.eql(

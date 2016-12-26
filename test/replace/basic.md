@@ -10,7 +10,7 @@
 
 
 [props.js](./props.js)
-<!-- MARKRUN-REPLACE
+<!-- MR-R
 {
     "file": "./props.js",
     "type": "pre"

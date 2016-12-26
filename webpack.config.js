@@ -3,10 +3,12 @@ module.exports = {
         'markrun': './index.js'
     },
     externals: {
-        'jsonlint': 'JSON'
+        'jsonlint': 'JSON',
+        'fs': 'fs',
+        'path': 'path'
     },
     output: {
-        path: './browser',
+        path: './dist',
         filename: "[name].js",
         libraryTarget: 'umd',
         library: 'markrun'

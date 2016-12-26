@@ -13,6 +13,15 @@ npm i markrun -D
 ```
 > engines node >= 0.11.0
 
+```html
+<script src="https://unpkg.com/markrun/dist/markrun.min.js"></script>
+<script>
+console.log(
+    markrun('````js\nconsole.log(1)\n````')
+)
+</script>
+```
+
 ## 📄 Usage
 
 `markrun(md [,props][,info])`
@@ -248,6 +257,13 @@ This text is display
 123
 */
 ```
+### abbreviation
+
+```html
+<!-- MR-H
+This text is display
+-->
+```
 
 ## props.highlight
 
@@ -309,4 +325,16 @@ npm run test
         }
     }
 }
+```
+
+### abbreviation
+
+```markdown
+[props.js](./props.js)
+<!-- MR-R
+{
+    "file": "./props.js",
+    "type": "pre"
+}
+-->
 ```
