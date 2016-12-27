@@ -26,7 +26,7 @@
   "dependencies": {
     "ejs": "^2.5.2",
     "extend": "^3.0.0",
-    "jsonlint": "^1.6.2",
+    "json5": "^0.5.1",
     "lodash": "^4.17.2",
     "marked": "^0.3.6",
     "md5": "^2.1.0"

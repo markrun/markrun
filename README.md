@@ -108,6 +108,21 @@ markrun(content, {
 })
 ```
 
+#### abbreviation
+
+```markdown
+<!--
+MR-D
+{
+    "theme": "bs"
+}
+-->
+
+```js
+console.log('markrun')
+```
+```
+
 ### props.compile
 
 ```shell

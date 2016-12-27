@@ -2,25 +2,8 @@ var markrun = require('../index')
 var util = require('./util/index')
 var expect = require('expect.js')
 describe('error.js', function() {
-    describe('# jsonnet', function() {
-        it('should return "Jsonnet format error:"', function() {
-            var file = util.read('error', 'jsonnet')
-            var errorMessage = ''
-            try {
-                util.eql(
-                    markrun(file.md),
-                    file.html,
-                    file.path
-                )
-            }
-            catch (e) {
-                errorMessage = e.message
-            }
-            expect(errorMessage).to.eql(file.html.trim())
-        })
-    })
-    describe('# MARKRUN-DATA jsonnet', function() {
-        it('should return (MARKRUN-DATA) "Jsonnet format error:"', function() {
+    describe('# MARKRUN-DATA json5', function() {
+        it('should return (MARKRUN-DATA) "Json5 format error:"', function() {
             var file = util.read('error', 'markrun-data')
             var errorMessage = ''
             try {
@@ -34,6 +17,9 @@ describe('error.js', function() {
                 errorMessage = e.message
             }
             expect(errorMessage).to.eql(file.html.trim())
+        })
+        it('should return (MARKRUN-DATA) json5', function() {
+            markrun("<!--{some: 'name'}-->\n````js\nconsole.log(1)\n````", {template: '<%- content %>'})
         })
     })
     describe('# compile is ""', function() {
