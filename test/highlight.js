@@ -1,7 +1,7 @@
 var markrun = require('../index')
 var util = require('./util/index')
 var expect = require('expect.js')
-var highlight = require('../lib/vendor/highlight.js/lib/index.js')
+var highlight = require('highlight.js')
 describe('highlight.js', function() {
     describe('# basic', function() {
         it('markrun.hljs', function() {

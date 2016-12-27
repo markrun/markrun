@@ -3,9 +3,7 @@ module.exports = {
         'markrun': './index.js'
     },
     externals: {
-        'jsonlint': 'JSON',
-        'fs': 'fs',
-        'path': 'path'
+        'fs': 'fs'
     },
     output: {
         path: './dist',
