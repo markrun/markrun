@@ -2,6 +2,11 @@ module.exports = {
     entry: {
         'markrun': './index.js'
     },
+    resolve: {
+        alias: {
+            'highlight.js': __dirname + '/lib/web-lang-hljs.js'
+        }
+    },
     externals: {
         'fs': 'fs'
     },
