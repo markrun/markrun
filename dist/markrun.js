@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("path"), require("fs"), require("JSON"));
+		module.exports = factory(require("fs"));
 	else if(typeof define === 'function' && define.amd)
-		define(["path", "fs", "JSON"], factory);
+		define(["fs"], factory);
 	else if(typeof exports === 'object')
-		exports["markrun"] = factory(require("path"), require("fs"), require("JSON"));
+		exports["markrun"] = factory(require("fs"));
 	else
-		root["markrun"] = factory(root["path"], root["fs"], root["JSON"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_172__, __WEBPACK_EXTERNAL_MODULE_173__, __WEBPACK_EXTERNAL_MODULE_185__) {
+		root["markrun"] = factory(root["fs"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_180__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -63,11 +63,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var defaultProps = __webpack_require__(2)
 
-	var placeholder = __webpack_require__(176)
-	var reduction = __webpack_require__(187)
-	var template = __webpack_require__(189)
-	var extend = __webpack_require__(186)
-	var replace = __webpack_require__(190)
+	var placeholder = __webpack_require__(183)
+	var reduction = __webpack_require__(194)
+	var template = __webpack_require__(196)
+	var extend = __webpack_require__(193)
+	var replace = __webpack_require__(197)
 	/**
 	 *  Please read README.md
 	 */
@@ -92,8 +92,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return content
 	}
 	markrun.string = __webpack_require__(3)
-	markrun.package = __webpack_require__(191)
-	markrun._ = __webpack_require__(192)
+	markrun.package = __webpack_require__(198)
+	markrun._ = __webpack_require__(199)
 	markrun.hljs = __webpack_require__(4)
 	module.exports = markrun
 
@@ -111,8 +111,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var defaultProps = {
 	    replace: {
 	        pre: function (data, props, info) {
-	            var path = __webpack_require__(172)
-	            var fs = __webpack_require__(173)
+	            var path = __webpack_require__(175)
+	            var fs = __webpack_require__(180)
 	            var fullpath = path.join(path.dirname(info.filepath), data.file)
 	            var code = fs.readFileSync(fullpath, 'utf-8').toString()
 	            info.deps = info.deps || []
@@ -145,7 +145,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    highlight: function (source, data) {
 	        return highlight.highlightAuto(source).value
 	    },
-	    markdownParser: __webpack_require__(174),
+	    markdownParser: __webpack_require__(181),
 	    templateTransformData: function (data) {
 	        return data
 	    },
@@ -274,147 +274,150 @@ return /******/ (function(modules) { // webpackBootstrap
 	hljs.registerLanguage('cal', __webpack_require__(28));
 	hljs.registerLanguage('capnproto', __webpack_require__(29));
 	hljs.registerLanguage('ceylon', __webpack_require__(30));
-	hljs.registerLanguage('clojure', __webpack_require__(31));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(32));
-	hljs.registerLanguage('cmake', __webpack_require__(33));
-	hljs.registerLanguage('coffeescript', __webpack_require__(34));
-	hljs.registerLanguage('coq', __webpack_require__(35));
-	hljs.registerLanguage('cos', __webpack_require__(36));
-	hljs.registerLanguage('crmsh', __webpack_require__(37));
-	hljs.registerLanguage('crystal', __webpack_require__(38));
-	hljs.registerLanguage('cs', __webpack_require__(39));
-	hljs.registerLanguage('csp', __webpack_require__(40));
-	hljs.registerLanguage('css', __webpack_require__(41));
-	hljs.registerLanguage('d', __webpack_require__(42));
-	hljs.registerLanguage('markdown', __webpack_require__(43));
-	hljs.registerLanguage('dart', __webpack_require__(44));
-	hljs.registerLanguage('delphi', __webpack_require__(45));
-	hljs.registerLanguage('diff', __webpack_require__(46));
-	hljs.registerLanguage('django', __webpack_require__(47));
-	hljs.registerLanguage('dns', __webpack_require__(48));
-	hljs.registerLanguage('dockerfile', __webpack_require__(49));
-	hljs.registerLanguage('dos', __webpack_require__(50));
-	hljs.registerLanguage('dsconfig', __webpack_require__(51));
-	hljs.registerLanguage('dts', __webpack_require__(52));
-	hljs.registerLanguage('dust', __webpack_require__(53));
-	hljs.registerLanguage('ebnf', __webpack_require__(54));
-	hljs.registerLanguage('elixir', __webpack_require__(55));
-	hljs.registerLanguage('elm', __webpack_require__(56));
-	hljs.registerLanguage('ruby', __webpack_require__(57));
-	hljs.registerLanguage('erb', __webpack_require__(58));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(59));
-	hljs.registerLanguage('erlang', __webpack_require__(60));
-	hljs.registerLanguage('excel', __webpack_require__(61));
-	hljs.registerLanguage('fix', __webpack_require__(62));
-	hljs.registerLanguage('fortran', __webpack_require__(63));
-	hljs.registerLanguage('fsharp', __webpack_require__(64));
-	hljs.registerLanguage('gams', __webpack_require__(65));
-	hljs.registerLanguage('gauss', __webpack_require__(66));
-	hljs.registerLanguage('gcode', __webpack_require__(67));
-	hljs.registerLanguage('gherkin', __webpack_require__(68));
-	hljs.registerLanguage('glsl', __webpack_require__(69));
-	hljs.registerLanguage('go', __webpack_require__(70));
-	hljs.registerLanguage('golo', __webpack_require__(71));
-	hljs.registerLanguage('gradle', __webpack_require__(72));
-	hljs.registerLanguage('groovy', __webpack_require__(73));
-	hljs.registerLanguage('haml', __webpack_require__(74));
-	hljs.registerLanguage('handlebars', __webpack_require__(75));
-	hljs.registerLanguage('haskell', __webpack_require__(76));
-	hljs.registerLanguage('haxe', __webpack_require__(77));
-	hljs.registerLanguage('hsp', __webpack_require__(78));
-	hljs.registerLanguage('htmlbars', __webpack_require__(79));
-	hljs.registerLanguage('http', __webpack_require__(80));
-	hljs.registerLanguage('inform7', __webpack_require__(81));
-	hljs.registerLanguage('ini', __webpack_require__(82));
-	hljs.registerLanguage('irpf90', __webpack_require__(83));
-	hljs.registerLanguage('java', __webpack_require__(84));
-	hljs.registerLanguage('javascript', __webpack_require__(85));
-	hljs.registerLanguage('json', __webpack_require__(86));
-	hljs.registerLanguage('julia', __webpack_require__(87));
-	hljs.registerLanguage('kotlin', __webpack_require__(88));
-	hljs.registerLanguage('lasso', __webpack_require__(89));
-	hljs.registerLanguage('ldif', __webpack_require__(90));
-	hljs.registerLanguage('less', __webpack_require__(91));
-	hljs.registerLanguage('lisp', __webpack_require__(92));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(93));
-	hljs.registerLanguage('livescript', __webpack_require__(94));
-	hljs.registerLanguage('lsl', __webpack_require__(95));
-	hljs.registerLanguage('lua', __webpack_require__(96));
-	hljs.registerLanguage('makefile', __webpack_require__(97));
-	hljs.registerLanguage('mathematica', __webpack_require__(98));
-	hljs.registerLanguage('matlab', __webpack_require__(99));
-	hljs.registerLanguage('maxima', __webpack_require__(100));
-	hljs.registerLanguage('mel', __webpack_require__(101));
-	hljs.registerLanguage('mercury', __webpack_require__(102));
-	hljs.registerLanguage('mipsasm', __webpack_require__(103));
-	hljs.registerLanguage('mizar', __webpack_require__(104));
-	hljs.registerLanguage('perl', __webpack_require__(105));
-	hljs.registerLanguage('mojolicious', __webpack_require__(106));
-	hljs.registerLanguage('monkey', __webpack_require__(107));
-	hljs.registerLanguage('moonscript', __webpack_require__(108));
-	hljs.registerLanguage('nginx', __webpack_require__(109));
-	hljs.registerLanguage('nimrod', __webpack_require__(110));
-	hljs.registerLanguage('nix', __webpack_require__(111));
-	hljs.registerLanguage('nsis', __webpack_require__(112));
-	hljs.registerLanguage('objectivec', __webpack_require__(113));
-	hljs.registerLanguage('ocaml', __webpack_require__(114));
-	hljs.registerLanguage('openscad', __webpack_require__(115));
-	hljs.registerLanguage('oxygene', __webpack_require__(116));
-	hljs.registerLanguage('parser3', __webpack_require__(117));
-	hljs.registerLanguage('pf', __webpack_require__(118));
-	hljs.registerLanguage('php', __webpack_require__(119));
-	hljs.registerLanguage('pony', __webpack_require__(120));
-	hljs.registerLanguage('powershell', __webpack_require__(121));
-	hljs.registerLanguage('processing', __webpack_require__(122));
-	hljs.registerLanguage('profile', __webpack_require__(123));
-	hljs.registerLanguage('prolog', __webpack_require__(124));
-	hljs.registerLanguage('protobuf', __webpack_require__(125));
-	hljs.registerLanguage('puppet', __webpack_require__(126));
-	hljs.registerLanguage('purebasic', __webpack_require__(127));
-	hljs.registerLanguage('python', __webpack_require__(128));
-	hljs.registerLanguage('q', __webpack_require__(129));
-	hljs.registerLanguage('qml', __webpack_require__(130));
-	hljs.registerLanguage('r', __webpack_require__(131));
-	hljs.registerLanguage('rib', __webpack_require__(132));
-	hljs.registerLanguage('roboconf', __webpack_require__(133));
-	hljs.registerLanguage('rsl', __webpack_require__(134));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(135));
-	hljs.registerLanguage('rust', __webpack_require__(136));
-	hljs.registerLanguage('scala', __webpack_require__(137));
-	hljs.registerLanguage('scheme', __webpack_require__(138));
-	hljs.registerLanguage('scilab', __webpack_require__(139));
-	hljs.registerLanguage('scss', __webpack_require__(140));
-	hljs.registerLanguage('smali', __webpack_require__(141));
-	hljs.registerLanguage('smalltalk', __webpack_require__(142));
-	hljs.registerLanguage('sml', __webpack_require__(143));
-	hljs.registerLanguage('sqf', __webpack_require__(144));
-	hljs.registerLanguage('sql', __webpack_require__(145));
-	hljs.registerLanguage('stan', __webpack_require__(146));
-	hljs.registerLanguage('stata', __webpack_require__(147));
-	hljs.registerLanguage('step21', __webpack_require__(148));
-	hljs.registerLanguage('stylus', __webpack_require__(149));
-	hljs.registerLanguage('subunit', __webpack_require__(150));
-	hljs.registerLanguage('swift', __webpack_require__(151));
-	hljs.registerLanguage('taggerscript', __webpack_require__(152));
-	hljs.registerLanguage('yaml', __webpack_require__(153));
-	hljs.registerLanguage('tap', __webpack_require__(154));
-	hljs.registerLanguage('tcl', __webpack_require__(155));
-	hljs.registerLanguage('tex', __webpack_require__(156));
-	hljs.registerLanguage('thrift', __webpack_require__(157));
-	hljs.registerLanguage('tp', __webpack_require__(158));
-	hljs.registerLanguage('twig', __webpack_require__(159));
-	hljs.registerLanguage('typescript', __webpack_require__(160));
-	hljs.registerLanguage('vala', __webpack_require__(161));
-	hljs.registerLanguage('vbnet', __webpack_require__(162));
-	hljs.registerLanguage('vbscript', __webpack_require__(163));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(164));
-	hljs.registerLanguage('verilog', __webpack_require__(165));
-	hljs.registerLanguage('vhdl', __webpack_require__(166));
-	hljs.registerLanguage('vim', __webpack_require__(167));
-	hljs.registerLanguage('x86asm', __webpack_require__(168));
-	hljs.registerLanguage('xl', __webpack_require__(169));
-	hljs.registerLanguage('xquery', __webpack_require__(170));
-	hljs.registerLanguage('zephir', __webpack_require__(171));
+	hljs.registerLanguage('clean', __webpack_require__(31));
+	hljs.registerLanguage('clojure', __webpack_require__(32));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(33));
+	hljs.registerLanguage('cmake', __webpack_require__(34));
+	hljs.registerLanguage('coffeescript', __webpack_require__(35));
+	hljs.registerLanguage('coq', __webpack_require__(36));
+	hljs.registerLanguage('cos', __webpack_require__(37));
+	hljs.registerLanguage('crmsh', __webpack_require__(38));
+	hljs.registerLanguage('crystal', __webpack_require__(39));
+	hljs.registerLanguage('cs', __webpack_require__(40));
+	hljs.registerLanguage('csp', __webpack_require__(41));
+	hljs.registerLanguage('css', __webpack_require__(42));
+	hljs.registerLanguage('d', __webpack_require__(43));
+	hljs.registerLanguage('markdown', __webpack_require__(44));
+	hljs.registerLanguage('dart', __webpack_require__(45));
+	hljs.registerLanguage('delphi', __webpack_require__(46));
+	hljs.registerLanguage('diff', __webpack_require__(47));
+	hljs.registerLanguage('django', __webpack_require__(48));
+	hljs.registerLanguage('dns', __webpack_require__(49));
+	hljs.registerLanguage('dockerfile', __webpack_require__(50));
+	hljs.registerLanguage('dos', __webpack_require__(51));
+	hljs.registerLanguage('dsconfig', __webpack_require__(52));
+	hljs.registerLanguage('dts', __webpack_require__(53));
+	hljs.registerLanguage('dust', __webpack_require__(54));
+	hljs.registerLanguage('ebnf', __webpack_require__(55));
+	hljs.registerLanguage('elixir', __webpack_require__(56));
+	hljs.registerLanguage('elm', __webpack_require__(57));
+	hljs.registerLanguage('ruby', __webpack_require__(58));
+	hljs.registerLanguage('erb', __webpack_require__(59));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(60));
+	hljs.registerLanguage('erlang', __webpack_require__(61));
+	hljs.registerLanguage('excel', __webpack_require__(62));
+	hljs.registerLanguage('fix', __webpack_require__(63));
+	hljs.registerLanguage('flix', __webpack_require__(64));
+	hljs.registerLanguage('fortran', __webpack_require__(65));
+	hljs.registerLanguage('fsharp', __webpack_require__(66));
+	hljs.registerLanguage('gams', __webpack_require__(67));
+	hljs.registerLanguage('gauss', __webpack_require__(68));
+	hljs.registerLanguage('gcode', __webpack_require__(69));
+	hljs.registerLanguage('gherkin', __webpack_require__(70));
+	hljs.registerLanguage('glsl', __webpack_require__(71));
+	hljs.registerLanguage('go', __webpack_require__(72));
+	hljs.registerLanguage('golo', __webpack_require__(73));
+	hljs.registerLanguage('gradle', __webpack_require__(74));
+	hljs.registerLanguage('groovy', __webpack_require__(75));
+	hljs.registerLanguage('haml', __webpack_require__(76));
+	hljs.registerLanguage('handlebars', __webpack_require__(77));
+	hljs.registerLanguage('haskell', __webpack_require__(78));
+	hljs.registerLanguage('haxe', __webpack_require__(79));
+	hljs.registerLanguage('hsp', __webpack_require__(80));
+	hljs.registerLanguage('htmlbars', __webpack_require__(81));
+	hljs.registerLanguage('http', __webpack_require__(82));
+	hljs.registerLanguage('inform7', __webpack_require__(83));
+	hljs.registerLanguage('ini', __webpack_require__(84));
+	hljs.registerLanguage('irpf90', __webpack_require__(85));
+	hljs.registerLanguage('java', __webpack_require__(86));
+	hljs.registerLanguage('javascript', __webpack_require__(87));
+	hljs.registerLanguage('json', __webpack_require__(88));
+	hljs.registerLanguage('julia', __webpack_require__(89));
+	hljs.registerLanguage('kotlin', __webpack_require__(90));
+	hljs.registerLanguage('lasso', __webpack_require__(91));
+	hljs.registerLanguage('ldif', __webpack_require__(92));
+	hljs.registerLanguage('less', __webpack_require__(93));
+	hljs.registerLanguage('lisp', __webpack_require__(94));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(95));
+	hljs.registerLanguage('livescript', __webpack_require__(96));
+	hljs.registerLanguage('llvm', __webpack_require__(97));
+	hljs.registerLanguage('lsl', __webpack_require__(98));
+	hljs.registerLanguage('lua', __webpack_require__(99));
+	hljs.registerLanguage('makefile', __webpack_require__(100));
+	hljs.registerLanguage('mathematica', __webpack_require__(101));
+	hljs.registerLanguage('matlab', __webpack_require__(102));
+	hljs.registerLanguage('maxima', __webpack_require__(103));
+	hljs.registerLanguage('mel', __webpack_require__(104));
+	hljs.registerLanguage('mercury', __webpack_require__(105));
+	hljs.registerLanguage('mipsasm', __webpack_require__(106));
+	hljs.registerLanguage('mizar', __webpack_require__(107));
+	hljs.registerLanguage('perl', __webpack_require__(108));
+	hljs.registerLanguage('mojolicious', __webpack_require__(109));
+	hljs.registerLanguage('monkey', __webpack_require__(110));
+	hljs.registerLanguage('moonscript', __webpack_require__(111));
+	hljs.registerLanguage('nginx', __webpack_require__(112));
+	hljs.registerLanguage('nimrod', __webpack_require__(113));
+	hljs.registerLanguage('nix', __webpack_require__(114));
+	hljs.registerLanguage('nsis', __webpack_require__(115));
+	hljs.registerLanguage('objectivec', __webpack_require__(116));
+	hljs.registerLanguage('ocaml', __webpack_require__(117));
+	hljs.registerLanguage('openscad', __webpack_require__(118));
+	hljs.registerLanguage('oxygene', __webpack_require__(119));
+	hljs.registerLanguage('parser3', __webpack_require__(120));
+	hljs.registerLanguage('pf', __webpack_require__(121));
+	hljs.registerLanguage('php', __webpack_require__(122));
+	hljs.registerLanguage('pony', __webpack_require__(123));
+	hljs.registerLanguage('powershell', __webpack_require__(124));
+	hljs.registerLanguage('processing', __webpack_require__(125));
+	hljs.registerLanguage('profile', __webpack_require__(126));
+	hljs.registerLanguage('prolog', __webpack_require__(127));
+	hljs.registerLanguage('protobuf', __webpack_require__(128));
+	hljs.registerLanguage('puppet', __webpack_require__(129));
+	hljs.registerLanguage('purebasic', __webpack_require__(130));
+	hljs.registerLanguage('python', __webpack_require__(131));
+	hljs.registerLanguage('q', __webpack_require__(132));
+	hljs.registerLanguage('qml', __webpack_require__(133));
+	hljs.registerLanguage('r', __webpack_require__(134));
+	hljs.registerLanguage('rib', __webpack_require__(135));
+	hljs.registerLanguage('roboconf', __webpack_require__(136));
+	hljs.registerLanguage('rsl', __webpack_require__(137));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(138));
+	hljs.registerLanguage('rust', __webpack_require__(139));
+	hljs.registerLanguage('scala', __webpack_require__(140));
+	hljs.registerLanguage('scheme', __webpack_require__(141));
+	hljs.registerLanguage('scilab', __webpack_require__(142));
+	hljs.registerLanguage('scss', __webpack_require__(143));
+	hljs.registerLanguage('smali', __webpack_require__(144));
+	hljs.registerLanguage('smalltalk', __webpack_require__(145));
+	hljs.registerLanguage('sml', __webpack_require__(146));
+	hljs.registerLanguage('sqf', __webpack_require__(147));
+	hljs.registerLanguage('sql', __webpack_require__(148));
+	hljs.registerLanguage('stan', __webpack_require__(149));
+	hljs.registerLanguage('stata', __webpack_require__(150));
+	hljs.registerLanguage('step21', __webpack_require__(151));
+	hljs.registerLanguage('stylus', __webpack_require__(152));
+	hljs.registerLanguage('subunit', __webpack_require__(153));
+	hljs.registerLanguage('swift', __webpack_require__(154));
+	hljs.registerLanguage('taggerscript', __webpack_require__(155));
+	hljs.registerLanguage('yaml', __webpack_require__(156));
+	hljs.registerLanguage('tap', __webpack_require__(157));
+	hljs.registerLanguage('tcl', __webpack_require__(158));
+	hljs.registerLanguage('tex', __webpack_require__(159));
+	hljs.registerLanguage('thrift', __webpack_require__(160));
+	hljs.registerLanguage('tp', __webpack_require__(161));
+	hljs.registerLanguage('twig', __webpack_require__(162));
+	hljs.registerLanguage('typescript', __webpack_require__(163));
+	hljs.registerLanguage('vala', __webpack_require__(164));
+	hljs.registerLanguage('vbnet', __webpack_require__(165));
+	hljs.registerLanguage('vbscript', __webpack_require__(166));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(167));
+	hljs.registerLanguage('verilog', __webpack_require__(168));
+	hljs.registerLanguage('vhdl', __webpack_require__(169));
+	hljs.registerLanguage('vim', __webpack_require__(170));
+	hljs.registerLanguage('x86asm', __webpack_require__(171));
+	hljs.registerLanguage('xl', __webpack_require__(172));
+	hljs.registerLanguage('xquery', __webpack_require__(173));
+	hljs.registerLanguage('zephir', __webpack_require__(174));
 
 	module.exports = hljs;
 
@@ -616,7 +619,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    while (original.length || highlighted.length) {
 	      var stream = selectStream();
-	      result += escape(value.substr(processed, stream[0].offset - processed));
+	      result += escape(value.substring(processed, stream[0].offset));
 	      processed = stream[0].offset;
 	      if (stream === original) {
 	        /*
@@ -802,7 +805,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      match = top.lexemesRe.exec(mode_buffer);
 
 	      while (match) {
-	        result += escape(mode_buffer.substr(last_index, match.index - last_index));
+	        result += escape(mode_buffer.substring(last_index, match.index));
 	        keyword_match = keywordMatch(top, match);
 	        if (keyword_match) {
 	          relevance += keyword_match[1];
@@ -939,7 +942,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        match = top.terminators.exec(value);
 	        if (!match)
 	          break;
-	        count = processLexeme(value.substr(index, match.index - index), match[0]);
+	        count = processLexeme(value.substring(index, match.index), match[0]);
 	        index = match.index + count;
 	      }
 	      processLexeme(value.substr(index));
@@ -3425,6 +3428,35 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
+	  return {
+	    aliases: ['clean','icl','dcl'],
+	    keywords: {
+	      keyword:
+	        'if let in with where case of class instance otherwise ' +
+	        'implementation definition system module from import qualified as ' +
+	        'special code inline foreign export ccall stdcall generic derive ' +
+	        'infix infixl infixr',
+	      literal:
+	        'True False'
+	    },
+	    contains: [
+
+	      hljs.C_LINE_COMMENT_MODE,
+	      hljs.C_BLOCK_COMMENT_MODE,
+	      hljs.APOS_STRING_MODE,
+	      hljs.QUOTE_STRING_MODE,
+	      hljs.C_NUMBER_MODE,
+
+	      {begin: '->|<-[|:]?|::|#!?|>>=|\\{\\||\\|\\}|:==|=:|\\.\\.|<>|`'} // relevance booster
+	    ]
+	  };
+	};
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	module.exports = function(hljs) {
 	  var keywords = {
 	    'builtin-name':
 	      // Clojure keywords
@@ -3520,7 +3552,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -3539,7 +3571,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -3581,7 +3613,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -3589,7 +3621,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    keyword:
 	      // JS keywords
 	      'in if for while finally new do return else break catch instanceof throw try this ' +
-	      'switch continue typeof delete debugger super ' +
+	      'switch continue typeof delete debugger super yield import export from as default await ' +
 	      // Coffee keywords
 	      'then unless until loop of by when and or is isnt not',
 	    literal:
@@ -3652,9 +3684,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      begin: '@' + JS_IDENT_RE // relevance booster
 	    },
 	    {
-	      begin: '`', end: '`',
+	      subLanguage: 'javascript',
 	      excludeBegin: true, excludeEnd: true,
-	      subLanguage: 'javascript'
+	      variants: [
+	        {
+	          begin: '```', end: '```',
+	        },
+	        {
+	          begin: '`', end: '`',
+	        }
+	      ]
 	    }
 	  ];
 	  SUBST.contains = EXPRESSIONS;
@@ -3724,7 +3763,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -3795,7 +3834,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	module.exports = function cos (hljs) {
@@ -3923,7 +3962,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -4021,7 +4060,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -4202,7 +4241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -4373,7 +4412,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -4399,7 +4438,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -4508,7 +4547,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -4770,7 +4809,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -4882,7 +4921,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -4987,7 +5026,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5005,21 +5044,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    'specialize strict unaligned varargs ';
 	  var COMMENT_MODES = [
 	    hljs.C_LINE_COMMENT_MODE,
-	    hljs.COMMENT(
-	      /\{/,
-	      /\}/,
-	      {
-	        relevance: 0
-	      }
-	    ),
-	    hljs.COMMENT(
-	      /\(\*/,
-	      /\*\)/,
-	      {
-	        relevance: 10
-	      }
-	    )
+	    hljs.COMMENT(/\{/, /\}/, {relevance: 0}),
+	    hljs.COMMENT(/\(\*/, /\*\)/, {relevance: 10})
 	  ];
+	  var DIRECTIVE = {
+	    className: 'meta',
+	    variants: [
+	      {begin: /\{\$/, end: /\}/},
+	      {begin: /\(\*\$/, end: /\*\)/}
+	    ]
+	  };
 	  var STRING = {
 	    className: 'string',
 	    begin: /'/, end: /'/,
@@ -5044,8 +5078,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        className: 'params',
 	        begin: /\(/, end: /\)/,
 	        keywords: KEYWORDS,
-	        contains: [STRING, CHAR_STRING]
-	      }
+	        contains: [STRING, CHAR_STRING, DIRECTIVE].concat(COMMENT_MODES)
+	      },
+	      DIRECTIVE
 	    ].concat(COMMENT_MODES)
 	  };
 	  return {
@@ -5057,13 +5092,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      STRING, CHAR_STRING,
 	      hljs.NUMBER_MODE,
 	      CLASS,
-	      FUNCTION
+	      FUNCTION,
+	      DIRECTIVE
 	    ].concat(COMMENT_MODES)
 	  };
 	};
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5107,7 +5143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5175,7 +5211,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5208,7 +5244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5234,7 +5270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5290,7 +5326,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5341,7 +5377,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5469,7 +5505,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5505,7 +5541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5542,7 +5578,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5643,7 +5679,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5730,7 +5766,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5858,7 +5894,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      keywords: RUBY_KEYWORDS
 	    },
 	    { // regexp container
-	      begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
+	      begin: '(' + hljs.RE_STARTERS_RE + '|unless)\\s*',
 	      contains: [
 	        IRB_OBJECT,
 	        {
@@ -5910,7 +5946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5929,7 +5965,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -5979,7 +6015,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6129,7 +6165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6181,7 +6217,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6214,7 +6250,56 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 63 */
+/* 64 */
+/***/ function(module, exports) {
+
+	module.exports = function (hljs) {
+
+	    var CHAR = {
+	        className: 'string',
+	        begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/
+	    };
+
+	    var STRING = {
+	        className: 'string',
+	        variants: [
+	            {
+	                begin: '"', end: '"'
+	            }
+	        ]
+	    };
+
+	    var NAME = {
+	        className: 'title',
+	        begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/
+	    };
+
+	    var METHOD = {
+	        className: 'function',
+	        beginKeywords: 'def',
+	        end: /[:={\[(\n;]/,
+	        excludeEnd: true,
+	        contains: [NAME]
+	    };
+
+	    return {
+	        keywords: {
+	            literal: 'true false',
+	            keyword: 'case class def else enum if impl import in lat rel index let match namespace switch type yield with'
+	        },
+	        contains: [
+	            hljs.C_LINE_COMMENT_MODE,
+	            hljs.C_BLOCK_COMMENT_MODE,
+	            CHAR,
+	            STRING,
+	            METHOD,
+	            hljs.C_NUMBER_MODE
+	        ]
+	    };
+	};
+
+/***/ },
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6289,7 +6374,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 64 */
+/* 66 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6352,7 +6437,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 65 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -6510,7 +6595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 66 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6736,7 +6821,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 67 */
+/* 69 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6807,7 +6892,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 68 */
+/* 70 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -6848,7 +6933,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 69 */
+/* 71 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -6856,7 +6941,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    keywords: {
 	      keyword:
 	        // Statements
-	        'break continue discard do else for if return while' +
+	        'break continue discard do else for if return while switch case default ' +
 	        // Qualifiers
 	        'attribute binding buffer ccw centroid centroid varying coherent column_major const cw ' +
 	        'depth_any depth_greater depth_less depth_unchanged early_fragment_tests equal_spacing ' +
@@ -6969,7 +7054,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 70 */
+/* 72 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7027,7 +7112,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 71 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7054,7 +7139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 72 */
+/* 74 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7093,7 +7178,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 73 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7191,7 +7276,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 74 */
+/* 76 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -7302,7 +7387,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 75 */
+/* 77 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7340,7 +7425,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 76 */
+/* 78 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7466,69 +7551,123 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 77 */
+/* 79 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
 	  var IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
 	  var IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
 
+	  var HAXE_BASIC_TYPES = 'Int Float String Bool Dynamic Void Array ';
+
 	  return {
 	    aliases: ['hx'],
 	    keywords: {
-	      keyword: 'break callback case cast catch class continue default do dynamic else enum extends extern ' +
-	    'for function here if implements import in inline interface never new override package private ' +
-	    'public return static super switch this throw trace try typedef untyped using var while',
-	      literal: 'true false null'
+	      keyword: 'break callback case cast catch continue default do dynamic else enum extern ' +
+	               'for function here if import in inline never new override package private get set ' +
+	               'public return static super switch this throw trace try typedef untyped using var while ' +
+	               HAXE_BASIC_TYPES,
+	      built_in:
+	        'trace this',
+	      literal:
+	        'true false null _'
 	    },
 	    contains: [
-	      hljs.APOS_STRING_MODE,
+	      { className: 'string', // interpolate-able strings
+	        begin: '\'', end: '\'',
+	        contains: [
+	          hljs.BACKSLASH_ESCAPE,
+	          { className: 'subst', // interpolation
+	            begin: '\\$\\{', end: '\\}'
+	          },
+	          { className: 'subst', // interpolation
+	            begin: '\\$', end: '\\W}'
+	          }
+	        ]
+	      },
 	      hljs.QUOTE_STRING_MODE,
 	      hljs.C_LINE_COMMENT_MODE,
 	      hljs.C_BLOCK_COMMENT_MODE,
 	      hljs.C_NUMBER_MODE,
-	      {
-	        className: 'class',
-	        beginKeywords: 'class interface', end: '{', excludeEnd: true,
+	      { className: 'meta', // compiler meta
+	        begin: '@:', end: '$'
+	      },
+	      { className: 'meta', // compiler conditionals
+	        begin: '#', end: '$',
+	        keywords: {'meta-keyword': 'if else elseif end error'}
+	      },
+	      { className: 'type', // function types
+	        begin: ':[ \t]*', end: '[^A-Za-z0-9_ \t\\->]',
+	        excludeBegin: true, excludeEnd: true,
+	        relevance: 0
+	      },
+	      { className: 'type', // types
+	        begin: ':[ \t]*', end: '\\W',
+	        excludeBegin: true, excludeEnd: true
+	      },
+	      { className: 'type', // instantiation
+	        begin: 'new *', end: '\\W',
+	        excludeBegin: true, excludeEnd: true
+	      },
+	      { className: 'class', // enums
+	        beginKeywords: 'enum', end: '\\{',
 	        contains: [
-	          {
-	            beginKeywords: 'extends implements'
+	          hljs.TITLE_MODE
+	        ]
+	      },
+	      { className: 'class', // abstracts
+	        beginKeywords: 'abstract', end: '[\\{$]',
+	        contains: [
+	          { className: 'type',
+	            begin: '\\(', end: '\\)',
+	            excludeBegin: true, excludeEnd: true
+	          },
+	          { className: 'type',
+	            begin: 'from +', end: '\\W',
+	            excludeBegin: true, excludeEnd: true
+	          },
+	          { className: 'type',
+	            begin: 'to +', end: '\\W',
+	            excludeBegin: true, excludeEnd: true
+	          },
+	          hljs.TITLE_MODE
+	        ],
+	        keywords: {
+	          keyword: 'abstract from to'
+	        }
+	      },
+	      { className: 'class', // classes
+	        begin: '\\b(class|interface) +', end: '[\\{$]',  excludeEnd: true,
+	        keywords: 'class interface',
+	        contains: [
+	          { className: 'keyword',
+	            begin: '\\b(extends|implements) +',
+	            keywords: 'extends implements',
+	            contains: [
+	              {
+	                className: 'type',
+	                begin: hljs.IDENT_RE,
+	                relevance: 0
+	              }
+	            ]
 	          },
 	          hljs.TITLE_MODE
 	        ]
 	      },
-	      {
-	        className: 'meta',
-	        begin: '#', end: '$',
-	        keywords: {'meta-keyword': 'if else elseif end error'}
-	      },
-	      {
-	        className: 'function',
-	        beginKeywords: 'function', end: '[{;]', excludeEnd: true,
+	      { className: 'function',
+	        beginKeywords: 'function', end: '\\(', excludeEnd: true,
 	        illegal: '\\S',
 	        contains: [
-	          hljs.TITLE_MODE,
-	          {
-	            className: 'params',
-	            begin: '\\(', end: '\\)',
-	            contains: [
-	              hljs.APOS_STRING_MODE,
-	              hljs.QUOTE_STRING_MODE,
-	              hljs.C_LINE_COMMENT_MODE,
-	              hljs.C_BLOCK_COMMENT_MODE
-	            ]
-	          },
-	          {
-	            begin: ':\\s*' + IDENT_FUNC_RETURN_TYPE_RE
-	          }
+	          hljs.TITLE_MODE
 	        ]
 	      }
-	    ]
+	    ],
+	    illegal: /<\//
 	  };
 	};
 
 /***/ },
-/* 78 */
+/* 80 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7578,7 +7717,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 79 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7653,7 +7792,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 80 */
+/* 82 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7698,7 +7837,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 81 */
+/* 83 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7759,7 +7898,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 82 */
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7829,7 +7968,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 83 */
+/* 85 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -7909,17 +8048,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 84 */
+/* 86 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
-	  var GENERIC_IDENT_RE = hljs.UNDERSCORE_IDENT_RE + '(<' + hljs.UNDERSCORE_IDENT_RE + '(\\s*,\\s*' + hljs.UNDERSCORE_IDENT_RE + ')*>)?';
+	  var JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
+	  var GENERIC_IDENT_RE = JAVA_IDENT_RE + '(<' + JAVA_IDENT_RE + '(\\s*,\\s*' + JAVA_IDENT_RE + ')*>)?';
 	  var KEYWORDS =
 	    'false synchronized int abstract float private char boolean static null if const ' +
 	    'for true while long strictfp finally protected import native final void ' +
 	    'enum else break transient catch instanceof byte super volatile case assert short ' +
 	    'package default double public try this switch continue throws protected public private ' +
-	    'module requires exports';
+	    'module requires exports do';
 
 	  // https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html
 	  var JAVA_NUMBER_RE = '\\b' +
@@ -8020,7 +8160,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 85 */
+/* 87 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8195,7 +8335,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 86 */
+/* 88 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8236,7 +8376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 87 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8418,7 +8558,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 88 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -8596,7 +8736,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 89 */
+/* 91 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8763,7 +8903,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 90 */
+/* 92 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8790,7 +8930,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 91 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -8934,7 +9074,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 92 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9041,7 +9181,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 93 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9202,7 +9342,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 94 */
+/* 96 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9355,7 +9495,100 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 95 */
+/* 97 */
+/***/ function(module, exports) {
+
+	module.exports = function(hljs) {
+	  var identifier = '([-a-zA-Z$._][\\w\\-$.]*)';
+	  return {
+	    //lexemes: '[.%]?' + hljs.IDENT_RE,
+	    keywords:
+	      'begin end true false declare define global ' +
+	      'constant private linker_private internal ' +
+	      'available_externally linkonce linkonce_odr weak ' +
+	      'weak_odr appending dllimport dllexport common ' +
+	      'default hidden protected extern_weak external ' +
+	      'thread_local zeroinitializer undef null to tail ' +
+	      'target triple datalayout volatile nuw nsw nnan ' +
+	      'ninf nsz arcp fast exact inbounds align ' +
+	      'addrspace section alias module asm sideeffect ' +
+	      'gc dbg linker_private_weak attributes blockaddress ' +
+	      'initialexec localdynamic localexec prefix unnamed_addr ' +
+	      'ccc fastcc coldcc x86_stdcallcc x86_fastcallcc ' +
+	      'arm_apcscc arm_aapcscc arm_aapcs_vfpcc ptx_device ' +
+	      'ptx_kernel intel_ocl_bicc msp430_intrcc spir_func ' +
+	      'spir_kernel x86_64_sysvcc x86_64_win64cc x86_thiscallcc ' +
+	      'cc c signext zeroext inreg sret nounwind ' +
+	      'noreturn noalias nocapture byval nest readnone ' +
+	      'readonly inlinehint noinline alwaysinline optsize ssp ' +
+	      'sspreq noredzone noimplicitfloat naked builtin cold ' +
+	      'nobuiltin noduplicate nonlazybind optnone returns_twice ' +
+	      'sanitize_address sanitize_memory sanitize_thread sspstrong ' +
+	      'uwtable returned type opaque eq ne slt sgt ' +
+	      'sle sge ult ugt ule uge oeq one olt ogt ' +
+	      'ole oge ord uno ueq une x acq_rel acquire ' +
+	      'alignstack atomic catch cleanup filter inteldialect ' +
+	      'max min monotonic nand personality release seq_cst ' +
+	      'singlethread umax umin unordered xchg add fadd ' +
+	      'sub fsub mul fmul udiv sdiv fdiv urem srem ' +
+	      'frem shl lshr ashr and or xor icmp fcmp ' +
+	      'phi call trunc zext sext fptrunc fpext uitofp ' +
+	      'sitofp fptoui fptosi inttoptr ptrtoint bitcast ' +
+	      'addrspacecast select va_arg ret br switch invoke ' +
+	      'unwind unreachable indirectbr landingpad resume ' +
+	      'malloc alloca free load store getelementptr ' +
+	      'extractelement insertelement shufflevector getresult ' +
+	      'extractvalue insertvalue atomicrmw cmpxchg fence ' +
+	      'argmemonly double',
+	    contains: [
+	      {
+	        className: 'keyword',
+	        begin: 'i\\d+'
+	      },
+	      hljs.COMMENT(
+	        ';', '\\n', {relevance: 0}
+	      ),
+	      // Double quote string
+	      hljs.QUOTE_STRING_MODE,
+	      {
+	        className: 'string',
+	        variants: [
+	          // Double-quoted string
+	          { begin: '"', end: '[^\\\\]"' },
+	        ],
+	        relevance: 0
+	      },
+	      {
+	        className: 'title',
+	        variants: [
+	          { begin: '@' + identifier },
+	          { begin: '@\\d+' },
+	          { begin: '!' + identifier },
+	          { begin: '!\\d+' + identifier }
+	        ]
+	      },
+	      {
+	        className: 'symbol',
+	        variants: [
+	          { begin: '%' + identifier },
+	          { begin: '%\\d+' },
+	          { begin: '#\\d+' },
+	        ]
+	      },
+	      {
+	        className: 'number',
+	        variants: [
+	            { begin: '0[xX][a-fA-F0-9]+' },
+	            { begin: '-?\\d+(?:[.]\\d+)?(?:[eE][-+]?\\d+(?:[.]\\d+)?)?' }
+	        ],
+	        relevance: 0
+	      },
+	    ]
+	  };
+	};
+
+/***/ },
+/* 98 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9442,7 +9675,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 96 */
+/* 99 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9502,7 +9735,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 97 */
+/* 100 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9551,7 +9784,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 98 */
+/* 101 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9613,7 +9846,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 99 */
+/* 102 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -9705,7 +9938,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 100 */
+/* 103 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10115,7 +10348,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 101 */
+/* 104 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10344,7 +10577,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 102 */
+/* 105 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10430,7 +10663,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 103 */
+/* 106 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10520,7 +10753,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 104 */
+/* 107 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10543,7 +10776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 105 */
+/* 108 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10704,7 +10937,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 106 */
+/* 109 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10733,7 +10966,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 107 */
+/* 110 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10812,7 +11045,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 108 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -10928,7 +11161,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 109 */
+/* 112 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11025,7 +11258,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 110 */
+/* 113 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11084,7 +11317,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 111 */
+/* 114 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11137,71 +11370,92 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 112 */
+/* 115 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
 	  var CONSTANTS = {
 	    className: 'variable',
-	    begin: '\\$(ADMINTOOLS|APPDATA|CDBURN_AREA|CMDLINE|COMMONFILES32|COMMONFILES64|COMMONFILES|COOKIES|DESKTOP|DOCUMENTS|EXEDIR|EXEFILE|EXEPATH|FAVORITES|FONTS|HISTORY|HWNDPARENT|INSTDIR|INTERNET_CACHE|LANGUAGE|LOCALAPPDATA|MUSIC|NETHOOD|OUTDIR|PICTURES|PLUGINSDIR|PRINTHOOD|PROFILE|PROGRAMFILES32|PROGRAMFILES64|PROGRAMFILES|QUICKLAUNCH|RECENT|RESOURCES_LOCALIZED|RESOURCES|SENDTO|SMPROGRAMS|SMSTARTUP|STARTMENU|SYSDIR|TEMP|TEMPLATES|VIDEOS|WINDIR)'
+	    begin: /\$(ADMINTOOLS|APPDATA|CDBURN_AREA|CMDLINE|COMMONFILES32|COMMONFILES64|COMMONFILES|COOKIES|DESKTOP|DOCUMENTS|EXEDIR|EXEFILE|EXEPATH|FAVORITES|FONTS|HISTORY|HWNDPARENT|INSTDIR|INTERNET_CACHE|LANGUAGE|LOCALAPPDATA|MUSIC|NETHOOD|OUTDIR|PICTURES|PLUGINSDIR|PRINTHOOD|PROFILE|PROGRAMFILES32|PROGRAMFILES64|PROGRAMFILES|QUICKLAUNCH|RECENT|RESOURCES_LOCALIZED|RESOURCES|SENDTO|SMPROGRAMS|SMSTARTUP|STARTMENU|SYSDIR|TEMP|TEMPLATES|VIDEOS|WINDIR)/
 	  };
 
 	  var DEFINES = {
 	    // ${defines}
 	    className: 'variable',
-	    begin: '\\$+{[a-zA-Z0-9_]+}'
+	    begin: /\$+{[\w\.:-]+}/
 	  };
 
 	  var VARIABLES = {
 	    // $variables
 	    className: 'variable',
-	    begin: '\\$+[a-zA-Z0-9_]+',
-	    illegal: '\\(\\){}'
+	    begin: /\$+\w+/,
+	    illegal: /\(\){}/
 	  };
 
 	  var LANGUAGES = {
 	    // $(language_strings)
 	    className: 'variable',
-	    begin: '\\$+\\([a-zA-Z0-9_]+\\)'
+	    begin: /\$+\([\w\^\.:-]+\)/
 	  };
 
 	  var PARAMETERS = {
 	    // command parameters
-	    className: 'built_in',
+	    className: 'params',
 	    begin: '(ARCHIVE|FILE_ATTRIBUTE_ARCHIVE|FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_OFFLINE|FILE_ATTRIBUTE_READONLY|FILE_ATTRIBUTE_SYSTEM|FILE_ATTRIBUTE_TEMPORARY|HKCR|HKCU|HKDD|HKEY_CLASSES_ROOT|HKEY_CURRENT_CONFIG|HKEY_CURRENT_USER|HKEY_DYN_DATA|HKEY_LOCAL_MACHINE|HKEY_PERFORMANCE_DATA|HKEY_USERS|HKLM|HKPD|HKU|IDABORT|IDCANCEL|IDIGNORE|IDNO|IDOK|IDRETRY|IDYES|MB_ABORTRETRYIGNORE|MB_DEFBUTTON1|MB_DEFBUTTON2|MB_DEFBUTTON3|MB_DEFBUTTON4|MB_ICONEXCLAMATION|MB_ICONINFORMATION|MB_ICONQUESTION|MB_ICONSTOP|MB_OK|MB_OKCANCEL|MB_RETRYCANCEL|MB_RIGHT|MB_RTLREADING|MB_SETFOREGROUND|MB_TOPMOST|MB_USERICON|MB_YESNO|NORMAL|OFFLINE|READONLY|SHCTX|SHELL_CONTEXT|SYSTEM|TEMPORARY)'
 	  };
 
-	  var COMPILER ={
+	  var COMPILER = {
 	    // !compiler_flags
 	    className: 'keyword',
-	    begin: '\\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversionsystem|ifdef|ifmacrodef|ifmacrondef|ifndef|if|include|insertmacro|macroend|macro|makensis|packhdr|searchparse|searchreplace|tempfile|undef|verbose|warning)'
+	    begin: /\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|else|endif|error|execute|finalize|getdllversionsystem|ifdef|ifmacrodef|ifmacrondef|ifndef|if|include|insertmacro|macroend|macro|makensis|packhdr|searchparse|searchreplace|tempfile|undef|verbose|warning)/
+	  };
+
+	  var METACHARS = {
+	    // $\n, $\r, $\t, $$
+	    className: 'subst',
+	    begin: /\$(\\[nrt]|\$)/
+	  };
+
+	  var PLUGINS = {
+	    // plug::ins
+	    className: 'class',
+	    begin: /\w+\:\:\w+/
+	  };
+
+	    var STRING = {
+	      className: 'string',
+	      variants: [
+	        {
+	          begin: '"', end: '"'
+	        },
+	        {
+	          begin: '\'', end: '\''
+	        },
+	        {
+	          begin: '`', end: '`'
+	        }
+	      ],
+	      illegal: /\n/,
+	      contains: [
+	        METACHARS,
+	        CONSTANTS,
+	        DEFINES,
+	        VARIABLES,
+	        LANGUAGES
+	      ]
 	  };
 
 	  return {
 	    case_insensitive: false,
 	    keywords: {
 	      keyword:
-	      'Abort AddBrandingImage AddSize AllowRootDirInstall AllowSkipFiles AutoCloseWindow BGFont BGGradient BrandingText BringToFront Call CallInstDLL Caption ChangeUI CheckBitmap ClearErrors CompletedText ComponentText CopyFiles CRCCheck CreateDirectory CreateFont CreateShortCut Delete DeleteINISec DeleteINIStr DeleteRegKey DeleteRegValue DetailPrint DetailsButtonText DirText DirVar DirVerify EnableWindow EnumRegKey EnumRegValue Exch Exec ExecShell ExecWait ExpandEnvStrings File FileBufSize FileClose FileErrorText FileOpen FileRead FileReadByte FileReadUTF16LE FileReadWord FileSeek FileWrite FileWriteByte FileWriteUTF16LE FileWriteWord FindClose FindFirst FindNext FindWindow FlushINI FunctionEnd GetCurInstType GetCurrentAddress GetDlgItem GetDLLVersion GetDLLVersionLocal GetErrorLevel GetFileTime GetFileTimeLocal GetFullPathName GetFunctionAddress GetInstDirError GetLabelAddress GetTempFileName Goto HideWindow Icon IfAbort IfErrors IfFileExists IfRebootFlag IfSilent InitPluginsDir InstallButtonText InstallColors InstallDir InstallDirRegKey InstProgressFlags InstType InstTypeGetText InstTypeSetText IntCmp IntCmpU IntFmt IntOp IsWindow LangString LicenseBkColor LicenseData LicenseForceSelection LicenseLangString LicenseText LoadLanguageFile LockWindow LogSet LogText ManifestDPIAware ManifestSupportedOS MessageBox MiscButtonText Name Nop OutFile Page PageCallbacks PageExEnd Pop Push Quit ReadEnvStr ReadINIStr ReadRegDWORD ReadRegStr Reboot RegDLL Rename RequestExecutionLevel ReserveFile Return RMDir SearchPath SectionEnd SectionGetFlags SectionGetInstTypes SectionGetSize SectionGetText SectionGroupEnd SectionIn SectionSetFlags SectionSetInstTypes SectionSetSize SectionSetText SendMessage SetAutoClose SetBrandingImage SetCompress SetCompressor SetCompressorDictSize SetCtlColors SetCurInstType SetDatablockOptimize SetDateSave SetDetailsPrint SetDetailsView SetErrorLevel SetErrors SetFileAttributes SetFont SetOutPath SetOverwrite SetPluginUnload SetRebootFlag SetRegView SetShellVarContext SetSilent ShowInstDetails ShowUninstDetails ShowWindow SilentInstall SilentUnInstall Sleep SpaceTexts StrCmp StrCmpS StrCpy StrLen SubCaption SubSectionEnd Unicode UninstallButtonText UninstallCaption UninstallIcon UninstallSubCaption UninstallText UninstPage UnRegDLL Var VIAddVersionKey VIFileVersion VIProductVersion WindowIcon WriteINIStr WriteRegBin WriteRegDWORD WriteRegExpandStr WriteRegStr WriteUninstaller XPStyle',
+	      'Abort AddBrandingImage AddSize AllowRootDirInstall AllowSkipFiles AutoCloseWindow BGFont BGGradient BrandingText BringToFront Call CallInstDLL Caption ChangeUI CheckBitmap ClearErrors CompletedText ComponentText CopyFiles CRCCheck CreateDirectory CreateFont CreateShortCut Delete DeleteINISec DeleteINIStr DeleteRegKey DeleteRegValue DetailPrint DetailsButtonText DirText DirVar DirVerify EnableWindow EnumRegKey EnumRegValue Exch Exec ExecShell ExecWait ExpandEnvStrings File FileBufSize FileClose FileErrorText FileOpen FileRead FileReadByte FileReadUTF16LE FileReadWord FileSeek FileWrite FileWriteByte FileWriteUTF16LE FileWriteWord FindClose FindFirst FindNext FindWindow FlushINI FunctionEnd GetCurInstType GetCurrentAddress GetDlgItem GetDLLVersion GetDLLVersionLocal GetErrorLevel GetFileTime GetFileTimeLocal GetFullPathName GetFunctionAddress GetInstDirError GetLabelAddress GetTempFileName Goto HideWindow Icon IfAbort IfErrors IfFileExists IfRebootFlag IfSilent InitPluginsDir InstallButtonText InstallColors InstallDir InstallDirRegKey InstProgressFlags InstType InstTypeGetText InstTypeSetText IntCmp IntCmpU IntFmt IntOp IsWindow LangString LicenseBkColor LicenseData LicenseForceSelection LicenseLangString LicenseText LoadLanguageFile LockWindow LogSet LogText ManifestDPIAware ManifestSupportedOS MessageBox MiscButtonText Name Nop OutFile Page PageCallbacks PageExEnd Pop Push Quit ReadEnvStr ReadINIStr ReadRegDWORD ReadRegStr Reboot RegDLL Rename RequestExecutionLevel ReserveFile Return RMDir SearchPath SectionEnd SectionGetFlags SectionGetInstTypes SectionGetSize SectionGetText SectionGroupEnd SectionIn SectionSetFlags SectionSetInstTypes SectionSetSize SectionSetText SendMessage SetAutoClose SetBrandingImage SetCompress SetCompressor SetCompressorDictSize SetCtlColors SetCurInstType SetDatablockOptimize SetDateSave SetDetailsPrint SetDetailsView SetErrorLevel SetErrors SetFileAttributes SetFont SetOutPath SetOverwrite SetRebootFlag SetRegView SetShellVarContext SetSilent ShowInstDetails ShowUninstDetails ShowWindow SilentInstall SilentUnInstall Sleep SpaceTexts StrCmp StrCmpS StrCpy StrLen SubCaption Unicode UninstallButtonText UninstallCaption UninstallIcon UninstallSubCaption UninstallText UninstPage UnRegDLL Var VIAddVersionKey VIFileVersion VIProductVersion WindowIcon WriteINIStr WriteRegBin WriteRegDWORD WriteRegExpandStr WriteRegStr WriteUninstaller XPStyle',
 	      literal:
-	      'admin all auto both colored current false force hide highest lastused leave listonly none normal notset off on open print show silent silentlog smooth textonly true user '
+	      'admin all auto both bottom bzip2 colored components current custom directory false force hide highest ifdiff ifnewer instfiles lastused leave left license listonly lzma nevershow none normal notset off on open print right show silent silentlog smooth textonly top true try un.components un.custom un.directory un.instfiles un.license uninstConfirm user Win10 Win7 Win8 WinVista zlib'
 	    },
 	    contains: [
 	      hljs.HASH_COMMENT_MODE,
 	      hljs.C_BLOCK_COMMENT_MODE,
-	      {
-	        className: 'string',
-	        begin: '"', end: '"',
-	        illegal: '\\n',
-	        contains: [
-	          { // $\n, $\r, $\t, $$
-	            begin: '\\$(\\\\(n|r|t)|\\$)'
-	          },
-	          CONSTANTS,
-	          DEFINES,
-	          VARIABLES,
-	          LANGUAGES
-	        ]
-	      },
 	      hljs.COMMENT(
 	        ';',
 	        '$',
@@ -11211,23 +11465,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	      ),
 	      {
 	        className: 'function',
-	        beginKeywords: 'Function PageEx Section SectionGroup SubSection', end: '$'
+	        beginKeywords: 'Function PageEx Section SectionGroup', end: '$'
 	      },
+	      STRING,
 	      COMPILER,
 	      DEFINES,
 	      VARIABLES,
 	      LANGUAGES,
 	      PARAMETERS,
-	      hljs.NUMBER_MODE,
-	      { // plug::ins
-	        begin: hljs.IDENT_RE + '::' + hljs.IDENT_RE
-	      }
+	      PLUGINS,
+	      hljs.NUMBER_MODE
 	    ]
 	  };
 	};
 
 /***/ },
-/* 113 */
+/* 116 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11322,7 +11575,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 114 */
+/* 117 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11397,7 +11650,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 115 */
+/* 118 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11458,7 +11711,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 116 */
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11532,7 +11785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 117 */
+/* 120 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11584,7 +11837,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 118 */
+/* 121 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11640,7 +11893,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 119 */
+/* 122 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11771,7 +12024,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 120 */
+/* 123 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11866,7 +12119,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 121 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -11935,7 +12188,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    case_insensitive: true,
 	    keywords: {
 	      keyword: 'if else foreach return function do while until elseif begin for trap data dynamicparam end break throw param continue finally in switch exit filter try process catch',
-	      built_in: 'Add-Computer Add-Content Add-History Add-JobTrigger Add-Member Add-PSSnapin Add-Type Checkpoint-Computer Clear-Content Clear-EventLog Clear-History Clear-Host Clear-Item Clear-ItemProperty Clear-Variable Compare-Object Complete-Transaction Connect-PSSession Connect-WSMan Convert-Path ConvertFrom-Csv ConvertFrom-Json ConvertFrom-SecureString ConvertFrom-StringData ConvertTo-Csv ConvertTo-Html ConvertTo-Json ConvertTo-SecureString ConvertTo-Xml Copy-Item Copy-ItemProperty Debug-Process Disable-ComputerRestore Disable-JobTrigger Disable-PSBreakpoint Disable-PSRemoting Disable-PSSessionConfiguration Disable-WSManCredSSP Disconnect-PSSession Disconnect-WSMan Disable-ScheduledJob Enable-ComputerRestore Enable-JobTrigger Enable-PSBreakpoint Enable-PSRemoting Enable-PSSessionConfiguration Enable-ScheduledJob Enable-WSManCredSSP Enter-PSSession Exit-PSSession Export-Alias Export-Clixml Export-Console Export-Counter Export-Csv Export-FormatData Export-ModuleMember Export-PSSession ForEach-Object Format-Custom Format-List Format-Table Format-Wide Get-Acl Get-Alias Get-AuthenticodeSignature Get-ChildItem Get-Command Get-ComputerRestorePoint Get-Content Get-ControlPanelItem Get-Counter Get-Credential Get-Culture Get-Date Get-Event Get-EventLog Get-EventSubscriber Get-ExecutionPolicy Get-FormatData Get-Host Get-HotFix Get-Help Get-History Get-IseSnippet Get-Item Get-ItemProperty Get-Job Get-JobTrigger Get-Location Get-Member Get-Module Get-PfxCertificate Get-Process Get-PSBreakpoint Get-PSCallStack Get-PSDrive Get-PSProvider Get-PSSession Get-PSSessionConfiguration Get-PSSnapin Get-Random Get-ScheduledJob Get-ScheduledJobOption Get-Service Get-TraceSource Get-Transaction Get-TypeData Get-UICulture Get-Unique Get-Variable Get-Verb Get-WinEvent Get-WmiObject Get-WSManCredSSP Get-WSManInstance Group-Object Import-Alias Import-Clixml Import-Counter Import-Csv Import-IseSnippet Import-LocalizedData Import-PSSession Import-Module Invoke-AsWorkflow Invoke-Command Invoke-Expression Invoke-History Invoke-Item Invoke-RestMethod Invoke-WebRequest Invoke-WmiMethod Invoke-WSManAction Join-Path Limit-EventLog Measure-Command Measure-Object Move-Item Move-ItemProperty New-Alias New-Event New-EventLog New-IseSnippet New-Item New-ItemProperty New-JobTrigger New-Object New-Module New-ModuleManifest New-PSDrive New-PSSession New-PSSessionConfigurationFile New-PSSessionOption New-PSTransportOption New-PSWorkflowExecutionOption New-PSWorkflowSession New-ScheduledJobOption New-Service New-TimeSpan New-Variable New-WebServiceProxy New-WinEvent New-WSManInstance New-WSManSessionOption Out-Default Out-File Out-GridView Out-Host Out-Null Out-Printer Out-String Pop-Location Push-Location Read-Host Receive-Job Register-EngineEvent Register-ObjectEvent Register-PSSessionConfiguration Register-ScheduledJob Register-WmiEvent Remove-Computer Remove-Event Remove-EventLog Remove-Item Remove-ItemProperty Remove-Job Remove-JobTrigger Remove-Module Remove-PSBreakpoint Remove-PSDrive Remove-PSSession Remove-PSSnapin Remove-TypeData Remove-Variable Remove-WmiObject Remove-WSManInstance Rename-Computer Rename-Item Rename-ItemProperty Reset-ComputerMachinePassword Resolve-Path Restart-Computer Restart-Service Restore-Computer Resume-Job Resume-Service Save-Help Select-Object Select-String Select-Xml Send-MailMessage Set-Acl Set-Alias Set-AuthenticodeSignature Set-Content Set-Date Set-ExecutionPolicy Set-Item Set-ItemProperty Set-JobTrigger Set-Location Set-PSBreakpoint Set-PSDebug Set-PSSessionConfiguration Set-ScheduledJob Set-ScheduledJobOption Set-Service Set-StrictMode Set-TraceSource Set-Variable Set-WmiInstance Set-WSManInstance Set-WSManQuickConfig Show-Command Show-ControlPanelItem Show-EventLog Sort-Object Split-Path Start-Job Start-Process Start-Service Start-Sleep Start-Transaction Start-Transcript Stop-Computer Stop-Job Stop-Process Stop-Service Stop-Transcript Suspend-Job Suspend-Service Tee-Object Test-ComputerSecureChannel Test-Connection Test-ModuleManifest Test-Path Test-PSSessionConfigurationFile Trace-Command Unblock-File Undo-Transaction Unregister-Event Unregister-PSSessionConfiguration Unregister-ScheduledJob Update-FormatData Update-Help Update-List Update-TypeData Use-Transaction Wait-Event Wait-Job Wait-Process Where-Object Write-Debug Write-Error Write-EventLog Write-Host Write-Output Write-Progress Write-Verbose Write-Warning',
+	      built_in: 'Add-Computer Add-Content Add-History Add-JobTrigger Add-Member Add-PSSnapin Add-Type Checkpoint-Computer Clear-Content Clear-EventLog Clear-History Clear-Host Clear-Item Clear-ItemProperty Clear-Variable Compare-Object Complete-Transaction Connect-PSSession Connect-WSMan Convert-Path ConvertFrom-Csv ConvertFrom-Json ConvertFrom-SecureString ConvertFrom-StringData ConvertTo-Csv ConvertTo-Html ConvertTo-Json ConvertTo-SecureString ConvertTo-Xml Copy-Item Copy-ItemProperty Debug-Process Disable-ComputerRestore Disable-JobTrigger Disable-PSBreakpoint Disable-PSRemoting Disable-PSSessionConfiguration Disable-WSManCredSSP Disconnect-PSSession Disconnect-WSMan Disable-ScheduledJob Enable-ComputerRestore Enable-JobTrigger Enable-PSBreakpoint Enable-PSRemoting Enable-PSSessionConfiguration Enable-ScheduledJob Enable-WSManCredSSP Enter-PSSession Exit-PSSession Export-Alias Export-Clixml Export-Console Export-Counter Export-Csv Export-FormatData Export-ModuleMember Export-PSSession ForEach-Object Format-Custom Format-List Format-Table Format-Wide Get-Acl Get-Alias Get-AuthenticodeSignature Get-ChildItem Get-Command Get-ComputerRestorePoint Get-Content Get-ControlPanelItem Get-Counter Get-Credential Get-Culture Get-Date Get-Event Get-EventLog Get-EventSubscriber Get-ExecutionPolicy Get-FormatData Get-Host Get-HotFix Get-Help Get-History Get-IseSnippet Get-Item Get-ItemProperty Get-Job Get-JobTrigger Get-Location Get-Member Get-Module Get-PfxCertificate Get-Process Get-PSBreakpoint Get-PSCallStack Get-PSDrive Get-PSProvider Get-PSSession Get-PSSessionConfiguration Get-PSSnapin Get-Random Get-ScheduledJob Get-ScheduledJobOption Get-Service Get-TraceSource Get-Transaction Get-TypeData Get-UICulture Get-Unique Get-Variable Get-Verb Get-WinEvent Get-WmiObject Get-WSManCredSSP Get-WSManInstance Group-Object Import-Alias Import-Clixml Import-Counter Import-Csv Import-IseSnippet Import-LocalizedData Import-PSSession Import-Module Invoke-AsWorkflow Invoke-Command Invoke-Expression Invoke-History Invoke-Item Invoke-RestMethod Invoke-WebRequest Invoke-WmiMethod Invoke-WSManAction Join-Path Limit-EventLog Measure-Command Measure-Object Move-Item Move-ItemProperty New-Alias New-Event New-EventLog New-IseSnippet New-Item New-ItemProperty New-JobTrigger New-Object New-Module New-ModuleManifest New-PSDrive New-PSSession New-PSSessionConfigurationFile New-PSSessionOption New-PSTransportOption New-PSWorkflowExecutionOption New-PSWorkflowSession New-ScheduledJobOption New-Service New-TimeSpan New-Variable New-WebServiceProxy New-WinEvent New-WSManInstance New-WSManSessionOption Out-Default Out-File Out-GridView Out-Host Out-Null Out-Printer Out-String Pop-Location Push-Location Read-Host Receive-Job Register-EngineEvent Register-ObjectEvent Register-PSSessionConfiguration Register-ScheduledJob Register-WmiEvent Remove-Computer Remove-Event Remove-EventLog Remove-Item Remove-ItemProperty Remove-Job Remove-JobTrigger Remove-Module Remove-PSBreakpoint Remove-PSDrive Remove-PSSession Remove-PSSnapin Remove-TypeData Remove-Variable Remove-WmiObject Remove-WSManInstance Rename-Computer Rename-Item Rename-ItemProperty Reset-ComputerMachinePassword Resolve-Path Restart-Computer Restart-Service Restore-Computer Resume-Job Resume-Service Save-Help Select-Object Select-String Select-Xml Send-MailMessage Set-Acl Set-Alias Set-AuthenticodeSignature Set-Content Set-Date Set-ExecutionPolicy Set-Item Set-ItemProperty Set-JobTrigger Set-Location Set-PSBreakpoint Set-PSDebug Set-PSSessionConfiguration Set-ScheduledJob Set-ScheduledJobOption Set-Service Set-StrictMode Set-TraceSource Set-Variable Set-WmiInstance Set-WSManInstance Set-WSManQuickConfig Show-Command Show-ControlPanelItem Show-EventLog Sort-Object Split-Path Start-Job Start-Process Start-Service Start-Sleep Start-Transaction Start-Transcript Stop-Computer Stop-Job Stop-Process Stop-Service Stop-Transcript Suspend-Job Suspend-Service Tee-Object Test-ComputerSecureChannel Test-Connection Test-ModuleManifest Test-Path Test-PSSessionConfigurationFile Trace-Command Unblock-File Undo-Transaction Unregister-Event Unregister-PSSessionConfiguration Unregister-ScheduledJob Update-FormatData Update-Help Update-List Update-TypeData Use-Transaction Wait-Event Wait-Job Wait-Process Where-Object Write-Debug Write-Error Write-EventLog Write-Host Write-Output Write-Progress Write-Verbose Write-Warning Add-MDTPersistentDrive Disable-MDTMonitorService Enable-MDTMonitorService Get-MDTDeploymentShareStatistics Get-MDTMonitorData Get-MDTOperatingSystemCatalog Get-MDTPersistentDrive Import-MDTApplication Import-MDTDriver Import-MDTOperatingSystem Import-MDTPackage Import-MDTTaskSequence New-MDTDatabase Remove-MDTMonitorData Remove-MDTPersistentDrive Restore-MDTPersistentDrive Set-MDTMonitorData Test-MDTDeploymentShare Test-MDTMonitorData Update-MDTDatabaseSchema Update-MDTDeploymentShare Update-MDTLinkedDS Update-MDTMedia Update-MDTMedia Add-VamtProductKey Export-VamtData Find-VamtManagedMachine Get-VamtConfirmationId Get-VamtProduct Get-VamtProductKey Import-VamtData Initialize-VamtData Install-VamtConfirmationId Install-VamtProductActivation Install-VamtProductKey Update-VamtProduct',
 	      nomarkup: '-ne -eq -lt -gt -ge -le -not -like -notlike -match -notmatch -contains -notcontains -in -notin -replace'
 	    },
 	    contains: [
@@ -11951,7 +12204,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 122 */
+/* 125 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12003,7 +12256,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 123 */
+/* 126 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12037,7 +12290,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 124 */
+/* 127 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12129,7 +12382,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 125 */
+/* 128 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12169,7 +12422,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 126 */
+/* 129 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12288,7 +12541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 127 */
+/* 130 */
 /***/ function(module, exports) {
 
 	module.exports = // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
@@ -12350,7 +12603,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 128 */
+/* 131 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12412,7 +12665,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      built_in:
 	        'Ellipsis NotImplemented'
 	    },
-	    illegal: /(<\/|->|\?)/,
+	    illegal: /(<\/|->|\?)|=>/,
 	    contains: [
 	      PROMPT,
 	      NUMBER,
@@ -12420,7 +12673,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      hljs.HASH_COMMENT_MODE,
 	      {
 	        variants: [
-	          {className: 'function', beginKeywords: 'def', relevance: 10},
+	          {className: 'function', beginKeywords: 'def'},
 	          {className: 'class', beginKeywords: 'class'}
 	        ],
 	        end: /:/,
@@ -12446,7 +12699,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 129 */
+/* 132 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12473,7 +12726,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 130 */
+/* 133 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12646,7 +12899,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 131 */
+/* 134 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12720,7 +12973,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 132 */
+/* 135 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12751,7 +13004,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 133 */
+/* 136 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12822,7 +13075,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 134 */
+/* 137 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12862,7 +13115,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 135 */
+/* 138 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -12927,7 +13180,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 136 */
+/* 139 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13035,7 +13288,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 137 */
+/* 140 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13154,7 +13407,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 138 */
+/* 141 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13299,7 +13552,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 139 */
+/* 142 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13357,7 +13610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 140 */
+/* 143 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13459,7 +13712,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 141 */
+/* 144 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13519,7 +13772,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 142 */
+/* 145 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13573,7 +13826,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 143 */
+/* 146 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -13643,11 +13896,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 144 */
+/* 147 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
 	  var CPP = hljs.getLanguage('cpp').exports;
+
+	  // In SQF, a variable start with _
+	  var VARIABLE = {
+	    className: 'variable',
+	    begin: /\b_+[a-zA-Z_]\w*/
+	  };
+
+	  // In SQF, a function should fit myTag_fnc_myFunction pattern
+	  // https://community.bistudio.com/wiki/Functions_Library_(Arma_3)#Adding_a_Function
+	  var FUNCTION = {
+	    className: 'title',
+	    begin: /[a-zA-Z][a-zA-Z0-9]+_fnc_\w*/
+	  };
 
 	  // In SQF strings, quotes matching the start are escaped by adding a consecutive.
 	  // Example of single escaped quotes: " "" " and  ' '' '.
@@ -13673,426 +13939,321 @@ return /******/ (function(modules) { // webpackBootstrap
 	    keywords: {
 	      keyword:
 	        'case catch default do else exit exitWith for forEach from if ' +
-	        'switch then throw to try while with',
+	        'switch then throw to try waitUntil while with',
 	      built_in:
-	        'or plus abs accTime acos action actionKeys actionKeysImages ' +
-	        'actionKeysNames actionKeysNamesArray actionName activateAddons ' +
-	        'activatedAddons activateKey addAction addBackpack addBackpackCargo ' +
-	        'addBackpackCargoGlobal addBackpackGlobal addCamShake ' +
-	        'addCuratorAddons addCuratorCameraArea addCuratorEditableObjects ' +
-	        'addCuratorEditingArea addCuratorPoints addEditorObject ' +
-	        'addEventHandler addGoggles addGroupIcon addHandgunItem addHeadgear ' +
-	        'addItem addItemCargo addItemCargoGlobal addItemPool ' +
-	        'addItemToBackpack addItemToUniform addItemToVest addLiveStats ' +
-	        'addMagazine addMagazine array addMagazineAmmoCargo ' +
-	        'addMagazineCargo addMagazineCargoGlobal addMagazineGlobal ' +
-	        'addMagazinePool addMagazines addMagazineTurret addMenu addMenuItem ' +
-	        'addMissionEventHandler addMPEventHandler addMusicEventHandler ' +
-	        'addPrimaryWeaponItem addPublicVariableEventHandler addRating ' +
-	        'addResources addScore addScoreSide addSecondaryWeaponItem ' +
-	        'addSwitchableUnit addTeamMember addToRemainsCollector addUniform ' +
-	        'addVehicle addVest addWaypoint addWeapon addWeaponCargo ' +
-	        'addWeaponCargoGlobal addWeaponGlobal addWeaponPool addWeaponTurret ' +
-	        'agent agents AGLToASL aimedAtTarget aimPos airDensityRTD ' +
-	        'airportSide AISFinishHeal alive allControls allCurators allDead ' +
-	        'allDeadMen allDisplays allGroups allMapMarkers allMines ' +
-	        'allMissionObjects allow3DMode allowCrewInImmobile ' +
-	        'allowCuratorLogicIgnoreAreas allowDamage allowDammage ' +
-	        'allowFileOperations allowFleeing allowGetIn allPlayers allSites ' +
-	        'allTurrets allUnits allUnitsUAV allVariables ammo and animate ' +
-	        'animateDoor animationPhase animationState append armoryPoints ' +
-	        'arrayIntersect asin ASLToAGL ASLToATL assert assignAsCargo ' +
-	        'assignAsCargoIndex assignAsCommander assignAsDriver assignAsGunner ' +
-	        'assignAsTurret assignCurator assignedCargo assignedCommander ' +
-	        'assignedDriver assignedGunner assignedItems assignedTarget ' +
-	        'assignedTeam assignedVehicle assignedVehicleRole assignItem ' +
-	        'assignTeam assignToAirport atan atan2 atg ATLToASL attachedObject ' +
-	        'attachedObjects attachedTo attachObject attachTo attackEnabled ' +
-	        'backpack backpackCargo backpackContainer backpackItems ' +
-	        'backpackMagazines backpackSpaceFor behaviour benchmark binocular ' +
-	        'blufor boundingBox boundingBoxReal boundingCenter breakOut breakTo ' +
-	        'briefingName buildingExit buildingPos buttonAction buttonSetAction ' +
-	        'cadetMode call callExtension camCommand camCommit ' +
-	        'camCommitPrepared camCommitted camConstuctionSetParams camCreate ' +
-	        'camDestroy cameraEffect cameraEffectEnableHUD cameraInterest ' +
-	        'cameraOn cameraView campaignConfigFile camPreload camPreloaded ' +
-	        'camPrepareBank camPrepareDir camPrepareDive camPrepareFocus ' +
-	        'camPrepareFov camPrepareFovRange camPreparePos camPrepareRelPos ' +
-	        'camPrepareTarget camSetBank camSetDir camSetDive camSetFocus ' +
-	        'camSetFov camSetFovRange camSetPos camSetRelPos camSetTarget ' +
-	        'camTarget camUseNVG canAdd canAddItemToBackpack ' +
-	        'canAddItemToUniform canAddItemToVest cancelSimpleTaskDestination ' +
-	        'canFire canMove canSlingLoad canStand canUnloadInCombat captive ' +
-	        'captiveNum cbChecked cbSetChecked ceil cheatsEnabled ' +
-	        'checkAIFeature civilian className clearAllItemsFromBackpack ' +
-	        'clearBackpackCargo clearBackpackCargoGlobal clearGroupIcons ' +
-	        'clearItemCargo clearItemCargoGlobal clearItemPool ' +
-	        'clearMagazineCargo clearMagazineCargoGlobal clearMagazinePool ' +
-	        'clearOverlay clearRadio clearWeaponCargo clearWeaponCargoGlobal ' +
-	        'clearWeaponPool closeDialog closeDisplay closeOverlay ' +
-	        'collapseObjectTree combatMode commandArtilleryFire commandChat ' +
-	        'commander commandFire commandFollow commandFSM commandGetOut ' +
-	        'commandingMenu commandMove commandRadio commandStop commandTarget ' +
-	        'commandWatch comment commitOverlay compile compileFinal ' +
-	        'completedFSM composeText configClasses configFile configHierarchy ' +
-	        'configName configProperties configSourceMod configSourceModList ' +
-	        'connectTerminalToUAV controlNull controlsGroupCtrl ' +
-	        'copyFromClipboard copyToClipboard copyWaypoints cos count ' +
-	        'countEnemy countFriendly countSide countType countUnknown ' +
-	        'createAgent createCenter createDialog createDiaryLink ' +
-	        'createDiaryRecord createDiarySubject createDisplay ' +
-	        'createGearDialog createGroup createGuardedPoint createLocation ' +
-	        'createMarker createMarkerLocal createMenu createMine ' +
-	        'createMissionDisplay createSimpleTask createSite createSoundSource ' +
-	        'createTask createTeam createTrigger createUnit createUnit array ' +
-	        'createVehicle createVehicle array createVehicleCrew ' +
-	        'createVehicleLocal crew ctrlActivate ctrlAddEventHandler ' +
-	        'ctrlAutoScrollDelay ctrlAutoScrollRewind ctrlAutoScrollSpeed ' +
-	        'ctrlChecked ctrlClassName ctrlCommit ctrlCommitted ctrlCreate ' +
-	        'ctrlDelete ctrlEnable ctrlEnabled ctrlFade ctrlHTMLLoaded ctrlIDC ' +
-	        'ctrlIDD ctrlMapAnimAdd ctrlMapAnimClear ctrlMapAnimCommit ' +
-	        'ctrlMapAnimDone ctrlMapCursor ctrlMapMouseOver ctrlMapScale ' +
-	        'ctrlMapScreenToWorld ctrlMapWorldToScreen ctrlModel ' +
-	        'ctrlModelDirAndUp ctrlModelScale ctrlParent ctrlPosition ' +
-	        'ctrlRemoveAllEventHandlers ctrlRemoveEventHandler ctrlScale ' +
-	        'ctrlSetActiveColor ctrlSetAutoScrollDelay ctrlSetAutoScrollRewind ' +
-	        'ctrlSetAutoScrollSpeed ctrlSetBackgroundColor ctrlSetChecked ' +
-	        'ctrlSetEventHandler ctrlSetFade ctrlSetFocus ctrlSetFont ' +
-	        'ctrlSetFontH1 ctrlSetFontH1B ctrlSetFontH2 ctrlSetFontH2B ' +
-	        'ctrlSetFontH3 ctrlSetFontH3B ctrlSetFontH4 ctrlSetFontH4B ' +
-	        'ctrlSetFontH5 ctrlSetFontH5B ctrlSetFontH6 ctrlSetFontH6B ' +
-	        'ctrlSetFontHeight ctrlSetFontHeightH1 ctrlSetFontHeightH2 ' +
-	        'ctrlSetFontHeightH3 ctrlSetFontHeightH4 ctrlSetFontHeightH5 ' +
-	        'ctrlSetFontHeightH6 ctrlSetFontP ctrlSetFontPB ' +
-	        'ctrlSetForegroundColor ctrlSetModel ctrlSetModelDirAndUp ' +
-	        'ctrlSetModelScale ctrlSetPosition ctrlSetScale ' +
-	        'ctrlSetStructuredText ctrlSetText ctrlSetTextColor ctrlSetTooltip ' +
-	        'ctrlSetTooltipColorBox ctrlSetTooltipColorShade ' +
-	        'ctrlSetTooltipColorText ctrlShow ctrlShown ctrlText ctrlTextHeight ' +
-	        'ctrlType ctrlVisible curatorAddons curatorCamera curatorCameraArea ' +
-	        'curatorCameraAreaCeiling curatorCoef curatorEditableObjects ' +
-	        'curatorEditingArea curatorEditingAreaType curatorMouseOver ' +
-	        'curatorPoints curatorRegisteredObjects curatorSelected ' +
-	        'curatorWaypointCost currentChannel currentCommand currentMagazine ' +
-	        'currentMagazineDetail currentMagazineDetailTurret ' +
-	        'currentMagazineTurret currentMuzzle currentNamespace currentTask ' +
-	        'currentTasks currentThrowable currentVisionMode currentWaypoint ' +
-	        'currentWeapon currentWeaponMode currentWeaponTurret currentZeroing ' +
-	        'cursorTarget customChat customRadio cutFadeOut cutObj cutRsc ' +
-	        'cutText damage date dateToNumber daytime deActivateKey ' +
-	        'debriefingText debugFSM debugLog deg deleteAt deleteCenter ' +
-	        'deleteCollection deleteEditorObject deleteGroup deleteIdentity ' +
-	        'deleteLocation deleteMarker deleteMarkerLocal deleteRange ' +
-	        'deleteResources deleteSite deleteStatus deleteTeam deleteVehicle ' +
-	        'deleteVehicleCrew deleteWaypoint detach detectedMines ' +
-	        'diag activeMissionFSMs diag activeSQFScripts diag activeSQSScripts ' +
-	        'diag captureFrame diag captureSlowFrame diag fps diag fpsMin ' +
-	        'diag frameNo diag log diag logSlowFrame diag tickTime dialog ' +
-	        'diarySubjectExists didJIP didJIPOwner difficulty difficultyEnabled ' +
-	        'difficultyEnabledRTD direction directSay disableAI ' +
-	        'disableCollisionWith disableConversation disableDebriefingStats ' +
-	        'disableSerialization disableTIEquipment disableUAVConnectability ' +
-	        'disableUserInput displayAddEventHandler displayCtrl displayNull ' +
-	        'displayRemoveAllEventHandlers displayRemoveEventHandler ' +
-	        'displaySetEventHandler dissolveTeam distance distance2D ' +
-	        'distanceSqr distributionRegion doArtilleryFire doFire doFollow ' +
-	        'doFSM doGetOut doMove doorPhase doStop doTarget doWatch drawArrow ' +
-	        'drawEllipse drawIcon drawIcon3D drawLine drawLine3D drawLink ' +
-	        'drawLocation drawRectangle driver drop east echo editObject ' +
-	        'editorSetEventHandler effectiveCommander emptyPositions enableAI ' +
-	        'enableAIFeature enableAttack enableCamShake enableCaustics ' +
-	        'enableCollisionWith enableCopilot enableDebriefingStats ' +
-	        'enableDiagLegend enableEndDialog enableEngineArtillery ' +
-	        'enableEnvironment enableFatigue enableGunLights enableIRLasers ' +
-	        'enableMimics enablePersonTurret enableRadio enableReload ' +
-	        'enableRopeAttach enableSatNormalOnDetail enableSaving ' +
-	        'enableSentences enableSimulation enableSimulationGlobal ' +
-	        'enableTeamSwitch enableUAVConnectability enableUAVWaypoints ' +
-	        'endLoadingScreen endMission engineOn enginesIsOnRTD enginesRpmRTD ' +
-	        'enginesTorqueRTD entities estimatedEndServerTime estimatedTimeLeft ' +
-	        'evalObjectArgument everyBackpack everyContainer exec ' +
-	        'execEditorScript execFSM execVM exp expectedDestination ' +
-	        'eyeDirection eyePos face faction fadeMusic fadeRadio fadeSound ' +
-	        'fadeSpeech failMission fillWeaponsFromPool find findCover ' +
-	        'findDisplay findEditorObject findEmptyPosition ' +
-	        'findEmptyPositionReady findNearestEnemy finishMissionInit finite ' +
-	        'fire fireAtTarget firstBackpack flag flagOwner fleeing floor ' +
-	        'flyInHeight fog fogForecast fogParams forceAddUniform forceEnd ' +
-	        'forceMap forceRespawn forceSpeed forceWalk forceWeaponFire ' +
-	        'forceWeatherChange forEachMember forEachMemberAgent ' +
-	        'forEachMemberTeam format formation formationDirection ' +
-	        'formationLeader formationMembers formationPosition formationTask ' +
-	        'formatText formLeader freeLook fromEditor fuel fullCrew ' +
-	        'gearSlotAmmoCount gearSlotData getAllHitPointsDamage getAmmoCargo ' +
-	        'getArray getArtilleryAmmo getArtilleryComputerSettings ' +
-	        'getArtilleryETA getAssignedCuratorLogic getAssignedCuratorUnit ' +
-	        'getBackpackCargo getBleedingRemaining getBurningValue ' +
-	        'getCargoIndex getCenterOfMass getClientState getConnectedUAV ' +
-	        'getDammage getDescription getDir getDirVisual getDLCs ' +
-	        'getEditorCamera getEditorMode getEditorObjectScope ' +
-	        'getElevationOffset getFatigue getFriend getFSMVariable ' +
-	        'getFuelCargo getGroupIcon getGroupIconParams getGroupIcons ' +
-	        'getHideFrom getHit getHitIndex getHitPointDamage getItemCargo ' +
-	        'getMagazineCargo getMarkerColor getMarkerPos getMarkerSize ' +
-	        'getMarkerType getMass getModelInfo getNumber getObjectArgument ' +
-	        'getObjectChildren getObjectDLC getObjectMaterials getObjectProxy ' +
-	        'getObjectTextures getObjectType getObjectViewDistance ' +
-	        'getOxygenRemaining getPersonUsedDLCs getPlayerChannel getPlayerUID ' +
-	        'getPos getPosASL getPosASLVisual getPosASLW getPosATL ' +
-	        'getPosATLVisual getPosVisual getPosWorld getRepairCargo ' +
-	        'getResolution getShadowDistance getSlingLoad getSpeed ' +
-	        'getSuppression getTerrainHeightASL getText getVariable ' +
-	        'getWeaponCargo getWPPos glanceAt globalChat globalRadio goggles ' +
-	        'goto group groupChat groupFromNetId groupIconSelectable ' +
-	        'groupIconsVisible groupId groupOwner groupRadio groupSelectedUnits ' +
-	        'groupSelectUnit grpNull gunner gusts halt handgunItems ' +
-	        'handgunMagazine handgunWeapon handsHit hasInterface hasWeapon ' +
-	        'hcAllGroups hcGroupParams hcLeader hcRemoveAllGroups hcRemoveGroup ' +
-	        'hcSelected hcSelectGroup hcSetGroup hcShowBar hcShownBar headgear ' +
-	        'hideBody hideObject hideObjectGlobal hint hintC hintCadet ' +
-	        'hintSilent hmd hostMission htmlLoad HUDMovementLevels humidity ' +
-	        'image importAllGroups importance in incapacitatedState independent ' +
-	        'inflame inflamed inGameUISetEventHandler inheritsFrom ' +
-	        'initAmbientLife inputAction inRangeOfArtillery insertEditorObject ' +
-	        'intersect isAbleToBreathe isAgent isArray isAutoHoverOn ' +
-	        'isAutonomous isAutotest isBleeding isBurning isClass ' +
-	        'isCollisionLightOn isCopilotEnabled isDedicated isDLCAvailable ' +
-	        'isEngineOn isEqualTo isFlashlightOn isFlatEmpty isForcedWalk ' +
-	        'isFormationLeader isHidden isInRemainsCollector ' +
-	        'isInstructorFigureEnabled isIRLaserOn isKeyActive isKindOf ' +
-	        'isLightOn isLocalized isManualFire isMarkedForCollection ' +
-	        'isMultiplayer isNil isNull isNumber isObjectHidden isObjectRTD ' +
-	        'isOnRoad isPipEnabled isPlayer isRealTime isServer ' +
-	        'isShowing3DIcons isSteamMission isStreamFriendlyUIEnabled isText ' +
-	        'isTouchingGround isTurnedOut isTutHintsEnabled isUAVConnectable ' +
-	        'isUAVConnected isUniformAllowed isWalking isWeaponDeployed ' +
-	        'isWeaponRested itemCargo items itemsWithMagazines join joinAs ' +
-	        'joinAsSilent joinSilent joinString kbAddDatabase ' +
-	        'kbAddDatabaseTargets kbAddTopic kbHasTopic kbReact kbRemoveTopic ' +
-	        'kbTell kbWasSaid keyImage keyName knowsAbout land landAt ' +
-	        'landResult language laserTarget lbAdd lbClear lbColor lbCurSel ' +
-	        'lbData lbDelete lbIsSelected lbPicture lbSelection lbSetColor ' +
-	        'lbSetCurSel lbSetData lbSetPicture lbSetPictureColor ' +
-	        'lbSetPictureColorDisabled lbSetPictureColorSelected ' +
-	        'lbSetSelectColor lbSetSelectColorRight lbSetSelected lbSetTooltip ' +
-	        'lbSetValue lbSize lbSort lbSortByValue lbText lbValue leader ' +
-	        'leaderboardDeInit leaderboardGetRows leaderboardInit leaveVehicle ' +
-	        'libraryCredits libraryDisclaimers lifeState lightAttachObject ' +
-	        'lightDetachObject lightIsOn lightnings limitSpeed linearConversion ' +
-	        'lineBreak lineIntersects lineIntersectsObjs lineIntersectsSurfaces ' +
-	        'lineIntersectsWith linkItem list listObjects ln lnbAddArray ' +
-	        'lnbAddColumn lnbAddRow lnbClear lnbColor lnbCurSelRow lnbData ' +
-	        'lnbDeleteColumn lnbDeleteRow lnbGetColumnsPosition lnbPicture ' +
-	        'lnbSetColor lnbSetColumnsPos lnbSetCurSelRow lnbSetData ' +
-	        'lnbSetPicture lnbSetText lnbSetValue lnbSize lnbText lnbValue load ' +
-	        'loadAbs loadBackpack loadFile loadGame loadIdentity loadMagazine ' +
-	        'loadOverlay loadStatus loadUniform loadVest local localize ' +
-	        'locationNull locationPosition lock lockCameraTo lockCargo ' +
-	        'lockDriver locked lockedCargo lockedDriver lockedTurret lockTurret ' +
-	        'lockWP log logEntities lookAt lookAtPos magazineCargo magazines ' +
-	        'magazinesAllTurrets magazinesAmmo magazinesAmmoCargo ' +
-	        'magazinesAmmoFull magazinesDetail magazinesDetailBackpack ' +
-	        'magazinesDetailUniform magazinesDetailVest magazinesTurret ' +
-	        'magazineTurretAmmo mapAnimAdd mapAnimClear mapAnimCommit ' +
-	        'mapAnimDone mapCenterOnCamera mapGridPosition ' +
-	        'markAsFinishedOnSteam markerAlpha markerBrush markerColor ' +
-	        'markerDir markerPos markerShape markerSize markerText markerType ' +
-	        'max members min mineActive mineDetectedBy missionConfigFile ' +
-	        'missionName missionNamespace missionStart mod modelToWorld ' +
-	        'modelToWorldVisual moonIntensity morale move moveInAny moveInCargo ' +
-	        'moveInCommander moveInDriver moveInGunner moveInTurret ' +
-	        'moveObjectToEnd moveOut moveTime moveTo moveToCompleted ' +
-	        'moveToFailed musicVolume name name location nameSound nearEntities ' +
-	        'nearestBuilding nearestLocation nearestLocations ' +
-	        'nearestLocationWithDubbing nearestObject nearestObjects ' +
-	        'nearObjects nearObjectsReady nearRoads nearSupplies nearTargets ' +
-	        'needReload netId netObjNull newOverlay nextMenuItemIndex ' +
-	        'nextWeatherChange nMenuItems not numberToDate objectCurators ' +
-	        'objectFromNetId objectParent objNull objStatus onBriefingGroup ' +
-	        'onBriefingNotes onBriefingPlan onBriefingTeamSwitch ' +
-	        'onCommandModeChanged onDoubleClick onEachFrame onGroupIconClick ' +
-	        'onGroupIconOverEnter onGroupIconOverLeave ' +
-	        'onHCGroupSelectionChanged onMapSingleClick onPlayerConnected ' +
-	        'onPlayerDisconnected onPreloadFinished onPreloadStarted ' +
-	        'onShowNewObject onTeamSwitch openCuratorInterface openMap ' +
-	        'openYoutubeVideo opfor or orderGetIn overcast overcastForecast ' +
-	        'owner param params parseNumber parseText parsingNamespace ' +
-	        'particlesQuality pi pickWeaponPool pitch playableSlotsNumber ' +
-	        'playableUnits playAction playActionNow player playerRespawnTime ' +
-	        'playerSide playersNumber playGesture playMission playMove ' +
-	        'playMoveNow playMusic playScriptedMission playSound playSound3D ' +
-	        'position positionCameraToWorld posScreenToWorld posWorldToScreen ' +
-	        'ppEffectAdjust ppEffectCommit ppEffectCommitted ppEffectCreate ' +
-	        'ppEffectDestroy ppEffectEnable ppEffectForceInNVG precision ' +
-	        'preloadCamera preloadObject preloadSound preloadTitleObj ' +
-	        'preloadTitleRsc preprocessFile preprocessFileLineNumbers ' +
-	        'primaryWeapon primaryWeaponItems primaryWeaponMagazine priority ' +
-	        'private processDiaryLink productVersion profileName ' +
-	        'profileNamespace profileNameSteam progressLoadingScreen ' +
-	        'progressPosition progressSetPosition publicVariable ' +
-	        'publicVariableClient publicVariableServer pushBack putWeaponPool ' +
-	        'queryItemsPool queryMagazinePool queryWeaponPool rad ' +
-	        'radioChannelAdd radioChannelCreate radioChannelRemove ' +
-	        'radioChannelSetCallSign radioChannelSetLabel radioVolume rain ' +
-	        'rainbow random rank rankId rating rectangular registeredTasks ' +
-	        'registerTask reload reloadEnabled remoteControl remoteExec ' +
-	        'remoteExecCall removeAction removeAllActions ' +
-	        'removeAllAssignedItems removeAllContainers removeAllCuratorAddons ' +
-	        'removeAllCuratorCameraAreas removeAllCuratorEditingAreas ' +
-	        'removeAllEventHandlers removeAllHandgunItems removeAllItems ' +
-	        'removeAllItemsWithMagazines removeAllMissionEventHandlers ' +
-	        'removeAllMPEventHandlers removeAllMusicEventHandlers ' +
-	        'removeAllPrimaryWeaponItems removeAllWeapons removeBackpack ' +
-	        'removeBackpackGlobal removeCuratorAddons removeCuratorCameraArea ' +
-	        'removeCuratorEditableObjects removeCuratorEditingArea ' +
-	        'removeDrawIcon removeDrawLinks removeEventHandler ' +
-	        'removeFromRemainsCollector removeGoggles removeGroupIcon ' +
-	        'removeHandgunItem removeHeadgear removeItem removeItemFromBackpack ' +
-	        'removeItemFromUniform removeItemFromVest removeItems ' +
-	        'removeMagazine removeMagazineGlobal removeMagazines ' +
-	        'removeMagazinesTurret removeMagazineTurret removeMenuItem ' +
-	        'removeMissionEventHandler removeMPEventHandler ' +
-	        'removeMusicEventHandler removePrimaryWeaponItem ' +
-	        'removeSecondaryWeaponItem removeSimpleTask removeSwitchableUnit ' +
-	        'removeTeamMember removeUniform removeVest removeWeapon ' +
-	        'removeWeaponGlobal removeWeaponTurret requiredVersion ' +
-	        'resetCamShake resetSubgroupDirection resistance resize resources ' +
-	        'respawnVehicle restartEditorCamera reveal revealMine reverse ' +
-	        'reversedMouseY roadsConnectedTo roleDescription ' +
-	        'ropeAttachedObjects ropeAttachedTo ropeAttachEnabled ropeAttachTo ' +
-	        'ropeCreate ropeCut ropeEndPosition ropeLength ropes ropeUnwind ' +
-	        'ropeUnwound rotorsForcesRTD rotorsRpmRTD round runInitScript ' +
-	        'safeZoneH safeZoneW safeZoneWAbs safeZoneX safeZoneXAbs safeZoneY ' +
-	        'saveGame saveIdentity saveJoysticks saveOverlay ' +
-	        'saveProfileNamespace saveStatus saveVar savingEnabled say say2D ' +
-	        'say3D scopeName score scoreSide screenToWorld scriptDone ' +
-	        'scriptName scriptNull scudState secondaryWeapon ' +
-	        'secondaryWeaponItems secondaryWeaponMagazine select ' +
-	        'selectBestPlaces selectDiarySubject selectedEditorObjects ' +
-	        'selectEditorObject selectionPosition selectLeader selectNoPlayer ' +
-	        'selectPlayer selectWeapon selectWeaponTurret sendAUMessage ' +
-	        'sendSimpleCommand sendTask sendTaskResult sendUDPMessage ' +
-	        'serverCommand serverCommandAvailable serverCommandExecutable ' +
-	        'serverName serverTime set setAccTime setAirportSide setAmmo ' +
-	        'setAmmoCargo setAperture setApertureNew setArmoryPoints ' +
-	        'setAttributes setAutonomous setBehaviour setBleedingRemaining ' +
-	        'setCameraInterest setCamShakeDefParams setCamShakeParams ' +
-	        'setCamUseTi setCaptive setCenterOfMass setCollisionLight ' +
-	        'setCombatMode setCompassOscillation setCuratorCameraAreaCeiling ' +
-	        'setCuratorCoef setCuratorEditingAreaType setCuratorWaypointCost ' +
-	        'setCurrentChannel setCurrentTask setCurrentWaypoint setDamage ' +
-	        'setDammage setDate setDebriefingText setDefaultCamera ' +
-	        'setDestination setDetailMapBlendPars setDir setDirection ' +
-	        'setDrawIcon setDropInterval setEditorMode setEditorObjectScope ' +
-	        'setEffectCondition setFace setFaceAnimation setFatigue ' +
-	        'setFlagOwner setFlagSide setFlagTexture setFog setFog array ' +
-	        'setFormation setFormationTask setFormDir setFriend setFromEditor ' +
-	        'setFSMVariable setFuel setFuelCargo setGroupIcon ' +
-	        'setGroupIconParams setGroupIconsSelectable setGroupIconsVisible ' +
-	        'setGroupId setGroupIdGlobal setGroupOwner setGusts setHideBehind ' +
-	        'setHit setHitIndex setHitPointDamage setHorizonParallaxCoef ' +
-	        'setHUDMovementLevels setIdentity setImportance setLeader ' +
-	        'setLightAmbient setLightAttenuation setLightBrightness ' +
-	        'setLightColor setLightDayLight setLightFlareMaxDistance ' +
-	        'setLightFlareSize setLightIntensity setLightnings setLightUseFlare ' +
-	        'setLocalWindParams setMagazineTurretAmmo setMarkerAlpha ' +
-	        'setMarkerAlphaLocal setMarkerBrush setMarkerBrushLocal ' +
-	        'setMarkerColor setMarkerColorLocal setMarkerDir setMarkerDirLocal ' +
-	        'setMarkerPos setMarkerPosLocal setMarkerShape setMarkerShapeLocal ' +
-	        'setMarkerSize setMarkerSizeLocal setMarkerText setMarkerTextLocal ' +
-	        'setMarkerType setMarkerTypeLocal setMass setMimic setMousePosition ' +
-	        'setMusicEffect setMusicEventHandler setName setNameSound ' +
-	        'setObjectArguments setObjectMaterial setObjectProxy ' +
-	        'setObjectTexture setObjectTextureGlobal setObjectViewDistance ' +
-	        'setOvercast setOwner setOxygenRemaining setParticleCircle ' +
-	        'setParticleClass setParticleFire setParticleParams ' +
-	        'setParticleRandom setPilotLight setPiPEffect setPitch setPlayable ' +
-	        'setPlayerRespawnTime setPos setPosASL setPosASL2 setPosASLW ' +
-	        'setPosATL setPosition setPosWorld setRadioMsg setRain setRainbow ' +
-	        'setRandomLip setRank setRectangular setRepairCargo ' +
-	        'setShadowDistance setSide setSimpleTaskDescription ' +
-	        'setSimpleTaskDestination setSimpleTaskTarget setSimulWeatherLayers ' +
-	        'setSize setSkill setSkill array setSlingLoad setSoundEffect ' +
-	        'setSpeaker setSpeech setSpeedMode setStatValue setSuppression ' +
-	        'setSystemOfUnits setTargetAge setTaskResult setTaskState ' +
-	        'setTerrainGrid setText setTimeMultiplier setTitleEffect ' +
-	        'setTriggerActivation setTriggerArea setTriggerStatements ' +
-	        'setTriggerText setTriggerTimeout setTriggerType setType ' +
-	        'setUnconscious setUnitAbility setUnitPos setUnitPosWeak ' +
-	        'setUnitRank setUnitRecoilCoefficient setUnloadInCombat ' +
-	        'setUserActionText setVariable setVectorDir setVectorDirAndUp ' +
-	        'setVectorUp setVehicleAmmo setVehicleAmmoDef setVehicleArmor ' +
-	        'setVehicleId setVehicleLock setVehiclePosition setVehicleTiPars ' +
-	        'setVehicleVarName setVelocity setVelocityTransformation ' +
-	        'setViewDistance setVisibleIfTreeCollapsed setWaves ' +
-	        'setWaypointBehaviour setWaypointCombatMode ' +
-	        'setWaypointCompletionRadius setWaypointDescription ' +
-	        'setWaypointFormation setWaypointHousePosition ' +
-	        'setWaypointLoiterRadius setWaypointLoiterType setWaypointName ' +
-	        'setWaypointPosition setWaypointScript setWaypointSpeed ' +
-	        'setWaypointStatements setWaypointTimeout setWaypointType ' +
-	        'setWaypointVisible setWeaponReloadingTime setWind setWindDir ' +
-	        'setWindForce setWindStr setWPPos show3DIcons showChat ' +
-	        'showCinemaBorder showCommandingMenu showCompass showCuratorCompass ' +
-	        'showGPS showHUD showLegend showMap shownArtilleryComputer ' +
-	        'shownChat shownCompass shownCuratorCompass showNewEditorObject ' +
-	        'shownGPS shownHUD shownMap shownPad shownRadio shownUAVFeed ' +
-	        'shownWarrant shownWatch showPad showRadio showSubtitles ' +
-	        'showUAVFeed showWarrant showWatch showWaypoint side sideChat ' +
-	        'sideEnemy sideFriendly sideLogic sideRadio sideUnknown simpleTasks ' +
-	        'simulationEnabled simulCloudDensity simulCloudOcclusion ' +
-	        'simulInClouds simulWeatherSync sin size sizeOf skill skillFinal ' +
-	        'skipTime sleep sliderPosition sliderRange sliderSetPosition ' +
-	        'sliderSetRange sliderSetSpeed sliderSpeed slingLoadAssistantShown ' +
-	        'soldierMagazines someAmmo sort soundVolume spawn speaker speed ' +
-	        'speedMode splitString sqrt squadParams stance startLoadingScreen ' +
-	        'step stop stopped str sunOrMoon supportInfo suppressFor ' +
-	        'surfaceIsWater surfaceNormal surfaceType swimInDepth ' +
-	        'switchableUnits switchAction switchCamera switchGesture ' +
-	        'switchLight switchMove synchronizedObjects synchronizedTriggers ' +
-	        'synchronizedWaypoints synchronizeObjectsAdd ' +
-	        'synchronizeObjectsRemove synchronizeTrigger synchronizeWaypoint ' +
-	        'synchronizeWaypoint trigger systemChat systemOfUnits tan ' +
-	        'targetKnowledge targetsAggregate targetsQuery taskChildren ' +
-	        'taskCompleted taskDescription taskDestination taskHint taskNull ' +
-	        'taskParent taskResult taskState teamMember teamMemberNull teamName ' +
-	        'teams teamSwitch teamSwitchEnabled teamType terminate ' +
-	        'terrainIntersect terrainIntersectASL text text location textLog ' +
-	        'textLogFormat tg time timeMultiplier titleCut titleFadeOut ' +
-	        'titleObj titleRsc titleText toArray toLower toString toUpper ' +
-	        'triggerActivated triggerActivation triggerArea ' +
-	        'triggerAttachedVehicle triggerAttachObject triggerAttachVehicle ' +
-	        'triggerStatements triggerText triggerTimeout triggerTimeoutCurrent ' +
-	        'triggerType turretLocal turretOwner turretUnit tvAdd tvClear ' +
-	        'tvCollapse tvCount tvCurSel tvData tvDelete tvExpand tvPicture ' +
-	        'tvSetCurSel tvSetData tvSetPicture tvSetPictureColor tvSetTooltip ' +
-	        'tvSetValue tvSort tvSortByValue tvText tvValue type typeName ' +
-	        'typeOf UAVControl uiNamespace uiSleep unassignCurator unassignItem ' +
-	        'unassignTeam unassignVehicle underwater uniform uniformContainer ' +
-	        'uniformItems uniformMagazines unitAddons unitBackpack unitPos ' +
-	        'unitReady unitRecoilCoefficient units unitsBelowHeight unlinkItem ' +
-	        'unlockAchievement unregisterTask updateDrawIcon updateMenuItem ' +
-	        'updateObjectTree useAudioTimeForMoves vectorAdd vectorCos ' +
-	        'vectorCrossProduct vectorDiff vectorDir vectorDirVisual ' +
-	        'vectorDistance vectorDistanceSqr vectorDotProduct vectorFromTo ' +
-	        'vectorMagnitude vectorMagnitudeSqr vectorMultiply vectorNormalized ' +
-	        'vectorUp vectorUpVisual vehicle vehicleChat vehicleRadio vehicles ' +
-	        'vehicleVarName velocity velocityModelSpace verifySignature vest ' +
-	        'vestContainer vestItems vestMagazines viewDistance visibleCompass ' +
-	        'visibleGPS visibleMap visiblePosition visiblePositionASL ' +
-	        'visibleWatch waitUntil waves waypointAttachedObject ' +
-	        'waypointAttachedVehicle waypointAttachObject waypointAttachVehicle ' +
-	        'waypointBehaviour waypointCombatMode waypointCompletionRadius ' +
-	        'waypointDescription waypointFormation waypointHousePosition ' +
-	        'waypointLoiterRadius waypointLoiterType waypointName ' +
-	        'waypointPosition waypoints waypointScript waypointsEnabledUAV ' +
-	        'waypointShow waypointSpeed waypointStatements waypointTimeout ' +
-	        'waypointTimeoutCurrent waypointType waypointVisible ' +
-	        'weaponAccessories weaponCargo weaponDirection weaponLowered ' +
-	        'weapons weaponsItems weaponsItemsCargo weaponState weaponsTurret ' +
-	        'weightRTD west WFSideText wind windDir windStr wingsForcesRTD ' +
-	        'worldName worldSize worldToModel worldToModelVisual worldToScreen ' +
-	        '_forEachIndex _this _x',
+	        'abs accTime acos action actionIDs actionKeys actionKeysImages actionKeysNames ' +
+	        'actionKeysNamesArray actionName actionParams activateAddons activatedAddons activateKey ' +
+	        'add3DENConnection add3DENEventHandler add3DENLayer addAction addBackpack addBackpackCargo ' +
+	        'addBackpackCargoGlobal addBackpackGlobal addCamShake addCuratorAddons addCuratorCameraArea ' +
+	        'addCuratorEditableObjects addCuratorEditingArea addCuratorPoints addEditorObject addEventHandler ' +
+	        'addGoggles addGroupIcon addHandgunItem addHeadgear addItem addItemCargo addItemCargoGlobal ' +
+	        'addItemPool addItemToBackpack addItemToUniform addItemToVest addLiveStats addMagazine ' +
+	        'addMagazineAmmoCargo addMagazineCargo addMagazineCargoGlobal addMagazineGlobal addMagazinePool ' +
+	        'addMagazines addMagazineTurret addMenu addMenuItem addMissionEventHandler addMPEventHandler ' +
+	        'addMusicEventHandler addOwnedMine addPlayerScores addPrimaryWeaponItem ' +
+	        'addPublicVariableEventHandler addRating addResources addScore addScoreSide addSecondaryWeaponItem ' +
+	        'addSwitchableUnit addTeamMember addToRemainsCollector addUniform addVehicle addVest addWaypoint ' +
+	        'addWeapon addWeaponCargo addWeaponCargoGlobal addWeaponGlobal addWeaponItem addWeaponPool ' +
+	        'addWeaponTurret agent agents AGLToASL aimedAtTarget aimPos airDensityRTD airportSide ' +
+	        'AISFinishHeal alive all3DENEntities allControls allCurators allCutLayers allDead allDeadMen ' +
+	        'allDisplays allGroups allMapMarkers allMines allMissionObjects allow3DMode allowCrewInImmobile ' +
+	        'allowCuratorLogicIgnoreAreas allowDamage allowDammage allowFileOperations allowFleeing allowGetIn ' +
+	        'allowSprint allPlayers allSites allTurrets allUnits allUnitsUAV allVariables ammo and animate ' +
+	        'animateDoor animateSource animationNames animationPhase animationSourcePhase animationState ' +
+	        'append apply armoryPoints arrayIntersect asin ASLToAGL ASLToATL assert assignAsCargo ' +
+	        'assignAsCargoIndex assignAsCommander assignAsDriver assignAsGunner assignAsTurret assignCurator ' +
+	        'assignedCargo assignedCommander assignedDriver assignedGunner assignedItems assignedTarget ' +
+	        'assignedTeam assignedVehicle assignedVehicleRole assignItem assignTeam assignToAirport atan atan2 ' +
+	        'atg ATLToASL attachedObject attachedObjects attachedTo attachObject attachTo attackEnabled ' +
+	        'backpack backpackCargo backpackContainer backpackItems backpackMagazines backpackSpaceFor ' +
+	        'behaviour benchmark binocular blufor boundingBox boundingBoxReal boundingCenter breakOut breakTo ' +
+	        'briefingName buildingExit buildingPos buttonAction buttonSetAction cadetMode call callExtension ' +
+	        'camCommand camCommit camCommitPrepared camCommitted camConstuctionSetParams camCreate camDestroy ' +
+	        'cameraEffect cameraEffectEnableHUD cameraInterest cameraOn cameraView campaignConfigFile ' +
+	        'camPreload camPreloaded camPrepareBank camPrepareDir camPrepareDive camPrepareFocus camPrepareFov ' +
+	        'camPrepareFovRange camPreparePos camPrepareRelPos camPrepareTarget camSetBank camSetDir ' +
+	        'camSetDive camSetFocus camSetFov camSetFovRange camSetPos camSetRelPos camSetTarget camTarget ' +
+	        'camUseNVG canAdd canAddItemToBackpack canAddItemToUniform canAddItemToVest ' +
+	        'cancelSimpleTaskDestination canFire canMove canSlingLoad canStand canSuspend canUnloadInCombat ' +
+	        'canVehicleCargo captive captiveNum cbChecked cbSetChecked ceil channelEnabled cheatsEnabled ' +
+	        'checkAIFeature checkVisibility civilian className clearAllItemsFromBackpack clearBackpackCargo ' +
+	        'clearBackpackCargoGlobal clearGroupIcons clearItemCargo clearItemCargoGlobal clearItemPool ' +
+	        'clearMagazineCargo clearMagazineCargoGlobal clearMagazinePool clearOverlay clearRadio ' +
+	        'clearWeaponCargo clearWeaponCargoGlobal clearWeaponPool clientOwner closeDialog closeDisplay ' +
+	        'closeOverlay collapseObjectTree collect3DENHistory combatMode commandArtilleryFire commandChat ' +
+	        'commander commandFire commandFollow commandFSM commandGetOut commandingMenu commandMove ' +
+	        'commandRadio commandStop commandSuppressiveFire commandTarget commandWatch comment commitOverlay ' +
+	        'compile compileFinal completedFSM composeText configClasses configFile configHierarchy configName ' +
+	        'configNull configProperties configSourceAddonList configSourceMod configSourceModList ' +
+	        'connectTerminalToUAV controlNull controlsGroupCtrl copyFromClipboard copyToClipboard ' +
+	        'copyWaypoints cos count countEnemy countFriendly countSide countType countUnknown ' +
+	        'create3DENComposition create3DENEntity createAgent createCenter createDialog createDiaryLink ' +
+	        'createDiaryRecord createDiarySubject createDisplay createGearDialog createGroup ' +
+	        'createGuardedPoint createLocation createMarker createMarkerLocal createMenu createMine ' +
+	        'createMissionDisplay createMPCampaignDisplay createSimpleObject createSimpleTask createSite ' +
+	        'createSoundSource createTask createTeam createTrigger createUnit createVehicle createVehicleCrew ' +
+	        'createVehicleLocal crew ctrlActivate ctrlAddEventHandler ctrlAngle ctrlAutoScrollDelay ' +
+	        'ctrlAutoScrollRewind ctrlAutoScrollSpeed ctrlChecked ctrlClassName ctrlCommit ctrlCommitted ' +
+	        'ctrlCreate ctrlDelete ctrlEnable ctrlEnabled ctrlFade ctrlHTMLLoaded ctrlIDC ctrlIDD ' +
+	        'ctrlMapAnimAdd ctrlMapAnimClear ctrlMapAnimCommit ctrlMapAnimDone ctrlMapCursor ctrlMapMouseOver ' +
+	        'ctrlMapScale ctrlMapScreenToWorld ctrlMapWorldToScreen ctrlModel ctrlModelDirAndUp ctrlModelScale ' +
+	        'ctrlParent ctrlParentControlsGroup ctrlPosition ctrlRemoveAllEventHandlers ctrlRemoveEventHandler ' +
+	        'ctrlScale ctrlSetActiveColor ctrlSetAngle ctrlSetAutoScrollDelay ctrlSetAutoScrollRewind ' +
+	        'ctrlSetAutoScrollSpeed ctrlSetBackgroundColor ctrlSetChecked ctrlSetEventHandler ctrlSetFade ' +
+	        'ctrlSetFocus ctrlSetFont ctrlSetFontH1 ctrlSetFontH1B ctrlSetFontH2 ctrlSetFontH2B ctrlSetFontH3 ' +
+	        'ctrlSetFontH3B ctrlSetFontH4 ctrlSetFontH4B ctrlSetFontH5 ctrlSetFontH5B ctrlSetFontH6 ' +
+	        'ctrlSetFontH6B ctrlSetFontHeight ctrlSetFontHeightH1 ctrlSetFontHeightH2 ctrlSetFontHeightH3 ' +
+	        'ctrlSetFontHeightH4 ctrlSetFontHeightH5 ctrlSetFontHeightH6 ctrlSetFontHeightSecondary ' +
+	        'ctrlSetFontP ctrlSetFontPB ctrlSetFontSecondary ctrlSetForegroundColor ctrlSetModel ' +
+	        'ctrlSetModelDirAndUp ctrlSetModelScale ctrlSetPosition ctrlSetScale ctrlSetStructuredText ' +
+	        'ctrlSetText ctrlSetTextColor ctrlSetTooltip ctrlSetTooltipColorBox ctrlSetTooltipColorShade ' +
+	        'ctrlSetTooltipColorText ctrlShow ctrlShown ctrlText ctrlTextHeight ctrlType ctrlVisible ' +
+	        'curatorAddons curatorCamera curatorCameraArea curatorCameraAreaCeiling curatorCoef ' +
+	        'curatorEditableObjects curatorEditingArea curatorEditingAreaType curatorMouseOver curatorPoints ' +
+	        'curatorRegisteredObjects curatorSelected curatorWaypointCost current3DENOperation currentChannel ' +
+	        'currentCommand currentMagazine currentMagazineDetail currentMagazineDetailTurret ' +
+	        'currentMagazineTurret currentMuzzle currentNamespace currentTask currentTasks currentThrowable ' +
+	        'currentVisionMode currentWaypoint currentWeapon currentWeaponMode currentWeaponTurret ' +
+	        'currentZeroing cursorObject cursorTarget customChat customRadio cutFadeOut cutObj cutRsc cutText ' +
+	        'damage date dateToNumber daytime deActivateKey debriefingText debugFSM debugLog deg ' +
+	        'delete3DENEntities deleteAt deleteCenter deleteCollection deleteEditorObject deleteGroup ' +
+	        'deleteIdentity deleteLocation deleteMarker deleteMarkerLocal deleteRange deleteResources ' +
+	        'deleteSite deleteStatus deleteTeam deleteVehicle deleteVehicleCrew deleteWaypoint detach ' +
+	        'detectedMines diag_activeMissionFSMs diag_activeScripts diag_activeSQFScripts ' +
+	        'diag_activeSQSScripts diag_captureFrame diag_captureSlowFrame diag_codePerformance diag_drawMode ' +
+	        'diag_enable diag_enabled diag_fps diag_fpsMin diag_frameNo diag_list diag_log diag_logSlowFrame ' +
+	        'diag_mergeConfigFile diag_recordTurretLimits diag_tickTime diag_toggle dialog diarySubjectExists ' +
+	        'didJIP didJIPOwner difficulty difficultyEnabled difficultyEnabledRTD difficultyOption direction ' +
+	        'directSay disableAI disableCollisionWith disableConversation disableDebriefingStats ' +
+	        'disableNVGEquipment disableRemoteSensors disableSerialization disableTIEquipment ' +
+	        'disableUAVConnectability disableUserInput displayAddEventHandler displayCtrl displayNull ' +
+	        'displayParent displayRemoveAllEventHandlers displayRemoveEventHandler displaySetEventHandler ' +
+	        'dissolveTeam distance distance2D distanceSqr distributionRegion do3DENAction doArtilleryFire ' +
+	        'doFire doFollow doFSM doGetOut doMove doorPhase doStop doSuppressiveFire doTarget doWatch ' +
+	        'drawArrow drawEllipse drawIcon drawIcon3D drawLine drawLine3D drawLink drawLocation drawPolygon ' +
+	        'drawRectangle driver drop east echo edit3DENMissionAttributes editObject editorSetEventHandler ' +
+	        'effectiveCommander emptyPositions enableAI enableAIFeature enableAimPrecision enableAttack ' +
+	        'enableAudioFeature enableCamShake enableCaustics enableChannel enableCollisionWith enableCopilot ' +
+	        'enableDebriefingStats enableDiagLegend enableEndDialog enableEngineArtillery enableEnvironment ' +
+	        'enableFatigue enableGunLights enableIRLasers enableMimics enablePersonTurret enableRadio ' +
+	        'enableReload enableRopeAttach enableSatNormalOnDetail enableSaving enableSentences ' +
+	        'enableSimulation enableSimulationGlobal enableStamina enableTeamSwitch enableUAVConnectability ' +
+	        'enableUAVWaypoints enableVehicleCargo endLoadingScreen endMission engineOn enginesIsOnRTD ' +
+	        'enginesRpmRTD enginesTorqueRTD entities estimatedEndServerTime estimatedTimeLeft ' +
+	        'evalObjectArgument everyBackpack everyContainer exec execEditorScript execFSM execVM exp ' +
+	        'expectedDestination exportJIPMessages eyeDirection eyePos face faction fadeMusic fadeRadio ' +
+	        'fadeSound fadeSpeech failMission fillWeaponsFromPool find findCover findDisplay findEditorObject ' +
+	        'findEmptyPosition findEmptyPositionReady findNearestEnemy finishMissionInit finite fire ' +
+	        'fireAtTarget firstBackpack flag flagOwner flagSide flagTexture fleeing floor flyInHeight ' +
+	        'flyInHeightASL fog fogForecast fogParams forceAddUniform forcedMap forceEnd forceMap forceRespawn ' +
+	        'forceSpeed forceWalk forceWeaponFire forceWeatherChange forEachMember forEachMemberAgent ' +
+	        'forEachMemberTeam format formation formationDirection formationLeader formationMembers ' +
+	        'formationPosition formationTask formatText formLeader freeLook fromEditor fuel fullCrew ' +
+	        'gearIDCAmmoCount gearSlotAmmoCount gearSlotData get3DENActionState get3DENAttribute get3DENCamera ' +
+	        'get3DENConnections get3DENEntity get3DENEntityID get3DENGrid get3DENIconsVisible ' +
+	        'get3DENLayerEntities get3DENLinesVisible get3DENMissionAttribute get3DENMouseOver get3DENSelected ' +
+	        'getAimingCoef getAllHitPointsDamage getAllOwnedMines getAmmoCargo getAnimAimPrecision ' +
+	        'getAnimSpeedCoef getArray getArtilleryAmmo getArtilleryComputerSettings getArtilleryETA ' +
+	        'getAssignedCuratorLogic getAssignedCuratorUnit getBackpackCargo getBleedingRemaining ' +
+	        'getBurningValue getCameraViewDirection getCargoIndex getCenterOfMass getClientState ' +
+	        'getClientStateNumber getConnectedUAV getCustomAimingCoef getDammage getDescription getDir ' +
+	        'getDirVisual getDLCs getEditorCamera getEditorMode getEditorObjectScope getElevationOffset ' +
+	        'getFatigue getFriend getFSMVariable getFuelCargo getGroupIcon getGroupIconParams getGroupIcons ' +
+	        'getHideFrom getHit getHitIndex getHitPointDamage getItemCargo getMagazineCargo getMarkerColor ' +
+	        'getMarkerPos getMarkerSize getMarkerType getMass getMissionConfig getMissionConfigValue ' +
+	        'getMissionDLCs getMissionLayerEntities getModelInfo getMousePosition getNumber getObjectArgument ' +
+	        'getObjectChildren getObjectDLC getObjectMaterials getObjectProxy getObjectTextures getObjectType ' +
+	        'getObjectViewDistance getOxygenRemaining getPersonUsedDLCs getPilotCameraDirection ' +
+	        'getPilotCameraPosition getPilotCameraRotation getPilotCameraTarget getPlayerChannel ' +
+	        'getPlayerScores getPlayerUID getPos getPosASL getPosASLVisual getPosASLW getPosATL ' +
+	        'getPosATLVisual getPosVisual getPosWorld getRelDir getRelPos getRemoteSensorsDisabled ' +
+	        'getRepairCargo getResolution getShadowDistance getShotParents getSlingLoad getSpeed getStamina ' +
+	        'getStatValue getSuppression getTerrainHeightASL getText getUnitLoadout getUnitTrait getVariable ' +
+	        'getVehicleCargo getWeaponCargo getWeaponSway getWPPos glanceAt globalChat globalRadio goggles ' +
+	        'goto group groupChat groupFromNetId groupIconSelectable groupIconsVisible groupId groupOwner ' +
+	        'groupRadio groupSelectedUnits groupSelectUnit grpNull gunner gusts halt handgunItems ' +
+	        'handgunMagazine handgunWeapon handsHit hasInterface hasPilotCamera hasWeapon hcAllGroups ' +
+	        'hcGroupParams hcLeader hcRemoveAllGroups hcRemoveGroup hcSelected hcSelectGroup hcSetGroup ' +
+	        'hcShowBar hcShownBar headgear hideBody hideObject hideObjectGlobal hideSelection hint hintC ' +
+	        'hintCadet hintSilent hmd hostMission htmlLoad HUDMovementLevels humidity image importAllGroups ' +
+	        'importance in inArea inAreaArray incapacitatedState independent inflame inflamed ' +
+	        'inGameUISetEventHandler inheritsFrom initAmbientLife inPolygon inputAction inRangeOfArtillery ' +
+	        'insertEditorObject intersect is3DEN is3DENMultiplayer isAbleToBreathe isAgent isArray ' +
+	        'isAutoHoverOn isAutonomous isAutotest isBleeding isBurning isClass isCollisionLightOn ' +
+	        'isCopilotEnabled isDedicated isDLCAvailable isEngineOn isEqualTo isEqualType isEqualTypeAll ' +
+	        'isEqualTypeAny isEqualTypeArray isEqualTypeParams isFilePatchingEnabled isFlashlightOn ' +
+	        'isFlatEmpty isForcedWalk isFormationLeader isHidden isInRemainsCollector ' +
+	        'isInstructorFigureEnabled isIRLaserOn isKeyActive isKindOf isLightOn isLocalized isManualFire ' +
+	        'isMarkedForCollection isMultiplayer isMultiplayerSolo isNil isNull isNumber isObjectHidden ' +
+	        'isObjectRTD isOnRoad isPipEnabled isPlayer isRealTime isRemoteExecuted isRemoteExecutedJIP ' +
+	        'isServer isShowing3DIcons isSprintAllowed isStaminaEnabled isSteamMission ' +
+	        'isStreamFriendlyUIEnabled isText isTouchingGround isTurnedOut isTutHintsEnabled isUAVConnectable ' +
+	        'isUAVConnected isUniformAllowed isVehicleCargo isWalking isWeaponDeployed isWeaponRested ' +
+	        'itemCargo items itemsWithMagazines join joinAs joinAsSilent joinSilent joinString kbAddDatabase ' +
+	        'kbAddDatabaseTargets kbAddTopic kbHasTopic kbReact kbRemoveTopic kbTell kbWasSaid keyImage ' +
+	        'keyName knowsAbout land landAt landResult language laserTarget lbAdd lbClear lbColor lbCurSel ' +
+	        'lbData lbDelete lbIsSelected lbPicture lbSelection lbSetColor lbSetCurSel lbSetData lbSetPicture ' +
+	        'lbSetPictureColor lbSetPictureColorDisabled lbSetPictureColorSelected lbSetSelectColor ' +
+	        'lbSetSelectColorRight lbSetSelected lbSetTooltip lbSetValue lbSize lbSort lbSortByValue lbText ' +
+	        'lbValue leader leaderboardDeInit leaderboardGetRows leaderboardInit leaveVehicle libraryCredits ' +
+	        'libraryDisclaimers lifeState lightAttachObject lightDetachObject lightIsOn lightnings limitSpeed ' +
+	        'linearConversion lineBreak lineIntersects lineIntersectsObjs lineIntersectsSurfaces ' +
+	        'lineIntersectsWith linkItem list listObjects ln lnbAddArray lnbAddColumn lnbAddRow lnbClear ' +
+	        'lnbColor lnbCurSelRow lnbData lnbDeleteColumn lnbDeleteRow lnbGetColumnsPosition lnbPicture ' +
+	        'lnbSetColor lnbSetColumnsPos lnbSetCurSelRow lnbSetData lnbSetPicture lnbSetText lnbSetValue ' +
+	        'lnbSize lnbText lnbValue load loadAbs loadBackpack loadFile loadGame loadIdentity loadMagazine ' +
+	        'loadOverlay loadStatus loadUniform loadVest local localize locationNull locationPosition lock ' +
+	        'lockCameraTo lockCargo lockDriver locked lockedCargo lockedDriver lockedTurret lockIdentity ' +
+	        'lockTurret lockWP log logEntities logNetwork logNetworkTerminate lookAt lookAtPos magazineCargo ' +
+	        'magazines magazinesAllTurrets magazinesAmmo magazinesAmmoCargo magazinesAmmoFull magazinesDetail ' +
+	        'magazinesDetailBackpack magazinesDetailUniform magazinesDetailVest magazinesTurret ' +
+	        'magazineTurretAmmo mapAnimAdd mapAnimClear mapAnimCommit mapAnimDone mapCenterOnCamera ' +
+	        'mapGridPosition markAsFinishedOnSteam markerAlpha markerBrush markerColor markerDir markerPos ' +
+	        'markerShape markerSize markerText markerType max members menuAction menuAdd menuChecked menuClear ' +
+	        'menuCollapse menuData menuDelete menuEnable menuEnabled menuExpand menuHover menuPicture ' +
+	        'menuSetAction menuSetCheck menuSetData menuSetPicture menuSetValue menuShortcut menuShortcutText ' +
+	        'menuSize menuSort menuText menuURL menuValue min mineActive mineDetectedBy missionConfigFile ' +
+	        'missionDifficulty missionName missionNamespace missionStart missionVersion mod modelToWorld ' +
+	        'modelToWorldVisual modParams moonIntensity moonPhase morale move move3DENCamera moveInAny ' +
+	        'moveInCargo moveInCommander moveInDriver moveInGunner moveInTurret moveObjectToEnd moveOut ' +
+	        'moveTime moveTo moveToCompleted moveToFailed musicVolume name nameSound nearEntities ' +
+	        'nearestBuilding nearestLocation nearestLocations nearestLocationWithDubbing nearestObject ' +
+	        'nearestObjects nearestTerrainObjects nearObjects nearObjectsReady nearRoads nearSupplies ' +
+	        'nearTargets needReload netId netObjNull newOverlay nextMenuItemIndex nextWeatherChange nMenuItems ' +
+	        'not numberToDate objectCurators objectFromNetId objectParent objNull objStatus onBriefingGroup ' +
+	        'onBriefingNotes onBriefingPlan onBriefingTeamSwitch onCommandModeChanged onDoubleClick ' +
+	        'onEachFrame onGroupIconClick onGroupIconOverEnter onGroupIconOverLeave onHCGroupSelectionChanged ' +
+	        'onMapSingleClick onPlayerConnected onPlayerDisconnected onPreloadFinished onPreloadStarted ' +
+	        'onShowNewObject onTeamSwitch openCuratorInterface openDLCPage openMap openYoutubeVideo opfor or ' +
+	        'orderGetIn overcast overcastForecast owner param params parseNumber parseText parsingNamespace ' +
+	        'particlesQuality pi pickWeaponPool pitch pixelGrid pixelGridBase pixelGridNoUIScale pixelH pixelW ' +
+	        'playableSlotsNumber playableUnits playAction playActionNow player playerRespawnTime playerSide ' +
+	        'playersNumber playGesture playMission playMove playMoveNow playMusic playScriptedMission ' +
+	        'playSound playSound3D position positionCameraToWorld posScreenToWorld posWorldToScreen ' +
+	        'ppEffectAdjust ppEffectCommit ppEffectCommitted ppEffectCreate ppEffectDestroy ppEffectEnable ' +
+	        'ppEffectEnabled ppEffectForceInNVG precision preloadCamera preloadObject preloadSound ' +
+	        'preloadTitleObj preloadTitleRsc preprocessFile preprocessFileLineNumbers primaryWeapon ' +
+	        'primaryWeaponItems primaryWeaponMagazine priority private processDiaryLink productVersion ' +
+	        'profileName profileNamespace profileNameSteam progressLoadingScreen progressPosition ' +
+	        'progressSetPosition publicVariable publicVariableClient publicVariableServer pushBack ' +
+	        'pushBackUnique putWeaponPool queryItemsPool queryMagazinePool queryWeaponPool rad radioChannelAdd ' +
+	        'radioChannelCreate radioChannelRemove radioChannelSetCallSign radioChannelSetLabel radioVolume ' +
+	        'rain rainbow random rank rankId rating rectangular registeredTasks registerTask reload ' +
+	        'reloadEnabled remoteControl remoteExec remoteExecCall remove3DENConnection remove3DENEventHandler ' +
+	        'remove3DENLayer removeAction removeAll3DENEventHandlers removeAllActions removeAllAssignedItems ' +
+	        'removeAllContainers removeAllCuratorAddons removeAllCuratorCameraAreas ' +
+	        'removeAllCuratorEditingAreas removeAllEventHandlers removeAllHandgunItems removeAllItems ' +
+	        'removeAllItemsWithMagazines removeAllMissionEventHandlers removeAllMPEventHandlers ' +
+	        'removeAllMusicEventHandlers removeAllOwnedMines removeAllPrimaryWeaponItems removeAllWeapons ' +
+	        'removeBackpack removeBackpackGlobal removeCuratorAddons removeCuratorCameraArea ' +
+	        'removeCuratorEditableObjects removeCuratorEditingArea removeDrawIcon removeDrawLinks ' +
+	        'removeEventHandler removeFromRemainsCollector removeGoggles removeGroupIcon removeHandgunItem ' +
+	        'removeHeadgear removeItem removeItemFromBackpack removeItemFromUniform removeItemFromVest ' +
+	        'removeItems removeMagazine removeMagazineGlobal removeMagazines removeMagazinesTurret ' +
+	        'removeMagazineTurret removeMenuItem removeMissionEventHandler removeMPEventHandler ' +
+	        'removeMusicEventHandler removeOwnedMine removePrimaryWeaponItem removeSecondaryWeaponItem ' +
+	        'removeSimpleTask removeSwitchableUnit removeTeamMember removeUniform removeVest removeWeapon ' +
+	        'removeWeaponGlobal removeWeaponTurret requiredVersion resetCamShake resetSubgroupDirection ' +
+	        'resistance resize resources respawnVehicle restartEditorCamera reveal revealMine reverse ' +
+	        'reversedMouseY roadAt roadsConnectedTo roleDescription ropeAttachedObjects ropeAttachedTo ' +
+	        'ropeAttachEnabled ropeAttachTo ropeCreate ropeCut ropeDestroy ropeDetach ropeEndPosition ' +
+	        'ropeLength ropes ropeUnwind ropeUnwound rotorsForcesRTD rotorsRpmRTD round runInitScript ' +
+	        'safeZoneH safeZoneW safeZoneWAbs safeZoneX safeZoneXAbs safeZoneY save3DENInventory saveGame ' +
+	        'saveIdentity saveJoysticks saveOverlay saveProfileNamespace saveStatus saveVar savingEnabled say ' +
+	        'say2D say3D scopeName score scoreSide screenshot screenToWorld scriptDone scriptName scriptNull ' +
+	        'scudState secondaryWeapon secondaryWeaponItems secondaryWeaponMagazine select selectBestPlaces ' +
+	        'selectDiarySubject selectedEditorObjects selectEditorObject selectionNames selectionPosition ' +
+	        'selectLeader selectMax selectMin selectNoPlayer selectPlayer selectRandom selectWeapon ' +
+	        'selectWeaponTurret sendAUMessage sendSimpleCommand sendTask sendTaskResult sendUDPMessage ' +
+	        'serverCommand serverCommandAvailable serverCommandExecutable serverName serverTime set ' +
+	        'set3DENAttribute set3DENAttributes set3DENGrid set3DENIconsVisible set3DENLayer ' +
+	        'set3DENLinesVisible set3DENMissionAttributes set3DENModelsVisible set3DENObjectType ' +
+	        'set3DENSelected setAccTime setAirportSide setAmmo setAmmoCargo setAnimSpeedCoef setAperture ' +
+	        'setApertureNew setArmoryPoints setAttributes setAutonomous setBehaviour setBleedingRemaining ' +
+	        'setCameraInterest setCamShakeDefParams setCamShakeParams setCamUseTi setCaptive setCenterOfMass ' +
+	        'setCollisionLight setCombatMode setCompassOscillation setCuratorCameraAreaCeiling setCuratorCoef ' +
+	        'setCuratorEditingAreaType setCuratorWaypointCost setCurrentChannel setCurrentTask ' +
+	        'setCurrentWaypoint setCustomAimCoef setDamage setDammage setDate setDebriefingText ' +
+	        'setDefaultCamera setDestination setDetailMapBlendPars setDir setDirection setDrawIcon ' +
+	        'setDropInterval setEditorMode setEditorObjectScope setEffectCondition setFace setFaceAnimation ' +
+	        'setFatigue setFlagOwner setFlagSide setFlagTexture setFog setFormation setFormationTask ' +
+	        'setFormDir setFriend setFromEditor setFSMVariable setFuel setFuelCargo setGroupIcon ' +
+	        'setGroupIconParams setGroupIconsSelectable setGroupIconsVisible setGroupId setGroupIdGlobal ' +
+	        'setGroupOwner setGusts setHideBehind setHit setHitIndex setHitPointDamage setHorizonParallaxCoef ' +
+	        'setHUDMovementLevels setIdentity setImportance setLeader setLightAmbient setLightAttenuation ' +
+	        'setLightBrightness setLightColor setLightDayLight setLightFlareMaxDistance setLightFlareSize ' +
+	        'setLightIntensity setLightnings setLightUseFlare setLocalWindParams setMagazineTurretAmmo ' +
+	        'setMarkerAlpha setMarkerAlphaLocal setMarkerBrush setMarkerBrushLocal setMarkerColor ' +
+	        'setMarkerColorLocal setMarkerDir setMarkerDirLocal setMarkerPos setMarkerPosLocal setMarkerShape ' +
+	        'setMarkerShapeLocal setMarkerSize setMarkerSizeLocal setMarkerText setMarkerTextLocal ' +
+	        'setMarkerType setMarkerTypeLocal setMass setMimic setMousePosition setMusicEffect ' +
+	        'setMusicEventHandler setName setNameSound setObjectArguments setObjectMaterial ' +
+	        'setObjectMaterialGlobal setObjectProxy setObjectTexture setObjectTextureGlobal ' +
+	        'setObjectViewDistance setOvercast setOwner setOxygenRemaining setParticleCircle setParticleClass ' +
+	        'setParticleFire setParticleParams setParticleRandom setPilotCameraDirection ' +
+	        'setPilotCameraRotation setPilotCameraTarget setPilotLight setPiPEffect setPitch setPlayable ' +
+	        'setPlayerRespawnTime setPos setPosASL setPosASL2 setPosASLW setPosATL setPosition setPosWorld ' +
+	        'setRadioMsg setRain setRainbow setRandomLip setRank setRectangular setRepairCargo ' +
+	        'setShadowDistance setShotParents setSide setSimpleTaskAlwaysVisible setSimpleTaskCustomData ' +
+	        'setSimpleTaskDescription setSimpleTaskDestination setSimpleTaskTarget setSimpleTaskType ' +
+	        'setSimulWeatherLayers setSize setSkill setSlingLoad setSoundEffect setSpeaker setSpeech ' +
+	        'setSpeedMode setStamina setStaminaScheme setStatValue setSuppression setSystemOfUnits ' +
+	        'setTargetAge setTaskResult setTaskState setTerrainGrid setText setTimeMultiplier setTitleEffect ' +
+	        'setTriggerActivation setTriggerArea setTriggerStatements setTriggerText setTriggerTimeout ' +
+	        'setTriggerType setType setUnconscious setUnitAbility setUnitLoadout setUnitPos setUnitPosWeak ' +
+	        'setUnitRank setUnitRecoilCoefficient setUnitTrait setUnloadInCombat setUserActionText setVariable ' +
+	        'setVectorDir setVectorDirAndUp setVectorUp setVehicleAmmo setVehicleAmmoDef setVehicleArmor ' +
+	        'setVehicleCargo setVehicleId setVehicleLock setVehiclePosition setVehicleTiPars setVehicleVarName ' +
+	        'setVelocity setVelocityTransformation setViewDistance setVisibleIfTreeCollapsed setWaves ' +
+	        'setWaypointBehaviour setWaypointCombatMode setWaypointCompletionRadius setWaypointDescription ' +
+	        'setWaypointForceBehaviour setWaypointFormation setWaypointHousePosition setWaypointLoiterRadius ' +
+	        'setWaypointLoiterType setWaypointName setWaypointPosition setWaypointScript setWaypointSpeed ' +
+	        'setWaypointStatements setWaypointTimeout setWaypointType setWaypointVisible ' +
+	        'setWeaponReloadingTime setWind setWindDir setWindForce setWindStr setWPPos show3DIcons showChat ' +
+	        'showCinemaBorder showCommandingMenu showCompass showCuratorCompass showGPS showHUD showLegend ' +
+	        'showMap shownArtilleryComputer shownChat shownCompass shownCuratorCompass showNewEditorObject ' +
+	        'shownGPS shownHUD shownMap shownPad shownRadio shownScoretable shownUAVFeed shownWarrant ' +
+	        'shownWatch showPad showRadio showScoretable showSubtitles showUAVFeed showWarrant showWatch ' +
+	        'showWaypoint showWaypoints side sideAmbientLife sideChat sideEmpty sideEnemy sideFriendly ' +
+	        'sideLogic sideRadio sideUnknown simpleTasks simulationEnabled simulCloudDensity ' +
+	        'simulCloudOcclusion simulInClouds simulWeatherSync sin size sizeOf skill skillFinal skipTime ' +
+	        'sleep sliderPosition sliderRange sliderSetPosition sliderSetRange sliderSetSpeed sliderSpeed ' +
+	        'slingLoadAssistantShown soldierMagazines someAmmo sort soundVolume spawn speaker speed speedMode ' +
+	        'splitString sqrt squadParams stance startLoadingScreen step stop stopEngineRTD stopped str ' +
+	        'sunOrMoon supportInfo suppressFor surfaceIsWater surfaceNormal surfaceType swimInDepth ' +
+	        'switchableUnits switchAction switchCamera switchGesture switchLight switchMove ' +
+	        'synchronizedObjects synchronizedTriggers synchronizedWaypoints synchronizeObjectsAdd ' +
+	        'synchronizeObjectsRemove synchronizeTrigger synchronizeWaypoint systemChat systemOfUnits tan ' +
+	        'targetKnowledge targetsAggregate targetsQuery taskAlwaysVisible taskChildren taskCompleted ' +
+	        'taskCustomData taskDescription taskDestination taskHint taskMarkerOffset taskNull taskParent ' +
+	        'taskResult taskState taskType teamMember teamMemberNull teamName teams teamSwitch ' +
+	        'teamSwitchEnabled teamType terminate terrainIntersect terrainIntersectASL text textLog ' +
+	        'textLogFormat tg time timeMultiplier titleCut titleFadeOut titleObj titleRsc titleText toArray ' +
+	        'toFixed toLower toString toUpper triggerActivated triggerActivation triggerArea ' +
+	        'triggerAttachedVehicle triggerAttachObject triggerAttachVehicle triggerStatements triggerText ' +
+	        'triggerTimeout triggerTimeoutCurrent triggerType turretLocal turretOwner turretUnit tvAdd tvClear ' +
+	        'tvCollapse tvCount tvCurSel tvData tvDelete tvExpand tvPicture tvSetCurSel tvSetData tvSetPicture ' +
+	        'tvSetPictureColor tvSetPictureColorDisabled tvSetPictureColorSelected tvSetPictureRight ' +
+	        'tvSetPictureRightColor tvSetPictureRightColorDisabled tvSetPictureRightColorSelected tvSetText ' +
+	        'tvSetTooltip tvSetValue tvSort tvSortByValue tvText tvTooltip tvValue type typeName typeOf ' +
+	        'UAVControl uiNamespace uiSleep unassignCurator unassignItem unassignTeam unassignVehicle ' +
+	        'underwater uniform uniformContainer uniformItems uniformMagazines unitAddons unitAimPosition ' +
+	        'unitAimPositionVisual unitBackpack unitIsUAV unitPos unitReady unitRecoilCoefficient units ' +
+	        'unitsBelowHeight unlinkItem unlockAchievement unregisterTask updateDrawIcon updateMenuItem ' +
+	        'updateObjectTree useAISteeringComponent useAudioTimeForMoves vectorAdd vectorCos ' +
+	        'vectorCrossProduct vectorDiff vectorDir vectorDirVisual vectorDistance vectorDistanceSqr ' +
+	        'vectorDotProduct vectorFromTo vectorMagnitude vectorMagnitudeSqr vectorMultiply vectorNormalized ' +
+	        'vectorUp vectorUpVisual vehicle vehicleCargoEnabled vehicleChat vehicleRadio vehicles ' +
+	        'vehicleVarName velocity velocityModelSpace verifySignature vest vestContainer vestItems ' +
+	        'vestMagazines viewDistance visibleCompass visibleGPS visibleMap visiblePosition ' +
+	        'visiblePositionASL visibleScoretable visibleWatch waves waypointAttachedObject ' +
+	        'waypointAttachedVehicle waypointAttachObject waypointAttachVehicle waypointBehaviour ' +
+	        'waypointCombatMode waypointCompletionRadius waypointDescription waypointForceBehaviour ' +
+	        'waypointFormation waypointHousePosition waypointLoiterRadius waypointLoiterType waypointName ' +
+	        'waypointPosition waypoints waypointScript waypointsEnabledUAV waypointShow waypointSpeed ' +
+	        'waypointStatements waypointTimeout waypointTimeoutCurrent waypointType waypointVisible ' +
+	        'weaponAccessories weaponAccessoriesCargo weaponCargo weaponDirection weaponInertia weaponLowered ' +
+	        'weapons weaponsItems weaponsItemsCargo weaponState weaponsTurret weightRTD west WFSideText wind',
 	      literal:
 	        'true false nil'
 	    },
@@ -14100,6 +14261,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      hljs.C_LINE_COMMENT_MODE,
 	      hljs.C_BLOCK_COMMENT_MODE,
 	      hljs.NUMBER_MODE,
+	      VARIABLE,
+	      FUNCTION,
 	      STRINGS,
 	      CPP.preprocessor
 	    ],
@@ -14108,7 +14271,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 145 */
+/* 148 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14272,7 +14435,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 146 */
+/* 149 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14359,7 +14522,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 147 */
+/* 150 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14401,7 +14564,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 148 */
+/* 151 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14452,7 +14615,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 149 */
+/* 152 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14910,7 +15073,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 150 */
+/* 153 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14948,7 +15111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 151 */
+/* 154 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -14981,7 +15144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  var TYPE = {
 	    className: 'type',
-	    begin: '\\b[A-Z][\\w\']*',
+	    begin: '\\b[A-Z][\\w\u00C0-\u02B8\']*',
 	    relevance: 0
 	  };
 	  var BLOCK_COMMENT = hljs.COMMENT(
@@ -15048,7 +15211,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        end: '\\{',
 	        excludeEnd: true,
 	        contains: [
-	          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/})
+	          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/})
 	        ]
 	      },
 	      {
@@ -15069,7 +15232,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 152 */
+/* 155 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15117,7 +15280,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 153 */
+/* 156 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15205,7 +15368,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 154 */
+/* 157 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15245,7 +15408,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 155 */
+/* 158 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15310,7 +15473,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 156 */
+/* 159 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15376,7 +15539,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 157 */
+/* 160 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15415,7 +15578,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 158 */
+/* 161 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15503,7 +15666,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 159 */
+/* 162 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15573,7 +15736,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 160 */
+/* 163 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15661,7 +15824,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	        relevance: 0 // () => {} is more typical in TypeScript
 	      },
 	      {
-	        beginKeywords: 'constructor', end: /\{/, excludeEnd: true
+	        beginKeywords: 'constructor', end: /\{/, excludeEnd: true,
+	        contains: [
+	          'self',
+	          {
+	            className: 'params',
+	            begin: /\(/, end: /\)/,
+	            excludeBegin: true,
+	            excludeEnd: true,
+	            keywords: KEYWORDS,
+	            contains: [
+	              hljs.C_LINE_COMMENT_MODE,
+	              hljs.C_BLOCK_COMMENT_MODE
+	            ],
+	            illegal: /["'\(]/
+	          }
+	        ]
 	      },
 	      { // prevent references like module.id from being higlighted as module definitions
 	        begin: /module\./,
@@ -15680,13 +15858,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      },
 	      {
 	        begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
+	      },
+	      {
+	        className: 'meta', begin: '@[A-Za-z]+'
 	      }
 	    ]
 	  };
 	};
 
 /***/ },
-/* 161 */
+/* 164 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15740,7 +15921,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 162 */
+/* 165 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15800,7 +15981,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 163 */
+/* 166 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15843,7 +16024,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 164 */
+/* 167 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15859,7 +16040,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 165 */
+/* 168 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -15962,7 +16143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 166 */
+/* 169 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16027,7 +16208,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 167 */
+/* 170 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16137,7 +16318,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 168 */
+/* 171 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16277,7 +16458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 169 */
+/* 172 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16354,7 +16535,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 170 */
+/* 173 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16429,7 +16610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 171 */
+/* 174 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -16540,22 +16721,1470 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 172 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_172__;
-
-/***/ },
-/* 173 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_173__;
-
-/***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var marked = __webpack_require__(175)
+	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	'use strict';
+
+
+	var isWindows = process.platform === 'win32';
+	var util = __webpack_require__(177);
+
+
+	// resolves . and .. elements in a path array with directory names there
+	// must be no slashes or device names (c:\) in the array
+	// (so also no leading and trailing slashes - it does not distinguish
+	// relative and absolute paths)
+	function normalizeArray(parts, allowAboveRoot) {
+	  var res = [];
+	  for (var i = 0; i < parts.length; i++) {
+	    var p = parts[i];
+
+	    // ignore empty parts
+	    if (!p || p === '.')
+	      continue;
+
+	    if (p === '..') {
+	      if (res.length && res[res.length - 1] !== '..') {
+	        res.pop();
+	      } else if (allowAboveRoot) {
+	        res.push('..');
+	      }
+	    } else {
+	      res.push(p);
+	    }
+	  }
+
+	  return res;
+	}
+
+	// returns an array with empty elements removed from either end of the input
+	// array or the original array if no elements need to be removed
+	function trimArray(arr) {
+	  var lastIndex = arr.length - 1;
+	  var start = 0;
+	  for (; start <= lastIndex; start++) {
+	    if (arr[start])
+	      break;
+	  }
+
+	  var end = lastIndex;
+	  for (; end >= 0; end--) {
+	    if (arr[end])
+	      break;
+	  }
+
+	  if (start === 0 && end === lastIndex)
+	    return arr;
+	  if (start > end)
+	    return [];
+	  return arr.slice(start, end + 1);
+	}
+
+	// Regex to split a windows path into three parts: [*, device, slash,
+	// tail] windows-only
+	var splitDeviceRe =
+	    /^([a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?([\\\/])?([\s\S]*?)$/;
+
+	// Regex to split the tail part of the above into [*, dir, basename, ext]
+	var splitTailRe =
+	    /^([\s\S]*?)((?:\.{1,2}|[^\\\/]+?|)(\.[^.\/\\]*|))(?:[\\\/]*)$/;
+
+	var win32 = {};
+
+	// Function to split a filename into [root, dir, basename, ext]
+	function win32SplitPath(filename) {
+	  // Separate device+slash from tail
+	  var result = splitDeviceRe.exec(filename),
+	      device = (result[1] || '') + (result[2] || ''),
+	      tail = result[3] || '';
+	  // Split the tail into dir, basename and extension
+	  var result2 = splitTailRe.exec(tail),
+	      dir = result2[1],
+	      basename = result2[2],
+	      ext = result2[3];
+	  return [device, dir, basename, ext];
+	}
+
+	function win32StatPath(path) {
+	  var result = splitDeviceRe.exec(path),
+	      device = result[1] || '',
+	      isUnc = !!device && device[1] !== ':';
+	  return {
+	    device: device,
+	    isUnc: isUnc,
+	    isAbsolute: isUnc || !!result[2], // UNC paths are always absolute
+	    tail: result[3]
+	  };
+	}
+
+	function normalizeUNCRoot(device) {
+	  return '\\\\' + device.replace(/^[\\\/]+/, '').replace(/[\\\/]+/g, '\\');
+	}
+
+	// path.resolve([from ...], to)
+	win32.resolve = function() {
+	  var resolvedDevice = '',
+	      resolvedTail = '',
+	      resolvedAbsolute = false;
+
+	  for (var i = arguments.length - 1; i >= -1; i--) {
+	    var path;
+	    if (i >= 0) {
+	      path = arguments[i];
+	    } else if (!resolvedDevice) {
+	      path = process.cwd();
+	    } else {
+	      // Windows has the concept of drive-specific current working
+	      // directories. If we've resolved a drive letter but not yet an
+	      // absolute path, get cwd for that drive. We're sure the device is not
+	      // an unc path at this points, because unc paths are always absolute.
+	      path = process.env['=' + resolvedDevice];
+	      // Verify that a drive-local cwd was found and that it actually points
+	      // to our drive. If not, default to the drive's root.
+	      if (!path || path.substr(0, 3).toLowerCase() !==
+	          resolvedDevice.toLowerCase() + '\\') {
+	        path = resolvedDevice + '\\';
+	      }
+	    }
+
+	    // Skip empty and invalid entries
+	    if (!util.isString(path)) {
+	      throw new TypeError('Arguments to path.resolve must be strings');
+	    } else if (!path) {
+	      continue;
+	    }
+
+	    var result = win32StatPath(path),
+	        device = result.device,
+	        isUnc = result.isUnc,
+	        isAbsolute = result.isAbsolute,
+	        tail = result.tail;
+
+	    if (device &&
+	        resolvedDevice &&
+	        device.toLowerCase() !== resolvedDevice.toLowerCase()) {
+	      // This path points to another device so it is not applicable
+	      continue;
+	    }
+
+	    if (!resolvedDevice) {
+	      resolvedDevice = device;
+	    }
+	    if (!resolvedAbsolute) {
+	      resolvedTail = tail + '\\' + resolvedTail;
+	      resolvedAbsolute = isAbsolute;
+	    }
+
+	    if (resolvedDevice && resolvedAbsolute) {
+	      break;
+	    }
+	  }
+
+	  // Convert slashes to backslashes when `resolvedDevice` points to an UNC
+	  // root. Also squash multiple slashes into a single one where appropriate.
+	  if (isUnc) {
+	    resolvedDevice = normalizeUNCRoot(resolvedDevice);
+	  }
+
+	  // At this point the path should be resolved to a full absolute path,
+	  // but handle relative paths to be safe (might happen when process.cwd()
+	  // fails)
+
+	  // Normalize the tail path
+	  resolvedTail = normalizeArray(resolvedTail.split(/[\\\/]+/),
+	                                !resolvedAbsolute).join('\\');
+
+	  return (resolvedDevice + (resolvedAbsolute ? '\\' : '') + resolvedTail) ||
+	         '.';
+	};
+
+
+	win32.normalize = function(path) {
+	  var result = win32StatPath(path),
+	      device = result.device,
+	      isUnc = result.isUnc,
+	      isAbsolute = result.isAbsolute,
+	      tail = result.tail,
+	      trailingSlash = /[\\\/]$/.test(tail);
+
+	  // Normalize the tail path
+	  tail = normalizeArray(tail.split(/[\\\/]+/), !isAbsolute).join('\\');
+
+	  if (!tail && !isAbsolute) {
+	    tail = '.';
+	  }
+	  if (tail && trailingSlash) {
+	    tail += '\\';
+	  }
+
+	  // Convert slashes to backslashes when `device` points to an UNC root.
+	  // Also squash multiple slashes into a single one where appropriate.
+	  if (isUnc) {
+	    device = normalizeUNCRoot(device);
+	  }
+
+	  return device + (isAbsolute ? '\\' : '') + tail;
+	};
+
+
+	win32.isAbsolute = function(path) {
+	  return win32StatPath(path).isAbsolute;
+	};
+
+	win32.join = function() {
+	  var paths = [];
+	  for (var i = 0; i < arguments.length; i++) {
+	    var arg = arguments[i];
+	    if (!util.isString(arg)) {
+	      throw new TypeError('Arguments to path.join must be strings');
+	    }
+	    if (arg) {
+	      paths.push(arg);
+	    }
+	  }
+
+	  var joined = paths.join('\\');
+
+	  // Make sure that the joined path doesn't start with two slashes, because
+	  // normalize() will mistake it for an UNC path then.
+	  //
+	  // This step is skipped when it is very clear that the user actually
+	  // intended to point at an UNC path. This is assumed when the first
+	  // non-empty string arguments starts with exactly two slashes followed by
+	  // at least one more non-slash character.
+	  //
+	  // Note that for normalize() to treat a path as an UNC path it needs to
+	  // have at least 2 components, so we don't filter for that here.
+	  // This means that the user can use join to construct UNC paths from
+	  // a server name and a share name; for example:
+	  //   path.join('//server', 'share') -> '\\\\server\\share\')
+	  if (!/^[\\\/]{2}[^\\\/]/.test(paths[0])) {
+	    joined = joined.replace(/^[\\\/]{2,}/, '\\');
+	  }
+
+	  return win32.normalize(joined);
+	};
+
+
+	// path.relative(from, to)
+	// it will solve the relative path from 'from' to 'to', for instance:
+	// from = 'C:\\orandea\\test\\aaa'
+	// to = 'C:\\orandea\\impl\\bbb'
+	// The output of the function should be: '..\\..\\impl\\bbb'
+	win32.relative = function(from, to) {
+	  from = win32.resolve(from);
+	  to = win32.resolve(to);
+
+	  // windows is not case sensitive
+	  var lowerFrom = from.toLowerCase();
+	  var lowerTo = to.toLowerCase();
+
+	  var toParts = trimArray(to.split('\\'));
+
+	  var lowerFromParts = trimArray(lowerFrom.split('\\'));
+	  var lowerToParts = trimArray(lowerTo.split('\\'));
+
+	  var length = Math.min(lowerFromParts.length, lowerToParts.length);
+	  var samePartsLength = length;
+	  for (var i = 0; i < length; i++) {
+	    if (lowerFromParts[i] !== lowerToParts[i]) {
+	      samePartsLength = i;
+	      break;
+	    }
+	  }
+
+	  if (samePartsLength == 0) {
+	    return to;
+	  }
+
+	  var outputParts = [];
+	  for (var i = samePartsLength; i < lowerFromParts.length; i++) {
+	    outputParts.push('..');
+	  }
+
+	  outputParts = outputParts.concat(toParts.slice(samePartsLength));
+
+	  return outputParts.join('\\');
+	};
+
+
+	win32._makeLong = function(path) {
+	  // Note: this will *probably* throw somewhere.
+	  if (!util.isString(path))
+	    return path;
+
+	  if (!path) {
+	    return '';
+	  }
+
+	  var resolvedPath = win32.resolve(path);
+
+	  if (/^[a-zA-Z]\:\\/.test(resolvedPath)) {
+	    // path is local filesystem path, which needs to be converted
+	    // to long UNC path.
+	    return '\\\\?\\' + resolvedPath;
+	  } else if (/^\\\\[^?.]/.test(resolvedPath)) {
+	    // path is network UNC path, which needs to be converted
+	    // to long UNC path.
+	    return '\\\\?\\UNC\\' + resolvedPath.substring(2);
+	  }
+
+	  return path;
+	};
+
+
+	win32.dirname = function(path) {
+	  var result = win32SplitPath(path),
+	      root = result[0],
+	      dir = result[1];
+
+	  if (!root && !dir) {
+	    // No dirname whatsoever
+	    return '.';
+	  }
+
+	  if (dir) {
+	    // It has a dirname, strip trailing slash
+	    dir = dir.substr(0, dir.length - 1);
+	  }
+
+	  return root + dir;
+	};
+
+
+	win32.basename = function(path, ext) {
+	  var f = win32SplitPath(path)[2];
+	  // TODO: make this comparison case-insensitive on windows?
+	  if (ext && f.substr(-1 * ext.length) === ext) {
+	    f = f.substr(0, f.length - ext.length);
+	  }
+	  return f;
+	};
+
+
+	win32.extname = function(path) {
+	  return win32SplitPath(path)[3];
+	};
+
+
+	win32.format = function(pathObject) {
+	  if (!util.isObject(pathObject)) {
+	    throw new TypeError(
+	        "Parameter 'pathObject' must be an object, not " + typeof pathObject
+	    );
+	  }
+
+	  var root = pathObject.root || '';
+
+	  if (!util.isString(root)) {
+	    throw new TypeError(
+	        "'pathObject.root' must be a string or undefined, not " +
+	        typeof pathObject.root
+	    );
+	  }
+
+	  var dir = pathObject.dir;
+	  var base = pathObject.base || '';
+	  if (!dir) {
+	    return base;
+	  }
+	  if (dir[dir.length - 1] === win32.sep) {
+	    return dir + base;
+	  }
+	  return dir + win32.sep + base;
+	};
+
+
+	win32.parse = function(pathString) {
+	  if (!util.isString(pathString)) {
+	    throw new TypeError(
+	        "Parameter 'pathString' must be a string, not " + typeof pathString
+	    );
+	  }
+	  var allParts = win32SplitPath(pathString);
+	  if (!allParts || allParts.length !== 4) {
+	    throw new TypeError("Invalid path '" + pathString + "'");
+	  }
+	  return {
+	    root: allParts[0],
+	    dir: allParts[0] + allParts[1].slice(0, -1),
+	    base: allParts[2],
+	    ext: allParts[3],
+	    name: allParts[2].slice(0, allParts[2].length - allParts[3].length)
+	  };
+	};
+
+
+	win32.sep = '\\';
+	win32.delimiter = ';';
+
+
+	// Split a filename into [root, dir, basename, ext], unix version
+	// 'root' is just a slash, or nothing.
+	var splitPathRe =
+	    /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
+	var posix = {};
+
+
+	function posixSplitPath(filename) {
+	  return splitPathRe.exec(filename).slice(1);
+	}
+
+
+	// path.resolve([from ...], to)
+	// posix version
+	posix.resolve = function() {
+	  var resolvedPath = '',
+	      resolvedAbsolute = false;
+
+	  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
+	    var path = (i >= 0) ? arguments[i] : process.cwd();
+
+	    // Skip empty and invalid entries
+	    if (!util.isString(path)) {
+	      throw new TypeError('Arguments to path.resolve must be strings');
+	    } else if (!path) {
+	      continue;
+	    }
+
+	    resolvedPath = path + '/' + resolvedPath;
+	    resolvedAbsolute = path[0] === '/';
+	  }
+
+	  // At this point the path should be resolved to a full absolute path, but
+	  // handle relative paths to be safe (might happen when process.cwd() fails)
+
+	  // Normalize the path
+	  resolvedPath = normalizeArray(resolvedPath.split('/'),
+	                                !resolvedAbsolute).join('/');
+
+	  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+	};
+
+	// path.normalize(path)
+	// posix version
+	posix.normalize = function(path) {
+	  var isAbsolute = posix.isAbsolute(path),
+	      trailingSlash = path && path[path.length - 1] === '/';
+
+	  // Normalize the path
+	  path = normalizeArray(path.split('/'), !isAbsolute).join('/');
+
+	  if (!path && !isAbsolute) {
+	    path = '.';
+	  }
+	  if (path && trailingSlash) {
+	    path += '/';
+	  }
+
+	  return (isAbsolute ? '/' : '') + path;
+	};
+
+	// posix version
+	posix.isAbsolute = function(path) {
+	  return path.charAt(0) === '/';
+	};
+
+	// posix version
+	posix.join = function() {
+	  var path = '';
+	  for (var i = 0; i < arguments.length; i++) {
+	    var segment = arguments[i];
+	    if (!util.isString(segment)) {
+	      throw new TypeError('Arguments to path.join must be strings');
+	    }
+	    if (segment) {
+	      if (!path) {
+	        path += segment;
+	      } else {
+	        path += '/' + segment;
+	      }
+	    }
+	  }
+	  return posix.normalize(path);
+	};
+
+
+	// path.relative(from, to)
+	// posix version
+	posix.relative = function(from, to) {
+	  from = posix.resolve(from).substr(1);
+	  to = posix.resolve(to).substr(1);
+
+	  var fromParts = trimArray(from.split('/'));
+	  var toParts = trimArray(to.split('/'));
+
+	  var length = Math.min(fromParts.length, toParts.length);
+	  var samePartsLength = length;
+	  for (var i = 0; i < length; i++) {
+	    if (fromParts[i] !== toParts[i]) {
+	      samePartsLength = i;
+	      break;
+	    }
+	  }
+
+	  var outputParts = [];
+	  for (var i = samePartsLength; i < fromParts.length; i++) {
+	    outputParts.push('..');
+	  }
+
+	  outputParts = outputParts.concat(toParts.slice(samePartsLength));
+
+	  return outputParts.join('/');
+	};
+
+
+	posix._makeLong = function(path) {
+	  return path;
+	};
+
+
+	posix.dirname = function(path) {
+	  var result = posixSplitPath(path),
+	      root = result[0],
+	      dir = result[1];
+
+	  if (!root && !dir) {
+	    // No dirname whatsoever
+	    return '.';
+	  }
+
+	  if (dir) {
+	    // It has a dirname, strip trailing slash
+	    dir = dir.substr(0, dir.length - 1);
+	  }
+
+	  return root + dir;
+	};
+
+
+	posix.basename = function(path, ext) {
+	  var f = posixSplitPath(path)[2];
+	  // TODO: make this comparison case-insensitive on windows?
+	  if (ext && f.substr(-1 * ext.length) === ext) {
+	    f = f.substr(0, f.length - ext.length);
+	  }
+	  return f;
+	};
+
+
+	posix.extname = function(path) {
+	  return posixSplitPath(path)[3];
+	};
+
+
+	posix.format = function(pathObject) {
+	  if (!util.isObject(pathObject)) {
+	    throw new TypeError(
+	        "Parameter 'pathObject' must be an object, not " + typeof pathObject
+	    );
+	  }
+
+	  var root = pathObject.root || '';
+
+	  if (!util.isString(root)) {
+	    throw new TypeError(
+	        "'pathObject.root' must be a string or undefined, not " +
+	        typeof pathObject.root
+	    );
+	  }
+
+	  var dir = pathObject.dir ? pathObject.dir + posix.sep : '';
+	  var base = pathObject.base || '';
+	  return dir + base;
+	};
+
+
+	posix.parse = function(pathString) {
+	  if (!util.isString(pathString)) {
+	    throw new TypeError(
+	        "Parameter 'pathString' must be a string, not " + typeof pathString
+	    );
+	  }
+	  var allParts = posixSplitPath(pathString);
+	  if (!allParts || allParts.length !== 4) {
+	    throw new TypeError("Invalid path '" + pathString + "'");
+	  }
+	  allParts[1] = allParts[1] || '';
+	  allParts[2] = allParts[2] || '';
+	  allParts[3] = allParts[3] || '';
+
+	  return {
+	    root: allParts[0],
+	    dir: allParts[0] + allParts[1].slice(0, -1),
+	    base: allParts[2],
+	    ext: allParts[3],
+	    name: allParts[2].slice(0, allParts[2].length - allParts[3].length)
+	  };
+	};
+
+
+	posix.sep = '/';
+	posix.delimiter = ':';
+
+
+	if (isWindows)
+	  module.exports = win32;
+	else /* posix */
+	  module.exports = posix;
+
+	module.exports.posix = posix;
+	module.exports.win32 = win32;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(176)))
+
+/***/ },
+/* 176 */
+/***/ function(module, exports) {
+
+	// shim for using process in browser
+	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = runTimeout(cleanUpNextTick);
+	    draining = true;
+
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    runClearTimeout(timeout);
+	}
+
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
+	    }
+	};
+
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+
+	function noop() {}
+
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	var formatRegExp = /%[sdj%]/g;
+	exports.format = function(f) {
+	  if (!isString(f)) {
+	    var objects = [];
+	    for (var i = 0; i < arguments.length; i++) {
+	      objects.push(inspect(arguments[i]));
+	    }
+	    return objects.join(' ');
+	  }
+
+	  var i = 1;
+	  var args = arguments;
+	  var len = args.length;
+	  var str = String(f).replace(formatRegExp, function(x) {
+	    if (x === '%%') return '%';
+	    if (i >= len) return x;
+	    switch (x) {
+	      case '%s': return String(args[i++]);
+	      case '%d': return Number(args[i++]);
+	      case '%j':
+	        try {
+	          return JSON.stringify(args[i++]);
+	        } catch (_) {
+	          return '[Circular]';
+	        }
+	      default:
+	        return x;
+	    }
+	  });
+	  for (var x = args[i]; i < len; x = args[++i]) {
+	    if (isNull(x) || !isObject(x)) {
+	      str += ' ' + x;
+	    } else {
+	      str += ' ' + inspect(x);
+	    }
+	  }
+	  return str;
+	};
+
+
+	// Mark that a method should not be used.
+	// Returns a modified function which warns once by default.
+	// If --no-deprecation is set, then it is a no-op.
+	exports.deprecate = function(fn, msg) {
+	  // Allow for deprecating things in the process of starting up.
+	  if (isUndefined(global.process)) {
+	    return function() {
+	      return exports.deprecate(fn, msg).apply(this, arguments);
+	    };
+	  }
+
+	  if (process.noDeprecation === true) {
+	    return fn;
+	  }
+
+	  var warned = false;
+	  function deprecated() {
+	    if (!warned) {
+	      if (process.throwDeprecation) {
+	        throw new Error(msg);
+	      } else if (process.traceDeprecation) {
+	        console.trace(msg);
+	      } else {
+	        console.error(msg);
+	      }
+	      warned = true;
+	    }
+	    return fn.apply(this, arguments);
+	  }
+
+	  return deprecated;
+	};
+
+
+	var debugs = {};
+	var debugEnviron;
+	exports.debuglog = function(set) {
+	  if (isUndefined(debugEnviron))
+	    debugEnviron = process.env.NODE_DEBUG || '';
+	  set = set.toUpperCase();
+	  if (!debugs[set]) {
+	    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
+	      var pid = process.pid;
+	      debugs[set] = function() {
+	        var msg = exports.format.apply(exports, arguments);
+	        console.error('%s %d: %s', set, pid, msg);
+	      };
+	    } else {
+	      debugs[set] = function() {};
+	    }
+	  }
+	  return debugs[set];
+	};
+
+
+	/**
+	 * Echos the value of a value. Trys to print the value out
+	 * in the best way possible given the different types.
+	 *
+	 * @param {Object} obj The object to print out.
+	 * @param {Object} opts Optional options object that alters the output.
+	 */
+	/* legacy: obj, showHidden, depth, colors*/
+	function inspect(obj, opts) {
+	  // default options
+	  var ctx = {
+	    seen: [],
+	    stylize: stylizeNoColor
+	  };
+	  // legacy...
+	  if (arguments.length >= 3) ctx.depth = arguments[2];
+	  if (arguments.length >= 4) ctx.colors = arguments[3];
+	  if (isBoolean(opts)) {
+	    // legacy...
+	    ctx.showHidden = opts;
+	  } else if (opts) {
+	    // got an "options" object
+	    exports._extend(ctx, opts);
+	  }
+	  // set default options
+	  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
+	  if (isUndefined(ctx.depth)) ctx.depth = 2;
+	  if (isUndefined(ctx.colors)) ctx.colors = false;
+	  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
+	  if (ctx.colors) ctx.stylize = stylizeWithColor;
+	  return formatValue(ctx, obj, ctx.depth);
+	}
+	exports.inspect = inspect;
+
+
+	// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
+	inspect.colors = {
+	  'bold' : [1, 22],
+	  'italic' : [3, 23],
+	  'underline' : [4, 24],
+	  'inverse' : [7, 27],
+	  'white' : [37, 39],
+	  'grey' : [90, 39],
+	  'black' : [30, 39],
+	  'blue' : [34, 39],
+	  'cyan' : [36, 39],
+	  'green' : [32, 39],
+	  'magenta' : [35, 39],
+	  'red' : [31, 39],
+	  'yellow' : [33, 39]
+	};
+
+	// Don't use 'blue' not visible on cmd.exe
+	inspect.styles = {
+	  'special': 'cyan',
+	  'number': 'yellow',
+	  'boolean': 'yellow',
+	  'undefined': 'grey',
+	  'null': 'bold',
+	  'string': 'green',
+	  'date': 'magenta',
+	  // "name": intentionally not styling
+	  'regexp': 'red'
+	};
+
+
+	function stylizeWithColor(str, styleType) {
+	  var style = inspect.styles[styleType];
+
+	  if (style) {
+	    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
+	           '\u001b[' + inspect.colors[style][1] + 'm';
+	  } else {
+	    return str;
+	  }
+	}
+
+
+	function stylizeNoColor(str, styleType) {
+	  return str;
+	}
+
+
+	function arrayToHash(array) {
+	  var hash = {};
+
+	  array.forEach(function(val, idx) {
+	    hash[val] = true;
+	  });
+
+	  return hash;
+	}
+
+
+	function formatValue(ctx, value, recurseTimes) {
+	  // Provide a hook for user-specified inspect functions.
+	  // Check that value is an object with an inspect function on it
+	  if (ctx.customInspect &&
+	      value &&
+	      isFunction(value.inspect) &&
+	      // Filter out the util module, it's inspect function is special
+	      value.inspect !== exports.inspect &&
+	      // Also filter out any prototype objects using the circular check.
+	      !(value.constructor && value.constructor.prototype === value)) {
+	    var ret = value.inspect(recurseTimes, ctx);
+	    if (!isString(ret)) {
+	      ret = formatValue(ctx, ret, recurseTimes);
+	    }
+	    return ret;
+	  }
+
+	  // Primitive types cannot have properties
+	  var primitive = formatPrimitive(ctx, value);
+	  if (primitive) {
+	    return primitive;
+	  }
+
+	  // Look up the keys of the object.
+	  var keys = Object.keys(value);
+	  var visibleKeys = arrayToHash(keys);
+
+	  if (ctx.showHidden) {
+	    keys = Object.getOwnPropertyNames(value);
+	  }
+
+	  // IE doesn't make error fields non-enumerable
+	  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
+	  if (isError(value)
+	      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
+	    return formatError(value);
+	  }
+
+	  // Some type of object without properties can be shortcutted.
+	  if (keys.length === 0) {
+	    if (isFunction(value)) {
+	      var name = value.name ? ': ' + value.name : '';
+	      return ctx.stylize('[Function' + name + ']', 'special');
+	    }
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    }
+	    if (isDate(value)) {
+	      return ctx.stylize(Date.prototype.toString.call(value), 'date');
+	    }
+	    if (isError(value)) {
+	      return formatError(value);
+	    }
+	  }
+
+	  var base = '', array = false, braces = ['{', '}'];
+
+	  // Make Array say that they are Array
+	  if (isArray(value)) {
+	    array = true;
+	    braces = ['[', ']'];
+	  }
+
+	  // Make functions say that they are functions
+	  if (isFunction(value)) {
+	    var n = value.name ? ': ' + value.name : '';
+	    base = ' [Function' + n + ']';
+	  }
+
+	  // Make RegExps say that they are RegExps
+	  if (isRegExp(value)) {
+	    base = ' ' + RegExp.prototype.toString.call(value);
+	  }
+
+	  // Make dates with properties first say the date
+	  if (isDate(value)) {
+	    base = ' ' + Date.prototype.toUTCString.call(value);
+	  }
+
+	  // Make error with message first say the error
+	  if (isError(value)) {
+	    base = ' ' + formatError(value);
+	  }
+
+	  if (keys.length === 0 && (!array || value.length == 0)) {
+	    return braces[0] + base + braces[1];
+	  }
+
+	  if (recurseTimes < 0) {
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    } else {
+	      return ctx.stylize('[Object]', 'special');
+	    }
+	  }
+
+	  ctx.seen.push(value);
+
+	  var output;
+	  if (array) {
+	    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+	  } else {
+	    output = keys.map(function(key) {
+	      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+	    });
+	  }
+
+	  ctx.seen.pop();
+
+	  return reduceToSingleString(output, base, braces);
+	}
+
+
+	function formatPrimitive(ctx, value) {
+	  if (isUndefined(value))
+	    return ctx.stylize('undefined', 'undefined');
+	  if (isString(value)) {
+	    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+	                                             .replace(/'/g, "\\'")
+	                                             .replace(/\\"/g, '"') + '\'';
+	    return ctx.stylize(simple, 'string');
+	  }
+	  if (isNumber(value))
+	    return ctx.stylize('' + value, 'number');
+	  if (isBoolean(value))
+	    return ctx.stylize('' + value, 'boolean');
+	  // For some reason typeof null is "object", so special case here.
+	  if (isNull(value))
+	    return ctx.stylize('null', 'null');
+	}
+
+
+	function formatError(value) {
+	  return '[' + Error.prototype.toString.call(value) + ']';
+	}
+
+
+	function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+	  var output = [];
+	  for (var i = 0, l = value.length; i < l; ++i) {
+	    if (hasOwnProperty(value, String(i))) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          String(i), true));
+	    } else {
+	      output.push('');
+	    }
+	  }
+	  keys.forEach(function(key) {
+	    if (!key.match(/^\d+$/)) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          key, true));
+	    }
+	  });
+	  return output;
+	}
+
+
+	function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+	  var name, str, desc;
+	  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
+	  if (desc.get) {
+	    if (desc.set) {
+	      str = ctx.stylize('[Getter/Setter]', 'special');
+	    } else {
+	      str = ctx.stylize('[Getter]', 'special');
+	    }
+	  } else {
+	    if (desc.set) {
+	      str = ctx.stylize('[Setter]', 'special');
+	    }
+	  }
+	  if (!hasOwnProperty(visibleKeys, key)) {
+	    name = '[' + key + ']';
+	  }
+	  if (!str) {
+	    if (ctx.seen.indexOf(desc.value) < 0) {
+	      if (isNull(recurseTimes)) {
+	        str = formatValue(ctx, desc.value, null);
+	      } else {
+	        str = formatValue(ctx, desc.value, recurseTimes - 1);
+	      }
+	      if (str.indexOf('\n') > -1) {
+	        if (array) {
+	          str = str.split('\n').map(function(line) {
+	            return '  ' + line;
+	          }).join('\n').substr(2);
+	        } else {
+	          str = '\n' + str.split('\n').map(function(line) {
+	            return '   ' + line;
+	          }).join('\n');
+	        }
+	      }
+	    } else {
+	      str = ctx.stylize('[Circular]', 'special');
+	    }
+	  }
+	  if (isUndefined(name)) {
+	    if (array && key.match(/^\d+$/)) {
+	      return str;
+	    }
+	    name = JSON.stringify('' + key);
+	    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+	      name = name.substr(1, name.length - 2);
+	      name = ctx.stylize(name, 'name');
+	    } else {
+	      name = name.replace(/'/g, "\\'")
+	                 .replace(/\\"/g, '"')
+	                 .replace(/(^"|"$)/g, "'");
+	      name = ctx.stylize(name, 'string');
+	    }
+	  }
+
+	  return name + ': ' + str;
+	}
+
+
+	function reduceToSingleString(output, base, braces) {
+	  var numLinesEst = 0;
+	  var length = output.reduce(function(prev, cur) {
+	    numLinesEst++;
+	    if (cur.indexOf('\n') >= 0) numLinesEst++;
+	    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
+	  }, 0);
+
+	  if (length > 60) {
+	    return braces[0] +
+	           (base === '' ? '' : base + '\n ') +
+	           ' ' +
+	           output.join(',\n  ') +
+	           ' ' +
+	           braces[1];
+	  }
+
+	  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+	}
+
+
+	// NOTE: These type checking functions intentionally don't use `instanceof`
+	// because it is fragile and can be easily faked with `Object.create()`.
+	function isArray(ar) {
+	  return Array.isArray(ar);
+	}
+	exports.isArray = isArray;
+
+	function isBoolean(arg) {
+	  return typeof arg === 'boolean';
+	}
+	exports.isBoolean = isBoolean;
+
+	function isNull(arg) {
+	  return arg === null;
+	}
+	exports.isNull = isNull;
+
+	function isNullOrUndefined(arg) {
+	  return arg == null;
+	}
+	exports.isNullOrUndefined = isNullOrUndefined;
+
+	function isNumber(arg) {
+	  return typeof arg === 'number';
+	}
+	exports.isNumber = isNumber;
+
+	function isString(arg) {
+	  return typeof arg === 'string';
+	}
+	exports.isString = isString;
+
+	function isSymbol(arg) {
+	  return typeof arg === 'symbol';
+	}
+	exports.isSymbol = isSymbol;
+
+	function isUndefined(arg) {
+	  return arg === void 0;
+	}
+	exports.isUndefined = isUndefined;
+
+	function isRegExp(re) {
+	  return isObject(re) && objectToString(re) === '[object RegExp]';
+	}
+	exports.isRegExp = isRegExp;
+
+	function isObject(arg) {
+	  return typeof arg === 'object' && arg !== null;
+	}
+	exports.isObject = isObject;
+
+	function isDate(d) {
+	  return isObject(d) && objectToString(d) === '[object Date]';
+	}
+	exports.isDate = isDate;
+
+	function isError(e) {
+	  return isObject(e) &&
+	      (objectToString(e) === '[object Error]' || e instanceof Error);
+	}
+	exports.isError = isError;
+
+	function isFunction(arg) {
+	  return typeof arg === 'function';
+	}
+	exports.isFunction = isFunction;
+
+	function isPrimitive(arg) {
+	  return arg === null ||
+	         typeof arg === 'boolean' ||
+	         typeof arg === 'number' ||
+	         typeof arg === 'string' ||
+	         typeof arg === 'symbol' ||  // ES6 symbol
+	         typeof arg === 'undefined';
+	}
+	exports.isPrimitive = isPrimitive;
+
+	exports.isBuffer = __webpack_require__(178);
+
+	function objectToString(o) {
+	  return Object.prototype.toString.call(o);
+	}
+
+
+	function pad(n) {
+	  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+	}
+
+
+	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+	              'Oct', 'Nov', 'Dec'];
+
+	// 26 Feb 16:19:34
+	function timestamp() {
+	  var d = new Date();
+	  var time = [pad(d.getHours()),
+	              pad(d.getMinutes()),
+	              pad(d.getSeconds())].join(':');
+	  return [d.getDate(), months[d.getMonth()], time].join(' ');
+	}
+
+
+	// log is just a thin wrapper to console.log that prepends a timestamp
+	exports.log = function() {
+	  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+	};
+
+
+	/**
+	 * Inherit the prototype methods from one constructor into another.
+	 *
+	 * The Function.prototype.inherits from lang.js rewritten as a standalone
+	 * function (not on Function.prototype). NOTE: If this file is to be loaded
+	 * during bootstrapping this function needs to be rewritten using some native
+	 * functions as prototype setup using normal JavaScript does not work as
+	 * expected during bootstrapping (see mirror.js in r114903).
+	 *
+	 * @param {function} ctor Constructor function which needs to inherit the
+	 *     prototype.
+	 * @param {function} superCtor Constructor function to inherit prototype from.
+	 */
+	exports.inherits = __webpack_require__(179);
+
+	exports._extend = function(origin, add) {
+	  // Don't do anything if add isn't an object
+	  if (!add || !isObject(add)) return origin;
+
+	  var keys = Object.keys(add);
+	  var i = keys.length;
+	  while (i--) {
+	    origin[keys[i]] = add[keys[i]];
+	  }
+	  return origin;
+	};
+
+	function hasOwnProperty(obj, prop) {
+	  return Object.prototype.hasOwnProperty.call(obj, prop);
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(176)))
+
+/***/ },
+/* 178 */
+/***/ function(module, exports) {
+
+	module.exports = function isBuffer(arg) {
+	  return arg && typeof arg === 'object'
+	    && typeof arg.copy === 'function'
+	    && typeof arg.fill === 'function'
+	    && typeof arg.readUInt8 === 'function';
+	}
+
+/***/ },
+/* 179 */
+/***/ function(module, exports) {
+
+	if (typeof Object.create === 'function') {
+	  // implementation from standard node.js 'util' module
+	  module.exports = function inherits(ctor, superCtor) {
+	    ctor.super_ = superCtor
+	    ctor.prototype = Object.create(superCtor.prototype, {
+	      constructor: {
+	        value: ctor,
+	        enumerable: false,
+	        writable: true,
+	        configurable: true
+	      }
+	    });
+	  };
+	} else {
+	  // old school shim for old browsers
+	  module.exports = function inherits(ctor, superCtor) {
+	    ctor.super_ = superCtor
+	    var TempCtor = function () {}
+	    TempCtor.prototype = superCtor.prototype
+	    ctor.prototype = new TempCtor()
+	    ctor.prototype.constructor = ctor
+	  }
+	}
+
+
+/***/ },
+/* 180 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_180__;
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var marked = __webpack_require__(182)
 	// sometime cannot npm install highlight.js
 	// use local vendor/highlight.js/**
 	var highlight = __webpack_require__(4)
@@ -16581,7 +18210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 175 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -17874,15 +19503,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 176 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var markrunHTML = __webpack_require__(177)
-	var ejsCompileConf = __webpack_require__(182)
+	var markrunHTML = __webpack_require__(184)
+	var ejsCompileConf = __webpack_require__(189)
 	var defaultProps = __webpack_require__(2)
-	var ejs = __webpack_require__(183)
-	var compile = __webpack_require__(184)
-	var extend = __webpack_require__(186)
+	var ejs = __webpack_require__(190)
+	var compile = __webpack_require__(191)
+	var extend = __webpack_require__(193)
 	/*
 	    placeholder compile ````js result & <!--MARKRUN-HTML ... --> to hash
 	    @param {string} content markdown text
@@ -17907,10 +19536,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 177 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var md5 = __webpack_require__(178)
+	var md5 = __webpack_require__(185)
 	/*
 	    First use collect(content) get collectData
 	    Then parser content: content = markrd(content)
@@ -17941,14 +19570,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 178 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function(){
-	  var crypt = __webpack_require__(179),
-	      utf8 = __webpack_require__(180).utf8,
-	      isBuffer = __webpack_require__(181),
-	      bin = __webpack_require__(180).bin,
+	  var crypt = __webpack_require__(186),
+	      utf8 = __webpack_require__(187).utf8,
+	      isBuffer = __webpack_require__(188),
+	      bin = __webpack_require__(187).bin,
 
 	  // The core
 	  md5 = function (message, options) {
@@ -18107,7 +19736,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 179 */
+/* 186 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -18209,7 +19838,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 180 */
+/* 187 */
 /***/ function(module, exports) {
 
 	var charenc = {
@@ -18248,7 +19877,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 181 */
+/* 188 */
 /***/ function(module, exports) {
 
 	/*!
@@ -18275,7 +19904,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 182 */
+/* 189 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -18285,10 +19914,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 183 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var require;var require;!function(e){if(true)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.ejs=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+	var require;var require;(function(f){if(true){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.ejs = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 	/*
 	 * EJS Embedded JavaScript templates
 	 * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -18343,11 +19972,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _VERSION_STRING = require('../package.json').version;
 	var _DEFAULT_DELIMITER = '%';
 	var _DEFAULT_LOCALS_NAME = 'locals';
+	var _NAME = 'ejs';
 	var _REGEX_STRING = '(<%%|%%>|<%=|<%-|<%_|<%#|<%|%>|-%>|_%>)';
-	var _OPTS = [ 'cache', 'filename', 'delimiter', 'scope', 'context',
-	        'debug', 'compileDebug', 'client', '_with', 'root', 'rmWhitespace',
-	        'strict', 'localsName'];
-	var _TRAILING_SEMCOL = /;\s*$/;
+	var _OPTS = ['delimiter', 'scope', 'context', 'debug', 'compileDebug',
+	  'client', '_with', 'rmWhitespace', 'strict', 'filename'];
 	var _BOM = /^\uFEFF/;
 
 	/**
@@ -18363,7 +19991,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Name of the object containing the locals.
 	 *
-	 * This variable is overriden by {@link Options}`.localsName` if it is not
+	 * This variable is overridden by {@link Options}`.localsName` if it is not
 	 * `undefined`.
 	 *
 	 * @type {String}
@@ -18395,7 +20023,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Get the path to the included file by Options
-	 * 
+	 *
 	 * @param  {String}  path    specified path
 	 * @param  {Options} options compilation options
 	 * @return {String}
@@ -18409,7 +20037,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (!options.filename) {
 	      throw new Error('`include` use relative path requires the \'filename\' option.');
 	    }
-	    includePath = exports.resolveInclude(path, options.filename);  
+	    includePath = exports.resolveInclude(path, options.filename);
 	  }
 	  return includePath;
 	}
@@ -18522,10 +20150,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @static
 	 */
 
-	function rethrow(err, str, filename, lineno){
+	function rethrow(err, str, flnm, lineno){
 	  var lines = str.split('\n');
 	  var start = Math.max(lineno - 3, 0);
 	  var end = Math.min(lines.length, lineno + 3);
+	  var filename = utils.escapeXML(flnm);
 	  // Error context
 	  var context = lines.slice(start, end).map(function (line, i){
 	    var curr = i + start + 1;
@@ -18545,24 +20174,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  throw err;
 	}
 
-	/**
-	 * Copy properties in data object that are recognized as options to an
-	 * options object.
-	 *
-	 * This is used for compatibility with earlier versions of EJS and Express.js.
-	 *
-	 * @memberof module:ejs-internal
-	 * @param {Object}  data data object
-	 * @param {Options} opts options object
-	 * @static
-	 */
-
-	function cpOptsInData(data, opts) {
-	  _OPTS.forEach(function (p) {
-	    if (typeof data[p] != 'undefined') {
-	      opts[p] = data[p];
-	    }
-	  });
+	function stripSemi(str) {
+	  return str.replace(/;(\s*$)/, '$1');
 	}
 
 	/**
@@ -18617,7 +20230,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // No options object -- if there are optiony names
 	  // in the data, copy them to options
 	  if (arguments.length == 2) {
-	    cpOptsInData(data, opts);
+	    utils.shallowCopyFromList(opts, data, _OPTS);
 	  }
 
 	  return handleCache(opts, template)(data);
@@ -18642,21 +20255,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var cb = args.pop();
 	  var data = args.shift() || {};
 	  var opts = args.pop() || {};
+	  var optsKeys =_OPTS.slice();
 	  var result;
 
 	  // Don't pollute passed in opts obj with new vals
 	  opts = utils.shallowCopy({}, opts);
+
+	  // We don't allow 'cache' option to be passed in the data obj
+	  // for the normal `render` call, but this is where Expres puts it
+	  // so we make an exception for `renderFile`
+	  optsKeys.push('cache');
 
 	  // No options object -- if there are optiony names
 	  // in the data, copy them to options
 	  if (arguments.length == 3) {
 	    // Express 4
 	    if (data.settings && data.settings['view options']) {
-	      cpOptsInData(data.settings['view options'], opts);
+	      utils.shallowCopyFromList(opts, data.settings['view options'], optsKeys);
 	    }
 	    // Express 3 and lower
 	    else {
-	      cpOptsInData(data, opts);
+	      utils.shallowCopyFromList(opts, data, optsKeys);
 	    }
 	  }
 	  opts.filename = filename;
@@ -18787,7 +20406,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (opts.filename) {
 	          e.message += ' in ' + opts.filename;
 	        }
-	        e.message += ' while compiling ejs';
+	        e.message += ' while compiling ejs\n\n';
+	        e.message += 'If the above error is not helpful, you may want to try EJS-Lint:\n';
+	        e.message += 'https://github.com/RyanZim/EJS-Lint';
 	      }
 	      throw e;
 	    }
@@ -18929,9 +20550,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        self.truncate = false;
 	      }
 	      else if (self.opts.rmWhitespace) {
-	        // Gotta be more careful here.
-	        // .replace(/^(\s*)\n/, '$1') might be more appropriate here but as
-	        // rmWhitespace already removes trailing spaces anyway so meh.
+	        // rmWhitespace has already removed trailing spaces, just need
+	        // to remove linebreaks
 	        line = line.replace(/^\n/, '');
 	      }
 	      if (!line) {
@@ -18954,77 +20574,75 @@ return /******/ (function(modules) { // webpackBootstrap
 	    newLineCount = (line.split('\n').length - 1);
 
 	    switch (line) {
-	      case '<' + d:
-	      case '<' + d + '_':
-	        this.mode = Template.modes.EVAL;
-	        break;
-	      case '<' + d + '=':
-	        this.mode = Template.modes.ESCAPED;
-	        break;
-	      case '<' + d + '-':
-	        this.mode = Template.modes.RAW;
-	        break;
-	      case '<' + d + '#':
-	        this.mode = Template.modes.COMMENT;
-	        break;
-	      case '<' + d + d:
-	        this.mode = Template.modes.LITERAL;
-	        this.source += '    ; __append("' + line.replace('<' + d + d, '<' + d) + '")' + '\n';
-	        break;
-	      case d + d + '>':
-	        this.mode = Template.modes.LITERAL;
-	        this.source += '    ; __append("' + line.replace(d + d + '>', d + '>') + '")' + '\n';
-	        break;
-	      case d + '>':
-	      case '-' + d + '>':
-	      case '_' + d + '>':
-	        if (this.mode == Template.modes.LITERAL) {
-	          _addOutput();
-	        }
+	    case '<' + d:
+	    case '<' + d + '_':
+	      this.mode = Template.modes.EVAL;
+	      break;
+	    case '<' + d + '=':
+	      this.mode = Template.modes.ESCAPED;
+	      break;
+	    case '<' + d + '-':
+	      this.mode = Template.modes.RAW;
+	      break;
+	    case '<' + d + '#':
+	      this.mode = Template.modes.COMMENT;
+	      break;
+	    case '<' + d + d:
+	      this.mode = Template.modes.LITERAL;
+	      this.source += '    ; __append("' + line.replace('<' + d + d, '<' + d) + '")' + '\n';
+	      break;
+	    case d + d + '>':
+	      this.mode = Template.modes.LITERAL;
+	      this.source += '    ; __append("' + line.replace(d + d + '>', d + '>') + '")' + '\n';
+	      break;
+	    case d + '>':
+	    case '-' + d + '>':
+	    case '_' + d + '>':
+	      if (this.mode == Template.modes.LITERAL) {
+	        _addOutput();
+	      }
 
-	        this.mode = null;
-	        this.truncate = line.indexOf('-') === 0 || line.indexOf('_') === 0;
-	        break;
-	      default:
+	      this.mode = null;
+	      this.truncate = line.indexOf('-') === 0 || line.indexOf('_') === 0;
+	      break;
+	    default:
 	        // In script mode, depends on type of tag
-	        if (this.mode) {
+	      if (this.mode) {
 	          // If '//' is found without a line break, add a line break.
-	          switch (this.mode) {
-	            case Template.modes.EVAL:
-	            case Template.modes.ESCAPED:
-	            case Template.modes.RAW:
-	              if (line.lastIndexOf('//') > line.lastIndexOf('\n')) {
-	                line += '\n';
-	              }
+	        switch (this.mode) {
+	        case Template.modes.EVAL:
+	        case Template.modes.ESCAPED:
+	        case Template.modes.RAW:
+	          if (line.lastIndexOf('//') > line.lastIndexOf('\n')) {
+	            line += '\n';
 	          }
-	          switch (this.mode) {
+	        }
+	        switch (this.mode) {
 	            // Just executing code
-	            case Template.modes.EVAL:
-	              this.source += '    ; ' + line + '\n';
-	              break;
+	        case Template.modes.EVAL:
+	          this.source += '    ; ' + line + '\n';
+	          break;
 	            // Exec, esc, and output
-	            case Template.modes.ESCAPED:
-	              this.source += '    ; __append(escape(' +
-	                line.replace(_TRAILING_SEMCOL, '').trim() + '))' + '\n';
-	              break;
+	        case Template.modes.ESCAPED:
+	          this.source += '    ; __append(escape(' + stripSemi(line) + '))' + '\n';
+	          break;
 	            // Exec and output
-	            case Template.modes.RAW:
-	              this.source += '    ; __append(' +
-	                line.replace(_TRAILING_SEMCOL, '').trim() + ')' + '\n';
-	              break;
-	            case Template.modes.COMMENT:
+	        case Template.modes.RAW:
+	          this.source += '    ; __append(' + stripSemi(line) + ')' + '\n';
+	          break;
+	        case Template.modes.COMMENT:
 	              // Do nothing
-	              break;
+	          break;
 	            // Literal <%% mode, append as raw output
-	            case Template.modes.LITERAL:
-	              _addOutput();
-	              break;
-	          }
-	        }
-	        // In string mode, just add the output
-	        else {
+	        case Template.modes.LITERAL:
 	          _addOutput();
+	          break;
 	        }
+	      }
+	        // In string mode, just add the output
+	      else {
+	        _addOutput();
+	      }
 	    }
 
 	    if (self.opts.compileDebug && newLineCount) {
@@ -19065,9 +20683,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  require.extensions['.ejs'] = function (module, flnm) {
 	    var filename = flnm || /* istanbul ignore next */ module.filename;
 	    var options = {
-	          filename: filename,
-	          client: true
-	        };
+	      filename: filename,
+	      client: true
+	    };
 	    var template = fs.readFileSync(filename).toString();
 	    var fn = exports.compile(template, options);
 	    module._compile('module.exports = ' + fn.toString() + ';', filename);
@@ -19083,6 +20701,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	exports.VERSION = _VERSION_STRING;
+
+	/**
+	 * Name for detection of EJS.
+	 *
+	 * @readonly
+	 * @type {String}
+	 * @public
+	 */
+
+	exports.name = _NAME;
 
 	/* istanbul ignore if */
 	if (typeof window != 'undefined') {
@@ -19137,17 +20765,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	var _ENCODE_HTML_RULES = {
-	      '&': '&amp;'
-	    , '<': '&lt;'
-	    , '>': '&gt;'
-	    , '"': '&#34;'
-	    , "'": '&#39;'
-	    }
-	  , _MATCH_HTML = /[&<>\'"]/g;
+	  '&': '&amp;',
+	  '<': '&lt;',
+	  '>': '&gt;',
+	  '"': '&#34;',
+	  "'": '&#39;'
+	};
+	var _MATCH_HTML = /[&<>\'"]/g;
 
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
-	};
+	}
 
 	/**
 	 * Stringified version of constants used by {@link module:utils.escapeXML}.
@@ -19190,11 +20818,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        .replace(_MATCH_HTML, encode_char);
 	};
 	exports.escapeXML.toString = function () {
-	  return Function.prototype.toString.call(this) + ';\n' + escapeFuncStr
+	  return Function.prototype.toString.call(this) + ';\n' + escapeFuncStr;
 	};
 
 	/**
-	 * Copy all properties from one object to another, in a shallow fashion.
+	 * Naive copy of properties from one object to another.
+	 * Does not recurse into non-scalar properties
+	 * Does not check to see if the property has a value before copying
 	 *
 	 * @param  {Object} to   Destination object
 	 * @param  {Object} from Source object
@@ -19207,6 +20837,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (var p in from) {
 	    to[p] = from[p];
 	  }
+	  return to;
+	};
+
+	/**
+	 * Naive copy of a list of key names, from one object to another.
+	 * Only copies property if it is actually defined
+	 * Does not recurse into non-scalar properties
+	 *
+	 * @param  {Object} to   Destination object
+	 * @param  {Object} from Source object
+	 * @param  {Array} list List of properties to copy
+	 * @return {Object}      Destination object
+	 * @static
+	 * @private
+	 */
+	exports.shallowCopyFromList = function (to, from, list) {
+	  list.forEach(function (p) {
+	    if (typeof from[p] != 'undefined') {
+	      to[p] = from[p];
+	    }
+	  });
 	  return to;
 	};
 
@@ -19230,7 +20881,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this._data = {};
 	  }
 	};
-
 
 	},{}],3:[function(require,module,exports){
 
@@ -19464,36 +21114,159 @@ return /******/ (function(modules) { // webpackBootstrap
 	}).call(this,require('_process'))
 	},{"_process":5}],5:[function(require,module,exports){
 	// shim for using process in browser
-
 	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
 	var queue = [];
 	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
 
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
+	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
-	    var currentQueue;
+
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
 	        queue = [];
-	        var i = -1;
-	        while (++i < len) {
-	            currentQueue[i]();
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
 	        }
+	        queueIndex = -1;
 	        len = queue.length;
 	    }
+	    currentQueue = null;
 	    draining = false;
+	    runClearTimeout(timeout);
 	}
+
 	process.nextTick = function (fun) {
-	    queue.push(fun);
-	    if (!draining) {
-	        setTimeout(drainQueue, 0);
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
 	    }
 	};
 
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
 	process.title = 'browser';
 	process.browser = true;
 	process.env = {};
@@ -19515,7 +21288,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    throw new Error('process.binding is not supported');
 	};
 
-	// TODO(shtylman)
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -19531,7 +21303,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    "engine",
 	    "ejs"
 	  ],
-	  "version": "2.5.1",
+	  "version": "2.5.4",
 	  "author": "Matthew Eernisse <mde@fleegix.org> (http://fleegix.org)",
 	  "contributors": [
 	    "Timothy Gu <timothygu99@gmail.com> (https://timothygu.github.io)"
@@ -19548,12 +21320,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  "devDependencies": {
 	    "browserify": "^13.0.1",
 	    "eslint": "^3.0.0",
+	    "git-directory-deploy": "^1.5.1",
 	    "istanbul": "~0.4.3",
 	    "jake": "^8.0.0",
 	    "jsdoc": "^3.4.0",
 	    "lru-cache": "^4.0.1",
 	    "mocha": "^3.0.2",
-	    "rimraf": "^2.2.8",
 	    "uglify-js": "^2.6.2"
 	  },
 	  "engines": {
@@ -19561,9 +21333,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  "scripts": {
 	    "test": "mocha",
+	    "lint": "eslint \"**/*.js\" Jakefile",
 	    "coverage": "istanbul cover node_modules/mocha/bin/_mocha",
-	    "doc": "rimraf out && jsdoc -c jsdoc.json lib/* docs/jsdoc/*",
-	    "devdoc": "rimraf out && jsdoc -p -c jsdoc.json lib/* docs/jsdoc/*"
+	    "doc": "jake doc",
+	    "devdoc": "jake doc[dev]"
 	  }
 	}
 
@@ -19571,14 +21344,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 184 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://regexper.com/
 	var rRunPre = /(<!--([\s\n]*)?(\{[\s\S]*?)-->[\s\S]*?)?^````([^\n]*)([\s\S]*?)````/gm
-	var jsonlint = __webpack_require__(185)
-	var md5 = __webpack_require__(178)
-	var extend = __webpack_require__(186)
+	var json5 = __webpack_require__(192)
+	var md5 = __webpack_require__(185)
+	var extend = __webpack_require__(193)
 
 	module.exports = {
 	    /*
@@ -19604,7 +21377,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var hashKey
 	            codeData = codeData || '{}'
 	            codeData = codeData.trim()
-	            codeData = jsonlint.parse(codeData)
+	            codeData = json5.parse(codeData)
 	            codeData = extend(true, {}, props.codeTemplateDefaultData, codeData)
 	            compileName = compileName.trim().toLocaleLowerCase()
 	            if (compileName.length === 0) {
@@ -19642,13 +21415,783 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 185 */
-/***/ function(module, exports) {
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_185__;
+	// json5.js
+	// Modern JSON. See README.md for details.
+	//
+	// This file is based directly off of Douglas Crockford's json_parse.js:
+	// https://github.com/douglascrockford/JSON-js/blob/master/json_parse.js
+
+	var JSON5 = ( true ? exports : {});
+
+	JSON5.parse = (function () {
+	    "use strict";
+
+	// This is a function that can parse a JSON5 text, producing a JavaScript
+	// data structure. It is a simple, recursive descent parser. It does not use
+	// eval or regular expressions, so it can be used as a model for implementing
+	// a JSON5 parser in other languages.
+
+	// We are defining the function inside of another function to avoid creating
+	// global variables.
+
+	    var at,           // The index of the current character
+	        lineNumber,   // The current line number
+	        columnNumber, // The current column number
+	        ch,           // The current character
+	        escapee = {
+	            "'":  "'",
+	            '"':  '"',
+	            '\\': '\\',
+	            '/':  '/',
+	            '\n': '',       // Replace escaped newlines in strings w/ empty string
+	            b:    '\b',
+	            f:    '\f',
+	            n:    '\n',
+	            r:    '\r',
+	            t:    '\t'
+	        },
+	        ws = [
+	            ' ',
+	            '\t',
+	            '\r',
+	            '\n',
+	            '\v',
+	            '\f',
+	            '\xA0',
+	            '\uFEFF'
+	        ],
+	        text,
+
+	        renderChar = function (chr) {
+	            return chr === '' ? 'EOF' : "'" + chr + "'";
+	        },
+
+	        error = function (m) {
+
+	// Call error when something is wrong.
+
+	            var error = new SyntaxError();
+	            // beginning of message suffix to agree with that provided by Gecko - see https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+	            error.message = m + " at line " + lineNumber + " column " + columnNumber + " of the JSON5 data. Still to read: " + JSON.stringify(text.substring(at - 1, at + 19));
+	            error.at = at;
+	            // These two property names have been chosen to agree with the ones in Gecko, the only popular
+	            // environment which seems to supply this info on JSON.parse
+	            error.lineNumber = lineNumber;
+	            error.columnNumber = columnNumber;
+	            throw error;
+	        },
+
+	        next = function (c) {
+
+	// If a c parameter is provided, verify that it matches the current character.
+
+	            if (c && c !== ch) {
+	                error("Expected " + renderChar(c) + " instead of " + renderChar(ch));
+	            }
+
+	// Get the next character. When there are no more characters,
+	// return the empty string.
+
+	            ch = text.charAt(at);
+	            at++;
+	            columnNumber++;
+	            if (ch === '\n' || ch === '\r' && peek() !== '\n') {
+	                lineNumber++;
+	                columnNumber = 0;
+	            }
+	            return ch;
+	        },
+
+	        peek = function () {
+
+	// Get the next character without consuming it or
+	// assigning it to the ch varaible.
+
+	            return text.charAt(at);
+	        },
+
+	        identifier = function () {
+
+	// Parse an identifier. Normally, reserved words are disallowed here, but we
+	// only use this for unquoted object keys, where reserved words are allowed,
+	// so we don't check for those here. References:
+	// - http://es5.github.com/#x7.6
+	// - https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Core_Language_Features#Variables
+	// - http://docstore.mik.ua/orelly/webprog/jscript/ch02_07.htm
+	// TODO Identifiers can have Unicode "letters" in them; add support for those.
+
+	            var key = ch;
+
+	            // Identifiers must start with a letter, _ or $.
+	            if ((ch !== '_' && ch !== '$') &&
+	                    (ch < 'a' || ch > 'z') &&
+	                    (ch < 'A' || ch > 'Z')) {
+	                error("Bad identifier as unquoted key");
+	            }
+
+	            // Subsequent characters can contain digits.
+	            while (next() && (
+	                    ch === '_' || ch === '$' ||
+	                    (ch >= 'a' && ch <= 'z') ||
+	                    (ch >= 'A' && ch <= 'Z') ||
+	                    (ch >= '0' && ch <= '9'))) {
+	                key += ch;
+	            }
+
+	            return key;
+	        },
+
+	        number = function () {
+
+	// Parse a number value.
+
+	            var number,
+	                sign = '',
+	                string = '',
+	                base = 10;
+
+	            if (ch === '-' || ch === '+') {
+	                sign = ch;
+	                next(ch);
+	            }
+
+	            // support for Infinity (could tweak to allow other words):
+	            if (ch === 'I') {
+	                number = word();
+	                if (typeof number !== 'number' || isNaN(number)) {
+	                    error('Unexpected word for number');
+	                }
+	                return (sign === '-') ? -number : number;
+	            }
+
+	            // support for NaN
+	            if (ch === 'N' ) {
+	              number = word();
+	              if (!isNaN(number)) {
+	                error('expected word to be NaN');
+	              }
+	              // ignore sign as -NaN also is NaN
+	              return number;
+	            }
+
+	            if (ch === '0') {
+	                string += ch;
+	                next();
+	                if (ch === 'x' || ch === 'X') {
+	                    string += ch;
+	                    next();
+	                    base = 16;
+	                } else if (ch >= '0' && ch <= '9') {
+	                    error('Octal literal');
+	                }
+	            }
+
+	            switch (base) {
+	            case 10:
+	                while (ch >= '0' && ch <= '9' ) {
+	                    string += ch;
+	                    next();
+	                }
+	                if (ch === '.') {
+	                    string += '.';
+	                    while (next() && ch >= '0' && ch <= '9') {
+	                        string += ch;
+	                    }
+	                }
+	                if (ch === 'e' || ch === 'E') {
+	                    string += ch;
+	                    next();
+	                    if (ch === '-' || ch === '+') {
+	                        string += ch;
+	                        next();
+	                    }
+	                    while (ch >= '0' && ch <= '9') {
+	                        string += ch;
+	                        next();
+	                    }
+	                }
+	                break;
+	            case 16:
+	                while (ch >= '0' && ch <= '9' || ch >= 'A' && ch <= 'F' || ch >= 'a' && ch <= 'f') {
+	                    string += ch;
+	                    next();
+	                }
+	                break;
+	            }
+
+	            if(sign === '-') {
+	                number = -string;
+	            } else {
+	                number = +string;
+	            }
+
+	            if (!isFinite(number)) {
+	                error("Bad number");
+	            } else {
+	                return number;
+	            }
+	        },
+
+	        string = function () {
+
+	// Parse a string value.
+
+	            var hex,
+	                i,
+	                string = '',
+	                delim,      // double quote or single quote
+	                uffff;
+
+	// When parsing for string values, we must look for ' or " and \ characters.
+
+	            if (ch === '"' || ch === "'") {
+	                delim = ch;
+	                while (next()) {
+	                    if (ch === delim) {
+	                        next();
+	                        return string;
+	                    } else if (ch === '\\') {
+	                        next();
+	                        if (ch === 'u') {
+	                            uffff = 0;
+	                            for (i = 0; i < 4; i += 1) {
+	                                hex = parseInt(next(), 16);
+	                                if (!isFinite(hex)) {
+	                                    break;
+	                                }
+	                                uffff = uffff * 16 + hex;
+	                            }
+	                            string += String.fromCharCode(uffff);
+	                        } else if (ch === '\r') {
+	                            if (peek() === '\n') {
+	                                next();
+	                            }
+	                        } else if (typeof escapee[ch] === 'string') {
+	                            string += escapee[ch];
+	                        } else {
+	                            break;
+	                        }
+	                    } else if (ch === '\n') {
+	                        // unescaped newlines are invalid; see:
+	                        // https://github.com/aseemk/json5/issues/24
+	                        // TODO this feels special-cased; are there other
+	                        // invalid unescaped chars?
+	                        break;
+	                    } else {
+	                        string += ch;
+	                    }
+	                }
+	            }
+	            error("Bad string");
+	        },
+
+	        inlineComment = function () {
+
+	// Skip an inline comment, assuming this is one. The current character should
+	// be the second / character in the // pair that begins this inline comment.
+	// To finish the inline comment, we look for a newline or the end of the text.
+
+	            if (ch !== '/') {
+	                error("Not an inline comment");
+	            }
+
+	            do {
+	                next();
+	                if (ch === '\n' || ch === '\r') {
+	                    next();
+	                    return;
+	                }
+	            } while (ch);
+	        },
+
+	        blockComment = function () {
+
+	// Skip a block comment, assuming this is one. The current character should be
+	// the * character in the /* pair that begins this block comment.
+	// To finish the block comment, we look for an ending */ pair of characters,
+	// but we also watch for the end of text before the comment is terminated.
+
+	            if (ch !== '*') {
+	                error("Not a block comment");
+	            }
+
+	            do {
+	                next();
+	                while (ch === '*') {
+	                    next('*');
+	                    if (ch === '/') {
+	                        next('/');
+	                        return;
+	                    }
+	                }
+	            } while (ch);
+
+	            error("Unterminated block comment");
+	        },
+
+	        comment = function () {
+
+	// Skip a comment, whether inline or block-level, assuming this is one.
+	// Comments always begin with a / character.
+
+	            if (ch !== '/') {
+	                error("Not a comment");
+	            }
+
+	            next('/');
+
+	            if (ch === '/') {
+	                inlineComment();
+	            } else if (ch === '*') {
+	                blockComment();
+	            } else {
+	                error("Unrecognized comment");
+	            }
+	        },
+
+	        white = function () {
+
+	// Skip whitespace and comments.
+	// Note that we're detecting comments by only a single / character.
+	// This works since regular expressions are not valid JSON(5), but this will
+	// break if there are other valid values that begin with a / character!
+
+	            while (ch) {
+	                if (ch === '/') {
+	                    comment();
+	                } else if (ws.indexOf(ch) >= 0) {
+	                    next();
+	                } else {
+	                    return;
+	                }
+	            }
+	        },
+
+	        word = function () {
+
+	// true, false, or null.
+
+	            switch (ch) {
+	            case 't':
+	                next('t');
+	                next('r');
+	                next('u');
+	                next('e');
+	                return true;
+	            case 'f':
+	                next('f');
+	                next('a');
+	                next('l');
+	                next('s');
+	                next('e');
+	                return false;
+	            case 'n':
+	                next('n');
+	                next('u');
+	                next('l');
+	                next('l');
+	                return null;
+	            case 'I':
+	                next('I');
+	                next('n');
+	                next('f');
+	                next('i');
+	                next('n');
+	                next('i');
+	                next('t');
+	                next('y');
+	                return Infinity;
+	            case 'N':
+	              next( 'N' );
+	              next( 'a' );
+	              next( 'N' );
+	              return NaN;
+	            }
+	            error("Unexpected " + renderChar(ch));
+	        },
+
+	        value,  // Place holder for the value function.
+
+	        array = function () {
+
+	// Parse an array value.
+
+	            var array = [];
+
+	            if (ch === '[') {
+	                next('[');
+	                white();
+	                while (ch) {
+	                    if (ch === ']') {
+	                        next(']');
+	                        return array;   // Potentially empty array
+	                    }
+	                    // ES5 allows omitting elements in arrays, e.g. [,] and
+	                    // [,null]. We don't allow this in JSON5.
+	                    if (ch === ',') {
+	                        error("Missing array element");
+	                    } else {
+	                        array.push(value());
+	                    }
+	                    white();
+	                    // If there's no comma after this value, this needs to
+	                    // be the end of the array.
+	                    if (ch !== ',') {
+	                        next(']');
+	                        return array;
+	                    }
+	                    next(',');
+	                    white();
+	                }
+	            }
+	            error("Bad array");
+	        },
+
+	        object = function () {
+
+	// Parse an object value.
+
+	            var key,
+	                object = {};
+
+	            if (ch === '{') {
+	                next('{');
+	                white();
+	                while (ch) {
+	                    if (ch === '}') {
+	                        next('}');
+	                        return object;   // Potentially empty object
+	                    }
+
+	                    // Keys can be unquoted. If they are, they need to be
+	                    // valid JS identifiers.
+	                    if (ch === '"' || ch === "'") {
+	                        key = string();
+	                    } else {
+	                        key = identifier();
+	                    }
+
+	                    white();
+	                    next(':');
+	                    object[key] = value();
+	                    white();
+	                    // If there's no comma after this pair, this needs to be
+	                    // the end of the object.
+	                    if (ch !== ',') {
+	                        next('}');
+	                        return object;
+	                    }
+	                    next(',');
+	                    white();
+	                }
+	            }
+	            error("Bad object");
+	        };
+
+	    value = function () {
+
+	// Parse a JSON value. It could be an object, an array, a string, a number,
+	// or a word.
+
+	        white();
+	        switch (ch) {
+	        case '{':
+	            return object();
+	        case '[':
+	            return array();
+	        case '"':
+	        case "'":
+	            return string();
+	        case '-':
+	        case '+':
+	        case '.':
+	            return number();
+	        default:
+	            return ch >= '0' && ch <= '9' ? number() : word();
+	        }
+	    };
+
+	// Return the json_parse function. It will have access to all of the above
+	// functions and variables.
+
+	    return function (source, reviver) {
+	        var result;
+
+	        text = String(source);
+	        at = 0;
+	        lineNumber = 1;
+	        columnNumber = 1;
+	        ch = ' ';
+	        result = value();
+	        white();
+	        if (ch) {
+	            error("Syntax error");
+	        }
+
+	// If there is a reviver function, we recursively walk the new structure,
+	// passing each name/value pair to the reviver function for possible
+	// transformation, starting with a temporary root object that holds the result
+	// in an empty key. If there is not a reviver function, we simply return the
+	// result.
+
+	        return typeof reviver === 'function' ? (function walk(holder, key) {
+	            var k, v, value = holder[key];
+	            if (value && typeof value === 'object') {
+	                for (k in value) {
+	                    if (Object.prototype.hasOwnProperty.call(value, k)) {
+	                        v = walk(value, k);
+	                        if (v !== undefined) {
+	                            value[k] = v;
+	                        } else {
+	                            delete value[k];
+	                        }
+	                    }
+	                }
+	            }
+	            return reviver.call(holder, key, value);
+	        }({'': result}, '')) : result;
+	    };
+	}());
+
+	// JSON5 stringify will not quote keys where appropriate
+	JSON5.stringify = function (obj, replacer, space) {
+	    if (replacer && (typeof(replacer) !== "function" && !isArray(replacer))) {
+	        throw new Error('Replacer must be a function or an array');
+	    }
+	    var getReplacedValueOrUndefined = function(holder, key, isTopLevel) {
+	        var value = holder[key];
+
+	        // Replace the value with its toJSON value first, if possible
+	        if (value && value.toJSON && typeof value.toJSON === "function") {
+	            value = value.toJSON();
+	        }
+
+	        // If the user-supplied replacer if a function, call it. If it's an array, check objects' string keys for
+	        // presence in the array (removing the key/value pair from the resulting JSON if the key is missing).
+	        if (typeof(replacer) === "function") {
+	            return replacer.call(holder, key, value);
+	        } else if(replacer) {
+	            if (isTopLevel || isArray(holder) || replacer.indexOf(key) >= 0) {
+	                return value;
+	            } else {
+	                return undefined;
+	            }
+	        } else {
+	            return value;
+	        }
+	    };
+
+	    function isWordChar(c) {
+	        return (c >= 'a' && c <= 'z') ||
+	            (c >= 'A' && c <= 'Z') ||
+	            (c >= '0' && c <= '9') ||
+	            c === '_' || c === '$';
+	    }
+
+	    function isWordStart(c) {
+	        return (c >= 'a' && c <= 'z') ||
+	            (c >= 'A' && c <= 'Z') ||
+	            c === '_' || c === '$';
+	    }
+
+	    function isWord(key) {
+	        if (typeof key !== 'string') {
+	            return false;
+	        }
+	        if (!isWordStart(key[0])) {
+	            return false;
+	        }
+	        var i = 1, length = key.length;
+	        while (i < length) {
+	            if (!isWordChar(key[i])) {
+	                return false;
+	            }
+	            i++;
+	        }
+	        return true;
+	    }
+
+	    // export for use in tests
+	    JSON5.isWord = isWord;
+
+	    // polyfills
+	    function isArray(obj) {
+	        if (Array.isArray) {
+	            return Array.isArray(obj);
+	        } else {
+	            return Object.prototype.toString.call(obj) === '[object Array]';
+	        }
+	    }
+
+	    function isDate(obj) {
+	        return Object.prototype.toString.call(obj) === '[object Date]';
+	    }
+
+	    var objStack = [];
+	    function checkForCircular(obj) {
+	        for (var i = 0; i < objStack.length; i++) {
+	            if (objStack[i] === obj) {
+	                throw new TypeError("Converting circular structure to JSON");
+	            }
+	        }
+	    }
+
+	    function makeIndent(str, num, noNewLine) {
+	        if (!str) {
+	            return "";
+	        }
+	        // indentation no more than 10 chars
+	        if (str.length > 10) {
+	            str = str.substring(0, 10);
+	        }
+
+	        var indent = noNewLine ? "" : "\n";
+	        for (var i = 0; i < num; i++) {
+	            indent += str;
+	        }
+
+	        return indent;
+	    }
+
+	    var indentStr;
+	    if (space) {
+	        if (typeof space === "string") {
+	            indentStr = space;
+	        } else if (typeof space === "number" && space >= 0) {
+	            indentStr = makeIndent(" ", space, true);
+	        } else {
+	            // ignore space parameter
+	        }
+	    }
+
+	    // Copied from Crokford's implementation of JSON
+	    // See https://github.com/douglascrockford/JSON-js/blob/e39db4b7e6249f04a195e7dd0840e610cc9e941e/json2.js#L195
+	    // Begin
+	    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+	        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+	        meta = { // table of character substitutions
+	        '\b': '\\b',
+	        '\t': '\\t',
+	        '\n': '\\n',
+	        '\f': '\\f',
+	        '\r': '\\r',
+	        '"' : '\\"',
+	        '\\': '\\\\'
+	    };
+	    function escapeString(string) {
+
+	// If the string contains no control characters, no quote characters, and no
+	// backslash characters, then we can safely slap some quotes around it.
+	// Otherwise we must also replace the offending characters with safe escape
+	// sequences.
+	        escapable.lastIndex = 0;
+	        return escapable.test(string) ? '"' + string.replace(escapable, function (a) {
+	            var c = meta[a];
+	            return typeof c === 'string' ?
+	                c :
+	                '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+	        }) + '"' : '"' + string + '"';
+	    }
+	    // End
+
+	    function internalStringify(holder, key, isTopLevel) {
+	        var buffer, res;
+
+	        // Replace the value, if necessary
+	        var obj_part = getReplacedValueOrUndefined(holder, key, isTopLevel);
+
+	        if (obj_part && !isDate(obj_part)) {
+	            // unbox objects
+	            // don't unbox dates, since will turn it into number
+	            obj_part = obj_part.valueOf();
+	        }
+	        switch(typeof obj_part) {
+	            case "boolean":
+	                return obj_part.toString();
+
+	            case "number":
+	                if (isNaN(obj_part) || !isFinite(obj_part)) {
+	                    return "null";
+	                }
+	                return obj_part.toString();
+
+	            case "string":
+	                return escapeString(obj_part.toString());
+
+	            case "object":
+	                if (obj_part === null) {
+	                    return "null";
+	                } else if (isArray(obj_part)) {
+	                    checkForCircular(obj_part);
+	                    buffer = "[";
+	                    objStack.push(obj_part);
+
+	                    for (var i = 0; i < obj_part.length; i++) {
+	                        res = internalStringify(obj_part, i, false);
+	                        buffer += makeIndent(indentStr, objStack.length);
+	                        if (res === null || typeof res === "undefined") {
+	                            buffer += "null";
+	                        } else {
+	                            buffer += res;
+	                        }
+	                        if (i < obj_part.length-1) {
+	                            buffer += ",";
+	                        } else if (indentStr) {
+	                            buffer += "\n";
+	                        }
+	                    }
+	                    objStack.pop();
+	                    if (obj_part.length) {
+	                        buffer += makeIndent(indentStr, objStack.length, true)
+	                    }
+	                    buffer += "]";
+	                } else {
+	                    checkForCircular(obj_part);
+	                    buffer = "{";
+	                    var nonEmpty = false;
+	                    objStack.push(obj_part);
+	                    for (var prop in obj_part) {
+	                        if (obj_part.hasOwnProperty(prop)) {
+	                            var value = internalStringify(obj_part, prop, false);
+	                            isTopLevel = false;
+	                            if (typeof value !== "undefined" && value !== null) {
+	                                buffer += makeIndent(indentStr, objStack.length);
+	                                nonEmpty = true;
+	                                key = isWord(prop) ? prop : escapeString(prop);
+	                                buffer += key + ":" + (indentStr ? ' ' : '') + value + ",";
+	                            }
+	                        }
+	                    }
+	                    objStack.pop();
+	                    if (nonEmpty) {
+	                        buffer = buffer.substring(0, buffer.length-1) + makeIndent(indentStr, objStack.length) + "}";
+	                    } else {
+	                        buffer = '{}';
+	                    }
+	                }
+	                return buffer;
+	            default:
+	                // functions and undefined should be ignored
+	                return undefined;
+	        }
+	    }
+
+	    // special case...when undefined is used inside of
+	    // a compound object/array, return null.
+	    // but when top-level, return undefined
+	    var topLevelHolder = {"":obj};
+	    if (obj === undefined) {
+	        return getReplacedValueOrUndefined(topLevelHolder, '', true);
+	    }
+	    return internalStringify(topLevelHolder, '', true);
+	};
+
 
 /***/ },
-/* 186 */
+/* 193 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -19740,10 +22283,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 187 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dollarPlaceholder = __webpack_require__(188)
+	var dollarPlaceholder = __webpack_require__(195)
 	/*
 	    reduction('<h2>1234</h2> b169e31e346edcb513375e55d5bfbe59', {
 	        'b169e31e346edcb513375e55d5bfbe59': '<div>11</div>'
@@ -19773,7 +22316,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 188 */
+/* 195 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -19793,14 +22336,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 189 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ejs = __webpack_require__(183)
-	var jsonlint = __webpack_require__(185)
-	var ejsCompileConf = __webpack_require__(182)
-	var rMarkrunData = /<!--[\S\s]*?MARKRUN-DATA[\S\s]*?(\{[\S\s]*?\})[\S\s]*?-->/gm
-	var extend = __webpack_require__(186)
+	var ejs = __webpack_require__(190)
+	var json5 = __webpack_require__(192)
+	var ejsCompileConf = __webpack_require__(189)
+	var rMarkrunData = /<!--[\S\s]*?(MARKRUN-DATA|MR-D)[\S\s]*?(\{[\S\s]*?\})[\S\s]*?-->/gm
+	var extend = __webpack_require__(193)
 	module.exports = function (content, props) {
 	    // markrun_lastrun
 	    var $
@@ -19816,8 +22359,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    content = content + lastrunScriptTag.join('')
 
 	    // renderTemplate
-	    content.replace(rMarkrunData, function (pre, data) {
-	        templateData = jsonlint.parse(data)
+	    content.replace(rMarkrunData, function (pre, $1, data) {
+	        templateData = json5.parse(data)
 	    })
 	    content.replace(/<h1.*?>([\s\S]*?)<\/h1>/m, function (pre, innerHTML) {
 	        HTMLtitle = innerHTML.replace(/(<.*>|<\/.*>)/gm, '')
@@ -19833,13 +22376,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 190 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var jsonlint = __webpack_require__(185)
+	var json5 = __webpack_require__(192)
 	module.exports = function (content, props, info) {
 	    content = content.replace(/<!--\s*(MARKRUN-REPLACE|MARKRUN_REPLACE|MR(-R)?)([\s\S]*?)-->/g, function (source, mr,$2, json) {
-	        var data = jsonlint.parse(json)
+	        var data = json5.parse(json)
 	        var replace = props.replace[data.type]
 	        if (typeof replace === 'undefined') {
 	            throw new Error('Not match replace type: ' + data.type)
@@ -19851,12 +22394,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 191 */
+/* 198 */
 /***/ function(module, exports) {
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.9.0",
+		"version": "0.10.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
@@ -19882,10 +22425,12 @@ return /******/ (function(modules) { // webpackBootstrap
 		"dependencies": {
 			"ejs": "^2.5.2",
 			"extend": "^3.0.0",
-			"jsonlint": "^1.6.2",
+			"highlight.js": "^9.9.0",
+			"json5": "^0.5.1",
 			"lodash": "^4.17.2",
 			"marked": "^0.3.6",
-			"md5": "^2.1.0"
+			"md5": "^2.1.0",
+			"path": "^0.12.7"
 		},
 		"devDependencies": {
 			"deasync": "^0.1.8",
@@ -19903,7 +22448,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 192 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -19920,7 +22465,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var undefined;
 
 	  /** Used as the semantic version number. */
-	  var VERSION = '4.17.2';
+	  var VERSION = '4.17.3';
 
 	  /** Used as the size to enable large array optimizations. */
 	  var LARGE_ARRAY_SIZE = 200;
@@ -21475,9 +24020,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Shortcut fusion is an optimization to merge iteratee calls; this avoids
 	     * the creation of intermediate arrays and can greatly reduce the number of
 	     * iteratee executions. Sections of a chain sequence qualify for shortcut
-	     * fusion if the section is applied to an array of at least `200` elements
-	     * and any iteratees accept only one argument. The heuristic for whether a
-	     * section qualifies for shortcut fusion is subject to change.
+	     * fusion if the section is applied to an array and iteratees accept only
+	     * one argument. The heuristic for whether a section qualifies for shortcut
+	     * fusion is subject to change.
 	     *
 	     * Chaining is supported in custom builds as long as the `_#value` method is
 	     * directly or indirectly included in the build.
@@ -21636,8 +24181,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    /**
 	     * By default, the template delimiters used by lodash are like those in
-	     * embedded Ruby (ERB). Change the following template settings to use
-	     * alternative delimiters.
+	     * embedded Ruby (ERB) as well as ES2015 template strings. Change the
+	     * following template settings to use alternative delimiters.
 	     *
 	     * @static
 	     * @memberOf _
@@ -21784,8 +24329,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          resIndex = 0,
 	          takeCount = nativeMin(length, this.__takeCount__);
 
-	      if (!isArr || arrLength < LARGE_ARRAY_SIZE ||
-	          (arrLength == length && takeCount == length)) {
+	      if (!isArr || (!isRight && arrLength == length && takeCount == length)) {
 	        return baseWrapperValue(array, this.__actions__);
 	      }
 	      var result = [];
@@ -21899,7 +24443,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    function hashHas(key) {
 	      var data = this.__data__;
-	      return nativeCreate ? data[key] !== undefined : hasOwnProperty.call(data, key);
+	      return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);
 	    }
 
 	    /**
@@ -22370,24 +24914,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    function arrayShuffle(array) {
 	      return shuffleSelf(copyArray(array));
-	    }
-
-	    /**
-	     * Used by `_.defaults` to customize its `_.assignIn` use.
-	     *
-	     * @private
-	     * @param {*} objValue The destination value.
-	     * @param {*} srcValue The source value.
-	     * @param {string} key The key of the property to assign.
-	     * @param {Object} object The parent object of `objValue`.
-	     * @returns {*} Returns the value to assign.
-	     */
-	    function assignInDefaults(objValue, srcValue, key, object) {
-	      if (objValue === undefined ||
-	          (eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key))) {
-	        return srcValue;
-	      }
-	      return objValue;
 	    }
 
 	    /**
@@ -23002,8 +25528,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (value == null) {
 	        return value === undefined ? undefinedTag : nullTag;
 	      }
-	      value = Object(value);
-	      return (symToStringTag && symToStringTag in value)
+	      return (symToStringTag && symToStringTag in Object(value))
 	        ? getRawTag(value)
 	        : objectToString(value);
 	    }
@@ -23207,7 +25732,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (value === other) {
 	        return true;
 	      }
-	      if (value == null || other == null || (!isObject(value) && !isObjectLike(other))) {
+	      if (value == null || other == null || (!isObjectLike(value) && !isObjectLike(other))) {
 	        return value !== value && other !== other;
 	      }
 	      return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual, stack);
@@ -23230,17 +25755,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
 	      var objIsArr = isArray(object),
 	          othIsArr = isArray(other),
-	          objTag = arrayTag,
-	          othTag = arrayTag;
+	          objTag = objIsArr ? arrayTag : getTag(object),
+	          othTag = othIsArr ? arrayTag : getTag(other);
 
-	      if (!objIsArr) {
-	        objTag = getTag(object);
-	        objTag = objTag == argsTag ? objectTag : objTag;
-	      }
-	      if (!othIsArr) {
-	        othTag = getTag(other);
-	        othTag = othTag == argsTag ? objectTag : othTag;
-	      }
+	      objTag = objTag == argsTag ? objectTag : objTag;
+	      othTag = othTag == argsTag ? objectTag : othTag;
+
 	      var objIsObj = objTag == objectTag,
 	          othIsObj = othTag == objectTag,
 	          isSameTag = objTag == othTag;
@@ -23688,7 +26208,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @returns {Object} Returns the new object.
 	     */
 	    function basePick(object, paths) {
-	      object = Object(object);
 	      return basePickBy(object, paths, function(value, path) {
 	        return hasIn(object, path);
 	      });
@@ -25081,8 +27600,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          var args = arguments,
 	              value = args[0];
 
-	          if (wrapper && args.length == 1 &&
-	              isArray(value) && value.length >= LARGE_ARRAY_SIZE) {
+	          if (wrapper && args.length == 1 && isArray(value)) {
 	            return wrapper.plant(value).value();
 	          }
 	          var index = 0,
@@ -25389,7 +27907,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var func = Math[methodName];
 	      return function(number, precision) {
 	        number = toNumber(number);
-	        precision = nativeMin(toInteger(precision), 292);
+	        precision = precision == null ? 0 : nativeMin(toInteger(precision), 292);
 	        if (precision) {
 	          // Shift with exponential notation to avoid floating-point issues.
 	          // See [MDN](https://mdn.io/round#Examples) for more details.
@@ -25494,7 +28012,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      thisArg = newData[2];
 	      partials = newData[3];
 	      holders = newData[4];
-	      arity = newData[9] = newData[9] == null
+	      arity = newData[9] = newData[9] === undefined
 	        ? (isBindKey ? 0 : func.length)
 	        : nativeMax(newData[9] - length, 0);
 
@@ -25512,6 +28030,63 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      var setter = data ? baseSetData : setData;
 	      return setWrapToString(setter(result, newData), func, bitmask);
+	    }
+
+	    /**
+	     * Used by `_.defaults` to customize its `_.assignIn` use to assign properties
+	     * of source objects to the destination object for all destination properties
+	     * that resolve to `undefined`.
+	     *
+	     * @private
+	     * @param {*} objValue The destination value.
+	     * @param {*} srcValue The source value.
+	     * @param {string} key The key of the property to assign.
+	     * @param {Object} object The parent object of `objValue`.
+	     * @returns {*} Returns the value to assign.
+	     */
+	    function customDefaultsAssignIn(objValue, srcValue, key, object) {
+	      if (objValue === undefined ||
+	          (eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key))) {
+	        return srcValue;
+	      }
+	      return objValue;
+	    }
+
+	    /**
+	     * Used by `_.defaultsDeep` to customize its `_.merge` use to merge source
+	     * objects into destination objects that are passed thru.
+	     *
+	     * @private
+	     * @param {*} objValue The destination value.
+	     * @param {*} srcValue The source value.
+	     * @param {string} key The key of the property to merge.
+	     * @param {Object} object The parent object of `objValue`.
+	     * @param {Object} source The parent object of `srcValue`.
+	     * @param {Object} [stack] Tracks traversed source values and their merged
+	     *  counterparts.
+	     * @returns {*} Returns the value to assign.
+	     */
+	    function customDefaultsMerge(objValue, srcValue, key, object, source, stack) {
+	      if (isObject(objValue) && isObject(srcValue)) {
+	        // Recursively merge objects and arrays (susceptible to call stack limits).
+	        stack.set(srcValue, objValue);
+	        baseMerge(objValue, srcValue, undefined, customDefaultsMerge, stack);
+	        stack['delete'](srcValue);
+	      }
+	      return objValue;
+	    }
+
+	    /**
+	     * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
+	     * objects.
+	     *
+	     * @private
+	     * @param {*} value The value to inspect.
+	     * @param {string} key The key of the property to inspect.
+	     * @returns {*} Returns the uncloned value or `undefined` to defer cloning to `_.cloneDeep`.
+	     */
+	    function customOmitClone(value, key) {
+	      return (key !== undefined && isPlainObject(value)) ? undefined : value;
 	    }
 
 	    /**
@@ -25685,9 +28260,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
 	      var isPartial = bitmask & COMPARE_PARTIAL_FLAG,
-	          objProps = keys(object),
+	          objProps = getAllKeys(object),
 	          objLength = objProps.length,
-	          othProps = keys(other),
+	          othProps = getAllKeys(other),
 	          othLength = othProps.length;
 
 	      if (objLength != othLength && !isPartial) {
@@ -25925,7 +28500,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param {Object} object The object to query.
 	     * @returns {Array} Returns the array of symbols.
 	     */
-	    var getSymbols = nativeGetSymbols ? overArg(nativeGetSymbols, Object) : stubArray;
+	    var getSymbols = !nativeGetSymbols ? stubArray : function(object) {
+	      if (object == null) {
+	        return [];
+	      }
+	      object = Object(object);
+	      return arrayFilter(nativeGetSymbols(object), function(symbol) {
+	        return propertyIsEnumerable.call(object, symbol);
+	      });
+	    };
 
 	    /**
 	     * Creates an array of the own and inherited enumerable symbols of `object`.
@@ -26409,29 +28992,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      data[1] = newBitmask;
 
 	      return data;
-	    }
-
-	    /**
-	     * Used by `_.defaultsDeep` to customize its `_.merge` use.
-	     *
-	     * @private
-	     * @param {*} objValue The destination value.
-	     * @param {*} srcValue The source value.
-	     * @param {string} key The key of the property to merge.
-	     * @param {Object} object The parent object of `objValue`.
-	     * @param {Object} source The parent object of `srcValue`.
-	     * @param {Object} [stack] Tracks traversed source values and their merged
-	     *  counterparts.
-	     * @returns {*} Returns the value to assign.
-	     */
-	    function mergeDefaults(objValue, srcValue, key, object, source, stack) {
-	      if (isObject(objValue) && isObject(srcValue)) {
-	        // Recursively merge objects and arrays (susceptible to call stack limits).
-	        stack.set(srcValue, objValue);
-	        baseMerge(objValue, srcValue, undefined, mergeDefaults, stack);
-	        stack['delete'](srcValue);
-	      }
-	      return objValue;
 	    }
 
 	    /**
@@ -28176,7 +30736,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * var users = [
 	     *   { 'user': 'barney',  'active': false },
-	     *   { 'user': 'fred',    'active': false},
+	     *   { 'user': 'fred',    'active': false },
 	     *   { 'user': 'pebbles', 'active': true }
 	     * ];
 	     *
@@ -30745,7 +33305,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (typeof func != 'function') {
 	        throw new TypeError(FUNC_ERROR_TEXT);
 	      }
-	      start = start === undefined ? 0 : nativeMax(toInteger(start), 0);
+	      start = start == null ? 0 : nativeMax(toInteger(start), 0);
 	      return baseRest(function(args) {
 	        var array = args[start],
 	            otherArgs = castSlice(args, 0, start);
@@ -31415,7 +33975,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * date objects, error objects, maps, numbers, `Object` objects, regexes,
 	     * sets, strings, symbols, and typed arrays. `Object` objects are compared
 	     * by their own, not inherited, enumerable properties. Functions and DOM
-	     * nodes are **not** supported.
+	     * nodes are compared by strict equality, i.e. `===`.
 	     *
 	     * @static
 	     * @memberOf _
@@ -32435,7 +34995,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * // => 3
 	     */
 	    function toSafeInteger(value) {
-	      return baseClamp(toInteger(value), -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER);
+	      return value
+	        ? baseClamp(toInteger(value), -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER)
+	        : (value === 0 ? value : 0);
 	    }
 
 	    /**
@@ -32689,7 +35251,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * // => { 'a': 1, 'b': 2 }
 	     */
 	    var defaults = baseRest(function(args) {
-	      args.push(undefined, assignInDefaults);
+	      args.push(undefined, customDefaultsAssignIn);
 	      return apply(assignInWith, undefined, args);
 	    });
 
@@ -32713,7 +35275,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * // => { 'a': { 'b': 2, 'c': 3 } }
 	     */
 	    var defaultsDeep = baseRest(function(args) {
-	      args.push(undefined, mergeDefaults);
+	      args.push(undefined, customDefaultsMerge);
 	      return apply(mergeWith, undefined, args);
 	    });
 
@@ -33375,7 +35937,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	      copyObject(object, getAllKeysIn(object), result);
 	      if (isDeep) {
-	        result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG);
+	        result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);
 	      }
 	      var length = paths.length;
 	      while (length--) {
@@ -34524,7 +37086,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    function startsWith(string, target, position) {
 	      string = toString(string);
-	      position = baseClamp(toInteger(position), 0, string.length);
+	      position = position == null
+	        ? 0
+	        : baseClamp(toInteger(position), 0, string.length);
+
 	      target = baseToString(target);
 	      return string.slice(position, position + target.length) == target;
 	    }
@@ -34643,9 +37208,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        options = undefined;
 	      }
 	      string = toString(string);
-	      options = assignInWith({}, options, settings, assignInDefaults);
+	      options = assignInWith({}, options, settings, customDefaultsAssignIn);
 
-	      var imports = assignInWith({}, options.imports, settings.imports, assignInDefaults),
+	      var imports = assignInWith({}, options.imports, settings.imports, customDefaultsAssignIn),
 	          importsKeys = keys(imports),
 	          importsValues = baseValues(imports, importsKeys);
 
@@ -36729,14 +39294,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // Add `LazyWrapper` methods for `_.drop` and `_.take` variants.
 	    arrayEach(['drop', 'take'], function(methodName, index) {
 	      LazyWrapper.prototype[methodName] = function(n) {
-	        var filtered = this.__filtered__;
-	        if (filtered && !index) {
-	          return new LazyWrapper(this);
-	        }
 	        n = n === undefined ? 1 : nativeMax(toInteger(n), 0);
 
-	        var result = this.clone();
-	        if (filtered) {
+	        var result = (this.__filtered__ && !index)
+	          ? new LazyWrapper(this)
+	          : this.clone();
+
+	        if (result.__filtered__) {
 	          result.__takeCount__ = nativeMin(n, result.__takeCount__);
 	        } else {
 	          result.__views__.push({
@@ -36972,10 +39536,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(193)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(200)(module)))
 
 /***/ },
-/* 193 */
+/* 200 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
