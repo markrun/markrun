@@ -1,10 +1,11 @@
+var path = require('path')
 module.exports = {
     entry: {
         'markrun': './index.js'
     },
     resolve: {
         alias: {
-            'highlight.js': 'highlight.js/lib/highlight.js'
+            'highlight.js': __dirname + '/lib/browser-hljs'
         }
     },
     externals: {

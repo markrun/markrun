@@ -4,12 +4,12 @@ var expect = require('expect.js')
 describe('template.js', function() {
     describe('# function', function() {
         it('should return templateData', function() {
-            // var html = markrun("<!--MR-D{nimo:'24'}-->any", {
-            //     template: function (templateData) {
-            //         return '<%- content %>'
-            //         return JSON.stringify(templateData) = '<%- content %>'
-            //     }
-            // })
+            var html = markrun("<!--MR-D{nimo:'24'}-->any", {
+                template: function (templateData) {
+                    return JSON.stringify(templateData)
+                }
+            })
+            expect(html).to.eql('{"title":"","theme":"","keywords":"","description":"","nimo":"24","content":"<p><!--MR-D{nimo:\'24\'}-->any</p>"}')
         })
     })
 })

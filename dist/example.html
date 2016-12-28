@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>markrun</title>
+</head>
+<body>
+
+<script src="./markrun.min.js"></script>
+<script>
+var md = markrun.string(function () {/*!
+<!--
+{
+    html: '<div id="demo"></div>'
+}
+-->
+````js
+console.log("markrun")
+document.getElementById('demo').innerHTML = new Date().getTime()
+````
+*/})
+document.write(markrun(md))
+</script>
+</body>
+</html>
