@@ -111,14 +111,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	var defaultProps = {
 	    replace: {
 	        pre: function (data, props, info) {
+	            if (typeof data.run === 'undefined') {
+	                data.run = true
+	            }
 	            var path = __webpack_require__(13)
 	            var fs = __webpack_require__(18)
 	            var fullpath = path.join(path.dirname(info.filepath), data.file)
 	            var code = fs.readFileSync(fullpath, 'utf-8').toString()
 	            info.deps = info.deps || []
 	            info.deps.push(fullpath)
-	            code = '<pre class="markrun-source-pre" >' + props.highlight(code) + '</pre>' +
-	            '<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
+	            code = '<pre class="markrun-source-pre" >' + props.highlight(code) + '</pre>'
+	            if (data.run) {
+	                code = code +'<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
+	            }
 	            return code
 	        }
 	    },
@@ -7547,7 +7552,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.11.0",
+		"version": "0.12.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {

@@ -30,6 +30,7 @@
 <!-- MR-R
 {
     "file": "./props.js",
-    "type": "pre"
+    "type": "pre",
+    run: false
 }
 -->
