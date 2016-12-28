@@ -13,6 +13,8 @@ npm i markrun -D
 ```
 > engines node >= 0.11.0
 
+**[Online demo](http://markrun.github.io/markrun/)**
+
 ```html
 <script src="https://unpkg.com/markrun/dist/markrun.min.js"></script>
 <script>

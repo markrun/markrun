@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>markrun</title>
+    <style>
+.box:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.box {
+    position: relative;
+    padding-right: 50%;
+}
+.textarea {
+    position: absolute;
+    right:0;top:0;
+    width:48%;
+    min-height: 300px;
+    color: white;
+    background: #282c34;
+    display: block;
+    padding: 1em;
+    overflow: auto;
+    border-radius: .2em;
+    border: 0;
+}
+.preview {
+    display: block;
+    float: right;
+    width:48%;
+}
+.error {
+    color:red;
+}
+    </style>
+</head>
+<body>
+<pre id="error" class="error"></pre>
+<div class="box">
+    <div id="preview" ></div>
+    <textarea id="markdown" class="textarea">
+# markrun
+
+[https://github.com/markrun/markrun](https://github.com/markrun/markrun)
+
+````html
+time: <div class="demo" id="demo" ></div>
+````
+
+````js
+document.getElementById('demo').innerHTML = new Date().getTime()
+````
+
+````css
+.demo {
+    color:blue;
+}
+````
+<!--MARKRUN-HTML
+<em>markrun/markrun</em>
+-->
+    </textarea>
+</div>
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js" ></script>
+<!--
+<script src="https://unpkg.com/markrun/dist/markrun.min.js"></script>
+-->
+<script src="../dist/markrun.min.js"></script>
+<script>
+$(function () {
+    var $preview = $('#preview')
+    var $markdown = $('#markdown')
+    var $error = $('#error')
+    $markdown.on('input change', function () {
+        var errorMsg = ''
+        try {
+            var html = markrun(this.value)
+        }
+        catch(e) {
+            errorMsg = e.message
+            console.log(e)
+        }
+        $error.html(errorMsg)
+        $preview.html(html)
+    }).trigger('input')
+})
+</script>
+</body>
+</html>
