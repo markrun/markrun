@@ -3,7 +3,7 @@
 `markrun` support completely customize the renderings.
 
     <!-- {
-        "author": "nimo"
+        author: 'nimo'
     } -->
     ````js
     console.log('markrun')

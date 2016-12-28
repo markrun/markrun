@@ -4,7 +4,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'highlight.js': __dirname + '/lib/web-lang-hljs.js'
+            'highlight.js': 'highlight.js/lib/highlight.js'
         }
     },
     externals: {

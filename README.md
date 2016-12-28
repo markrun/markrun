@@ -59,6 +59,8 @@ markrun.string([
 
 ### props.template
 
+`template: 'string'` `template: function(templateData) {return 'string'}`
+
 
     var template = markrun.string(function () {/*!
 
@@ -74,7 +76,7 @@ markrun.string([
     <%= } %>
     </head>
     <body>
-    <%= content %>
+    <%- content %>
     </body>
     </html>
 
@@ -87,7 +89,7 @@ markrun.string([
     <!--
     MARKRUN-DATA
     {
-        "theme": "bs"
+        theme: 'bs'
     }
     -->
 
@@ -114,7 +116,7 @@ markrun(content, {
 <!--
 MR-D
 {
-    "theme": "bs"
+    theme: 'bs'
 }
 -->
 
@@ -236,7 +238,7 @@ if `marked` is `false`, Use [./lib/marked.js](./lib/marked.js).
     <div id="demoA">demoA</div>
 
     <!-- {
-        "markrun_lastrun": false
+        markrun_lastrun: false
     } -->
     ````js
     document.getElementById('demoB').innerHTML = 'change demoB text'
@@ -315,8 +317,8 @@ npm run test
 [props.js](./props.js)
 <!-- MARKRUN-REPLACE
 {
-    "file": "./props.js",
-    "type": "pre"
+    file: './props.js',
+    type: 'pre'
 }
 -->
 ```

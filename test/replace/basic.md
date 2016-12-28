@@ -27,7 +27,7 @@
 -->
 
 [props.js](./props.js)
-<!-- MR
+<!-- MR-R
 {
     "file": "./props.js",
     "type": "pre"
