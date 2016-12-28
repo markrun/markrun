@@ -65,11 +65,16 @@ document.getElementById('demo').innerHTML = new Date().getTime()
 -->
     </textarea>
 </div>
-<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js" ></script>
-<!--
-<script src="https://unpkg.com/markrun/dist/markrun.min.js"></script>
--->
-<script src="../dist/markrun.min.js"></script>
+<script src="https://unpkg.com/jquery@1.12.0/dist/jquery.min.js" ></script>
+<script>
+if (/markrun\.github\.io/.test(location.href)) {
+    src = 'https://unpkg.com/markrun/dist/markrun.min.js'
+}
+else {
+    src = '../dist/markrun.min.js'
+}
+document.write('<scri' + 'pt src=' + src + ' ></scr' + 'ipt>')
+</script>
 <script>
 $(function () {
     var $preview = $('#preview')
