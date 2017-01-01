@@ -3336,9 +3336,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var highlight = __webpack_require__(4)
 	var renderer = new marked.Renderer()
 	renderer.heading = function (text, level) {
-	    var escapedText = text.toLowerCase().replace(/\./g,'').replace(/[^\w]+/g, '-')
-	    return '<h' + level + '>'+
-	                '<a name="' + escapedText +'" class="markrun-anchor" href="#' + escapedText +'">' +
+	    return '<h' + level + ' id="' + text + '" >'+
+	                '<a class="markrun-anchor" href="#' + text +'">' +
 	                    '<span class="markrun-anchor-link"></span>' +
 	                '</a>' +
 	                text +
@@ -7552,7 +7551,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.12.0",
+		"version": "0.13.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
