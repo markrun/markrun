@@ -372,3 +372,12 @@ npm run test
 }
 -->
 ```
+
+## setOptions
+
+```js
+markrun.setOptions({
+    template: ''
+})
+markrun(md)
+```
