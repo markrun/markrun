@@ -61,8 +61,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var defaultProps = __webpack_require__(2)
-
+	var defaultOptions = __webpack_require__(2)
 	var placeholder = __webpack_require__(21)
 	var reduction = __webpack_require__(32)
 	var template = __webpack_require__(34)
@@ -72,8 +71,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *  Please read README.md
 	 */
 	var markrun = function (content, props, info) {
+	    props = props || {}
 	    info = info || {}
-	    props = extend(true, {}, defaultProps, props)
+	    props = extend(true, {}, defaultOptions, props)
 	    // 1 placeholder
 	    var collectData = placeholder(content, props, info)
 	    content = collectData.content.trim()
@@ -91,9 +91,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    return content
 	}
+	markrun.setOptions = __webpack_require__(36)
 	markrun.string = __webpack_require__(3)
-	markrun.package = __webpack_require__(36)
-	markrun._ = __webpack_require__(37)
+	markrun.package = __webpack_require__(37)
+	markrun._ = __webpack_require__(38)
 	markrun.hljs = __webpack_require__(4)
 	module.exports = markrun
 
@@ -108,9 +109,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	var highlight = __webpack_require__(4)
 	// If this file is modified, it is necessary to consider version 1.y.z => 2.y.z
-	var defaultProps = {
+	var defaultOptions = {
 	    replace: {
-	        pre: function (data, props, info) {
+	        pre: function (data, options, info) {
 	            if (typeof data.run === 'undefined') {
 	                data.run = true
 	            }
@@ -120,7 +121,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var code = fs.readFileSync(fullpath, 'utf-8').toString()
 	            info.deps = info.deps || []
 	            info.deps.push(fullpath)
-	            code = '<pre class="markrun-source-pre" >' + props.highlight(code) + '</pre>'
+	            code = '<pre class="markrun-source-pre" data-lang="js" >' + options.highlight(code) + '</pre>'
 	            if (data.run) {
 	                code = code +'<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
 	            }
@@ -147,7 +148,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	    },
-	    highlight: function (source, data) {
+	    highlight: function (source, lang, data) {
 	        return highlight.highlightAuto(source).value
 	    },
 	    markdownParser: __webpack_require__(19),
@@ -204,13 +205,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	'    <% } %>',
 	'    </div>',
 	'    <div class="markrun-source">',
-	'        <pre class="markrun-source-pre"><%- __source %></pre>',
+	'        <pre class="markrun-source-pre" data-lang="<%- __lang %>" ><%- __source %></pre>',
 	'    </div>',
 	'</div>'
 	    ])
 	}
 
-	module.exports = defaultProps
+	module.exports = defaultOptions
 
 
 /***/ },
@@ -4653,7 +4654,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var markrunHTML = __webpack_require__(22)
 	var ejsCompileConf = __webpack_require__(27)
-	var defaultProps = __webpack_require__(2)
 	var ejs = __webpack_require__(28)
 	var compile = __webpack_require__(29)
 	var extend = __webpack_require__(31)
@@ -6543,7 +6543,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            codeTemplateRenderData = extend(true,{
 	                __code: compileOutput.code,
 	                __lang: compileOutput.lang,
-	                __source: props.highlight(compileOutput.source || source, codeData)
+	                __source: props.highlight(compileOutput.source || source, compileOutput.lang, codeData)
 	            }, codeData)
 	            codeTemplateRenderData = props.codeTemplateTransformData(extend(true,{}, codeTemplateRenderData))
 	            compileHTML = render.code(codeTemplateRenderData)
@@ -7547,15 +7547,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var extend = __webpack_require__(31)
+	var defaultOptions = __webpack_require__(2)
+	var setOptions = function (options) {
+	    defaultOptions = extend(true, defaultOptions, options)
+	}
+	module.exports = setOptions
+
+
+/***/ },
+/* 37 */
 /***/ function(module, exports) {
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.13.0",
+		"version": "0.14.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
-			"test": "./node_modules/mocha/bin/mocha --timeout 60000",
+			"test": "./node_modules/mocha/bin/mocha --timeout 60000 &&./node_modules/mocha/bin/mocha test/setOptions.es --timeout 60000",
 			"build": "webpack && ./node_modules/uglify-js/bin/uglifyjs ./dist/markrun.js -o ./dist/markrun.min.js"
 		},
 		"repository": {
@@ -7593,14 +7605,11 @@ return /******/ (function(modules) { // webpackBootstrap
 			"proxy-fs": "0.0.10",
 			"uglify-js": "^2.7.5",
 			"webpack": "^1.13.2"
-		},
-		"engines": {
-			"node": ">=0.11.0"
 		}
 	};
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -24688,10 +24697,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(38)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(39)(module)))
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
