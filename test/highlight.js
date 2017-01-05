@@ -28,7 +28,7 @@ describe('highlight.js', function() {
                         html: '',
                         hljs: true
                     },
-                    highlight: function (source, data) {
+                    highlight: function (source, lang, data) {
                         if (data.hljs) {
                             return highlight.highlightAuto(source).value
                         }

@@ -289,7 +289,7 @@ This text is display
 ```js
 var highlight = require('highlight.js')
 makrun(content, {
-    highlight: function (source) {
+    highlight: function (source, lang, data) {
         return highlight.highlightAuto(source).value
     }
 })
