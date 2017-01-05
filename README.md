@@ -11,7 +11,6 @@
 ```shell
 npm i markrun -D
 ```
-> engines node >= 0.11.0
 
 **[Online demo](http://markrun.github.io/markrun/)**
 
