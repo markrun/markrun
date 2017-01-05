@@ -25,7 +25,7 @@ console.log(
 
 ## 📄 Usage
 
-`markrun(md [,props][,info])`
+`markrun(md [,options][,info])`
 
 ```js
 var markrun = require('markrun')
@@ -36,7 +36,7 @@ var path = require('path')
 fs.writeFileSync(path.join(__dirname, 'demo.html'), html)
 ```
 
-> [defaultProps](./lib/defaultProps.js)
+> [defaultoptions](./lib/defaultoptions.js)
 
 ## markrun.string
 
@@ -56,9 +56,9 @@ markrun.string([
 ])
 ```
 
-## props
+## options
 
-### props.template
+### options.template
 
 `template: 'string'` `template: function(templateData) {return 'string'}`
 
@@ -126,7 +126,7 @@ console.log('markrun')
 ```
 ```
 
-### props.compile
+### options.compile
 
 ```shell
 npm i babel babel-preset-es2015 babel-preset-react -D
@@ -217,7 +217,7 @@ catch(err){
 console.log('done');
 ```
 
-## props.markdownParser
+## options.markdownParser
 
 | attr | default | example | desc |
 |-----|----------|---------|------|
@@ -283,7 +283,7 @@ This text is display
 -->
 ```
 
-## props.highlight
+## options.highlight
 
 ```js
 var highlight = require('highlight.js')
@@ -302,35 +302,33 @@ npm run test
 # or mocha -w
 ```
 
-## props.replace
+## options.replace
 
 ### default type: "pre"
 
-**props.js**
+**options.js**
 ```js
 {
-    "name": "some props",
+    "name": "some options",
     "age": 23
 }
 ```
 **write**
 ```markdown
-[props.js](./props.js)
+[options.js](./options.js)
 <!-- MARKRUN-REPLACE
 {
-    file: './props.js',
+    file: './options.js',
     type: 'pre'
 }
 -->
 ```
-**build**
-![image](https://cloud.githubusercontent.com/assets/3949015/20963675/5a16e22c-bca9-11e6-8dd0-bd94d1f9bf9b.png)
 
-**default props**
+**default options**
 ```js
 {
     replace: {
-        pre: function (data, props, info) {
+        pre: function (data, options, info) {
             if (typeof data.run === 'undefined') {
                 data.run = true
             }
@@ -340,7 +338,7 @@ npm run test
             var code = fs.readFileSync(fullpath, 'utf-8').toString()
             info.deps = info.deps || []
             info.deps.push(fullpath)
-            code = '<pre class="markrun-source-pre" >' + props.highlight(code) + '</pre>'
+            code = '<pre class="markrun-source-pre" >' + options.highlight(code) + '</pre>'
             if (data.run) {
                 code = code +'<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
             }
@@ -353,10 +351,10 @@ npm run test
 #### no need script tag
 
 ```html
-[props.js](./props.js)
+[options.js](./options.js)
 <!-- MARKRUN-REPLACE
 {
-    file: './props.js',
+    file: './options.js',
     type: 'pre',
     run: false
 }
@@ -366,10 +364,10 @@ npm run test
 ### abbreviation
 
 ```markdown
-[props.js](./props.js)
+[options.js](./options.js)
 <!-- MR-R
 {
-    "file": "./props.js",
+    "file": "./options.js",
     "type": "pre"
 }
 -->
