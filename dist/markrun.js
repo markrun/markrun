@@ -191,9 +191,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	'    <div class="markrun-html"><%- html %></div>',
 	'    <div class="markrun-code">',
 	'    <% if(__lang === "js") {%>',
-	'    <script data-markrun-lastrun="<%- markrun_lastrun %>">',
+	'    <scr' + 'ipt data-markrun-lastrun="<%- markrun_lastrun %>">',
 	'        <%- __code %>',
-	'    </script>',
+	'    </scr' + 'ipt>',
 	'    <% } %>',
 	'    <% if(__lang === "css") {%>',
 	'    <style>',
@@ -205,7 +205,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'    <% } %>',
 	'    </div>',
 	'    <div class="markrun-source">',
-	'        <pre class="markrun-source-pre" data-lang="<%- __lang %>" ><%- __source %></pre>',
+	'        <pre class="markrun-source-pre" data-lang="<%- __lang %>" ><code class="lang-<%- __lang %>" ><%- __source %></code></pre>',
 	'    </div>',
 	'</div>'
 	    ])
@@ -7563,7 +7563,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.14.0",
+		"version": "0.15.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
