@@ -283,17 +283,6 @@ This text is display
 -->
 ```
 
-## options.highlight
-
-```js
-var highlight = require('highlight.js')
-makrun(content, {
-    highlight: function (source, lang, data) {
-        return highlight.highlightAuto(source).value
-    }
-})
-```
-
 ## 🔨 Development
 
 ```shell
@@ -338,7 +327,7 @@ npm run test
             var code = fs.readFileSync(fullpath, 'utf-8').toString()
             info.deps = info.deps || []
             info.deps.push(fullpath)
-            code = '<pre class="markrun-source-pre" >' + options.highlight(code) + '</pre>'
+            code = '<pre class="markrun-source-pre" >' + markrun.hljs(code) + '</pre>'
             if (data.run) {
                 code = code +'<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
             }
