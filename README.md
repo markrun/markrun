@@ -317,7 +317,7 @@ npm run test
 ```js
 {
     replace: {
-        pre: function (data, options, info) {
+        pre: function (data, options, info, highlight) {
             if (typeof data.run === 'undefined') {
                 data.run = true
             }
@@ -327,7 +327,7 @@ npm run test
             var code = fs.readFileSync(fullpath, 'utf-8').toString()
             info.deps = info.deps || []
             info.deps.push(fullpath)
-            code = '<pre class="markrun-source-pre" >' + markrun.hljs(code) + '</pre>'
+            code = '<pre class="markrun-source-pre" data-lang="js" >' + highlight(code, 'js') + '</pre>'
             if (data.run) {
                 code = code +'<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
             }
