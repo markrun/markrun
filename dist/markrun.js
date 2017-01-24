@@ -63,10 +63,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var defaultOptions = __webpack_require__(2)
 	var placeholder = __webpack_require__(21)
-	var reduction = __webpack_require__(32)
-	var template = __webpack_require__(34)
+	var reduction = __webpack_require__(33)
+	var template = __webpack_require__(35)
 	var extend = __webpack_require__(31)
-	var replace = __webpack_require__(35)
+	var replace = __webpack_require__(36)
 	/**
 	 *  Please read README.md
 	 */
@@ -91,11 +91,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    return content
 	}
-	markrun.setOptions = __webpack_require__(36)
-	markrun.string = __webpack_require__(3)
-	markrun.package = __webpack_require__(37)
-	markrun._ = __webpack_require__(38)
-	markrun.hljs = __webpack_require__(4)
+	markrun.setOptions = __webpack_require__(37)
+	markrun.string = __webpack_require__(12)
+	markrun.package = __webpack_require__(38)
+	markrun._ = __webpack_require__(39)
+	markrun.markdownParserHighlight = __webpack_require__(32)
 	module.exports = markrun
 
 
@@ -104,14 +104,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	// To facilitate users to copy the default parameters
+	var highlight = __webpack_require__(3)
 	var markrun = {
-	    string: __webpack_require__(3)
+	    string: __webpack_require__(12),
+	    hljs: highlight
 	}
-	var highlight = __webpack_require__(4)
 	// If this file is modified, it is necessary to consider version 1.y.z => 2.y.z
 	var defaultOptions = {
 	    replace: {
-	        pre: function (data, options, info) {
+	        pre: function (data, options, info, highlight) {
 	            if (typeof data.run === 'undefined') {
 	                data.run = true
 	            }
@@ -121,7 +122,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var code = fs.readFileSync(fullpath, 'utf-8').toString()
 	            info.deps = info.deps || []
 	            info.deps.push(fullpath)
-	            code = '<pre class="markrun-source-pre" data-lang="js" >' + options.highlight(code) + '</pre>'
+	            code = '<pre class="markrun-source-pre" data-lang="js" >' + highlight(code, 'js') + '</pre>'
 	            if (data.run) {
 	                code = code +'<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
 	            }
@@ -148,6 +149,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	    },
+	    // Deprecated parameter,please ignore, later will be deleted. (Git commit 18c729802f4e5fb4c3406f09d222cb65ea0a3dd2)
 	    highlight: function (source, lang, data) {
 	        return highlight.highlightAuto(source).value
 	    },
@@ -216,58 +218,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 3 */
-/***/ function(module, exports) {
-
-	/*
-	    string([
-	    'demo',
-	    'nimo'
-	    ])
-	    output:
-	        demo
-	        nimo
-
-	    string(function () {\/*!
-	    1
-	    2
-	    3
-	    *\/})
-	    output:
-	    1
-	    2
-	    3
-	    4
-	*/
-	module.exports = function (data) {
-	    if (Array.isArray(data)) {
-	        return data.join('\n')
-	    }
-	    return data.toString()
-	        .replace(/^[^\/]+\/\*!?/, '')
-	        .replace(/\*\/[^\/]+$/, '')
-	        .replace(/^[\s\xA0]+/, '').replace(/[\s\xA0]+$/, '').trim()
-	}
-
-
-/***/ },
-/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(5);
+	var hljs = __webpack_require__(4);
 
-	hljs.registerLanguage('css', __webpack_require__(6));
-	hljs.registerLanguage('less', __webpack_require__(7));
-	hljs.registerLanguage('scss', __webpack_require__(8));
-	hljs.registerLanguage('javascript', __webpack_require__(9));
-	hljs.registerLanguage('json', __webpack_require__(10));
-	hljs.registerLanguage('htmlbars', __webpack_require__(11));
-	hljs.registerLanguage('php', __webpack_require__(12));
+	hljs.registerLanguage('css', __webpack_require__(5));
+	hljs.registerLanguage('less', __webpack_require__(6));
+	hljs.registerLanguage('scss', __webpack_require__(7));
+	hljs.registerLanguage('javascript', __webpack_require__(8));
+	hljs.registerLanguage('json', __webpack_require__(9));
+	hljs.registerLanguage('htmlbars', __webpack_require__(10));
+	hljs.registerLanguage('php', __webpack_require__(11));
 
 	module.exports = hljs;
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -1091,7 +1058,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -1200,7 +1167,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -1344,7 +1311,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -1446,7 +1413,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -1621,7 +1588,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 10 */
+/* 9 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -1662,7 +1629,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -1737,7 +1704,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -1866,6 +1833,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ]
 	  };
 	};
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	/*
+	    string([
+	    'demo',
+	    'nimo'
+	    ])
+	    output:
+	        demo
+	        nimo
+
+	    string(function () {\/*!
+	    1
+	    2
+	    3
+	    *\/})
+	    output:
+	    1
+	    2
+	    3
+	    4
+	*/
+	module.exports = function (data) {
+	    if (Array.isArray(data)) {
+	        return data.join('\n')
+	    }
+	    return data.toString()
+	        .replace(/^[^\/]+\/\*!?/, '')
+	        .replace(/\*\/[^\/]+$/, '')
+	        .replace(/^[\s\xA0]+/, '').replace(/[\s\xA0]+$/, '').trim()
+	}
+
 
 /***/ },
 /* 13 */
@@ -3334,7 +3336,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var marked = __webpack_require__(20)
 	// sometime cannot npm install highlight.js
 	// use local vendor/highlight.js/**
-	var highlight = __webpack_require__(4)
+	var highlight = __webpack_require__(3)
 	var renderer = new marked.Renderer()
 	renderer.heading = function (text, level) {
 	    return '<h' + level + ' id="' + text + '" >'+
@@ -6497,6 +6499,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var json5 = __webpack_require__(30)
 	var md5 = __webpack_require__(23)
 	var extend = __webpack_require__(31)
+	var markdownParserHighlight = __webpack_require__(32)
 
 	module.exports = {
 	    /*
@@ -6534,6 +6537,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            compileFn = props.compile[compileName]
 	            compileOutput = compileFn(source, codeData, info) || {}
+	            compileOutput.source = compileOutput.source || source
 	            if (typeof compileOutput.lang === 'undefined') {
 	                throw new Error('props.compile[' + compileName + '] return object.lang is undefined\n' + compileFn.toString() + '\nJust like:\n' + 'function (source, data){\n\treturn \t{\n\t\tlang: "js",\n\t\tcode: source\n\t}\n}' + '\n')
 	            }
@@ -6543,7 +6547,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            codeTemplateRenderData = extend(true,{
 	                __code: compileOutput.code,
 	                __lang: compileOutput.lang,
-	                __source: props.highlight(compileOutput.source || source, compileOutput.lang, codeData)
+	                __source: markdownParserHighlight(compileOutput.source, compileOutput.lang, props.markdownParser)
 	            }, codeData)
 	            codeTemplateRenderData = props.codeTemplateTransformData(extend(true,{}, codeTemplateRenderData))
 	            compileHTML = render.code(codeTemplateRenderData)
@@ -7431,7 +7435,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dollarPlaceholder = __webpack_require__(33)
+	module.exports = function (source, lang, markdownParser) {
+	    lang = lang || 'js'
+	    markdownParser = markdownParser || __webpack_require__(19)
+	    return markdownParser('```' + lang + '\n' + source + '\n```').trim()
+	                .replace(/^<pre><code([^>]*)?>/g, '')
+	                .replace(/<\/code><\/pre>$/g, '').trim()
+	}
+
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var dollarPlaceholder = __webpack_require__(34)
 	/*
 	    reduction('<h2>1234</h2> b169e31e346edcb513375e55d5bfbe59', {
 	        'b169e31e346edcb513375e55d5bfbe59': '<div>11</div>'
@@ -7461,7 +7478,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -7481,7 +7498,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var ejs = __webpack_require__(28)
@@ -7528,10 +7545,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var json5 = __webpack_require__(30)
+	var markdownParserHighlight = __webpack_require__(32)
 	module.exports = function (content, props, info) {
 	    content = content.replace(/<!--\s*(MARKRUN-REPLACE|MARKRUN_REPLACE|MR-R)([\s\S]*?)-->/g, function (source, mr, json) {
 	        var data = json5.parse(json)
@@ -7539,14 +7557,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (typeof replace === 'undefined') {
 	            throw new Error('Not match replace type: ' + data.type)
 	        }
-	        return replace(data, props, info)
+	        return replace(data, props, info, function (code, lang) {
+	            return markdownParserHighlight(code, lang, props.markdownParser)
+	        })
 	    })
 	    return content
 	}
 
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var extend = __webpack_require__(31)
@@ -7558,12 +7578,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.15.0",
+		"version": "0.16.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
@@ -7609,7 +7629,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -24697,10 +24717,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(39)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(40)(module)))
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
