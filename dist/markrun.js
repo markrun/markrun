@@ -207,7 +207,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'    <% } %>',
 	'    </div>',
 	'    <div class="markrun-source">',
-	'        <pre class="markrun-source-pre" data-lang="<%- __lang %>" ><code class="lang-<%- __lang %>" ><%- __source %></code></pre>',
+	'        <%- __source %>',
 	'    </div>',
 	'</div>'
 	    ])
@@ -7439,8 +7439,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    lang = lang || 'js'
 	    markdownParser = markdownParser || __webpack_require__(19)
 	    return markdownParser('```' + lang + '\n' + source + '\n```').trim()
-	                .replace(/^<pre><code([^>]*)?>/g, '')
-	                .replace(/<\/code><\/pre>$/g, '').trim()
 	}
 
 
@@ -7583,7 +7581,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.16.0",
+		"version": "0.17.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
