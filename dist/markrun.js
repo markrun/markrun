@@ -122,7 +122,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var code = fs.readFileSync(fullpath, 'utf-8').toString()
 	            info.deps = info.deps || []
 	            info.deps.push(fullpath)
-	            code = '<pre class="markrun-source-pre" data-lang="js" >' + highlight(code, 'js') + '</pre>'
+	            code = highlight(code, 'js')
 	            if (data.run) {
 	                code = code +'<script data-markrun-lastrun="true" src="'+ data.file + '"></script>'
 	            }
@@ -7581,7 +7581,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.17.0",
+		"version": "0.18.0",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
