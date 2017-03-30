@@ -56,6 +56,31 @@ markrun.string([
 ])
 ```
 
+    ````js
+    /*_{
+        html: '<div id="demo" ></div>',
+        title: '行内表单',
+        desc: '表单元素水平排列。'
+    }_*/
+    table('#demo', {
+        inline: true
+    })
+    ````
+    same
+    <!--
+    {
+        html: '<div id="demo" ></div>',
+        title: '行内表单',
+        desc: '表单元素水平排列。'
+    }
+    -->
+    ````js
+    table('#demo', {
+        inline: true
+    })
+    ````
+
+
 ## options
 
 ### options.template
