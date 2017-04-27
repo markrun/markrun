@@ -1,0 +1,106 @@
+.markrun-box {
+    border:1px solid #DDD;
+    border-radius: .2em;
+    background-color:white;
+    margin-bottom: 1em;
+}
+.markrun-box:hover {
+    box-shadow: 0px 0px 5px rgba(11,11,11,.2);
+}
+.markrun-box-preview-node {
+    padding: 10px;
+}
+.markrun-box-preview-doc-desc {
+    padding: 10px;
+}
+.markrun-box-preview-doc {
+    font-size: 14px;
+}
+.markrun-box-preview-doc-title {
+    position: relative;
+    text-indent: 1em;
+}
+.markrun-box-preview-doc-title:before {
+    position: absolute;
+    left:0;
+    top:50%;
+    margin-right: -0.4px;
+    width: 100%;
+    content: ' ';
+    display: block;
+    overflow: hidden;
+    height: 0;
+    border-bottom: 1px solid #DDD;
+}
+.markrun-box-preview-doc-title-text {
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    background-color:white;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+.markrun-box-toggle {
+    margin-top:-15px;
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    height: 15px;
+    line-height: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    background-image:linear-gradient(0deg, rgba(111,111,111,.1), rgba(0,0,0,0));
+}
+.markrun-box-toggle:after {
+    position: absolute;
+    left:50%;
+    top:3px;
+    margin-left: -5px;
+    content: ' ';
+    width: 5px;
+    height: 5px;
+    text-align: cetner;
+    content: " ";
+    display: inline-block;
+    border: 1px solid #AAA;
+    border-top-width: 0;
+    border-right-width: 0;
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.markrun-box-code {
+    position: relative;
+    overflow: auto;
+}
+.markrun-box-code-source {
+    max-height: 8em;
+}
+.markrun-box-code-toggle:hover:after {
+    border-color:#999;
+}
+.markrun-box-code-source {
+    padding:1em;
+    margin: 0;
+}
+.markrun-box-code-copy {
+    position: absolute;
+    top:0;
+    right: 1em;
+    font-size: 12px;
+    color:#AAA;
+    cursor: pointer;
+}
+.markrun-box-code-copy:hover {
+    color:#888;
+}
+html .markrun-box--open .markrun-box-code-source {
+    height: auto;
+}
+html .markrun-box--open .markrun-box-toggle{
+    transform: rotate(180deg);
+    background-image:none;
+}
