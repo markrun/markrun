@@ -66,7 +66,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var reduction = __webpack_require__(33)
 	var template = __webpack_require__(35)
 	var extend = __webpack_require__(31)
-	var replace = __webpack_require__(36)
+	var spare = __webpack_require__(36)
+	var replace = __webpack_require__(39)
 	/**
 	 *  Please read README.md
 	 */
@@ -88,13 +89,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    content = replace(content, props, info)
 	    // 5 template
 	    content = template(content, props).trim()
-
+	    var badAPI = spare(props.badAPI, {})
+	    if (typeof badAPI.output === 'function') {
+	        content = badAPI.output(content)
+	    }
 	    return content
 	}
-	markrun.setOptions = __webpack_require__(37)
+	markrun.setOptions = __webpack_require__(40)
 	markrun.string = __webpack_require__(12)
-	markrun.package = __webpack_require__(38)
-	markrun._ = __webpack_require__(39)
+	markrun.package = __webpack_require__(41)
+	markrun._ = __webpack_require__(42)
 	markrun.markdownParserHighlight = __webpack_require__(32)
 	module.exports = markrun
 
@@ -189,27 +193,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        html: ''
 	    },
 	    codeTemplate: markrun.string([
-	'<div class="markrun markrun--<%- __lang %>">',
-	'    <div class="markrun-html"><%- html %></div>',
-	'    <div class="markrun-code">',
-	'    <% if(__lang === "js") {%>',
-	'    <scr' + 'ipt data-markrun-lastrun="<%- markrun_lastrun %>">',
-	'        <%- __code %>',
-	'    </scr' + 'ipt>',
-	'    <% } %>',
-	'    <% if(__lang === "css") {%>',
-	'    <style>',
-	'        <%- __code %>',
-	'    </style>',
-	'    <% } %>',
-	'    <% if(__lang === "html") {%>',
-	'        <%- __code %>',
-	'    <% } %>',
-	'    </div>',
-	'    <div class="markrun-source">',
-	'        <%- __source %>',
-	'    </div>',
-	'</div>'
+	'<%_ if(__lang === "replace") { _%>',
+	    '<%- __code %>',
+	'<%_ } else { _%><div class="markrun markrun--<%- __lang %>">',
+	    '    <div class="markrun-html"><%- html %></div>',
+	    '    <div class="markrun-code">',
+	    '    <% if(__lang === "js") {%>',
+	    '    <scr' + 'ipt data-markrun-lastrun="<%- markrun_lastrun %>">',
+	    '        <%- __code %>',
+	    '    </scr' + 'ipt>',
+	    '    <% } %>',
+	    '    <% if(__lang === "css") {%>',
+	    '    <style>',
+	    '        <%- __code %>',
+	    '    </style>',
+	    '    <% } %>',
+	    '    <% if(__lang === "html") {%>',
+	    '        <%- __code %>',
+	    '    <% } %>',
+	    '    </div>',
+	    '    <div class="markrun-source">',
+	    '        <%- __source %>',
+	    '    </div>',
+	    '</div><%_ } _%>'
 	    ])
 	}
 
@@ -3349,6 +3355,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	marked.setOptions({
 		renderer: renderer,
 	    sanitize: false,
+	    pedantic: true,
 	    gfm: true,
 		highlight: function(code) {
 			return highlight.highlightAuto(code).value
@@ -6517,7 +6524,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    collect: function (content, props, info, render) {
 	        var hash = {}
 	        content = content.replace(rRunPre, function (pre, $1,$2, codeData, compileName, source) {
-	            // console.log(arguments)
+	            var sourceMarkrunData = null
+	            var sourceMarkrunDataJSON
+	            source.replace(/\/\*_([\s\S]*?)?_\*\/([\s\S]*)/, function ($0, $1, $2) {
+	                if ($1) {
+	                    sourceMarkrunDataJSON = $1.trim()
+	                    source = $2
+	                }
+	            })
+	            if (sourceMarkrunDataJSON) {
+	                sourceMarkrunData = json5.parse(sourceMarkrunDataJSON)
+	            }
 	            var compileOutput
 	            var compileFn
 	            var compileHTML
@@ -6527,6 +6544,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            codeData = codeData.trim()
 	            codeData = json5.parse(codeData)
 	            codeData = extend(true, {}, props.codeTemplateDefaultData, codeData)
+	            if (typeof sourceMarkrunData === 'object') {
+	                codeData = extend(true, codeData, sourceMarkrunData)
+	            }
 	            compileName = compileName.trim().toLocaleLowerCase()
 	            if (compileName.length === 0) {
 	                throw new Error('You need to specify the compilation:\n' + pre + '\n\nJust like:\n' + '<!--{"some":"abc"}-->\n````js\nconsole.log(1)\n````\n' + 'or\n' + '````js\nconsole.log(1)\n````')
@@ -7546,6 +7566,187 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
+	function hasValue(value, yes, no) {
+	    if (typeof value === 'undefined') {
+	        if (typeof no === 'function') {
+	            no()
+	        }
+	        else {
+	            return typeof no === 'undefined'? false: no
+	        }
+	    }
+	    else {
+	        if (typeof yes === 'function') {
+	            yes()
+	        }
+	        else {
+	            return typeof yes === 'undefined'? true: yes
+	        }
+	    }
+	}
+	var spare = function spare () {
+	    var throwError = function () {
+	        throw new Error('node_modules/spare/index.js: You should use `spare(data, defaultValue)` or `spare(data, attr, defaultValue)`\r\n The use of the error: spare(' + Array.from(arguments).join(', ') + ')')
+	    }
+	    var data = arguments[0]
+	    var attr
+	    var defaultValue
+	    switch(arguments.length) {
+	        case 0:
+	            throwError()
+	        break
+	        case 1:
+	            throwError()
+	        break
+	        case 2:
+	            attr = undefined
+	            defaultValue = arguments[1]
+	        break
+	        case 3:
+	            attr = arguments[1]
+	            defaultValue = arguments[2]
+	        break
+	        default:
+	            throwError()
+
+	    }
+	    var attrArray
+	    var output
+	    if (attr) {
+	        attrArray = attr.split('.')
+	        var findUndefinedObj = attrArray.some(function (key, index) {
+	            if (!hasValue(data[key])) {
+	                return true
+	            }
+	            data = typeof data[key] === 'undefined'? {}: data[key]
+	        })
+	        if (findUndefinedObj) {
+	            output = defaultValue
+	        }
+	    }
+	    if (hasValue(output)) {
+	        return output
+	    }
+	    return hasValue(data, data, defaultValue)
+	}
+	spare.settings = __webpack_require__(37)
+	module.exports = spare
+
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var extend = __webpack_require__(38)
+	module.exports = function settings (defaultSettings, userSettings) {
+	    var empty
+	    if (Array.isArray(defaultSettings)) {
+	        empty = []
+	    }
+	    else {
+	        empty = {}
+	    }
+	    var copy = extend(true, empty, defaultSettings)
+	    return extend(true, copy, userSettings)
+	}
+
+
+/***/ },
+/* 38 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var hasOwn = Object.prototype.hasOwnProperty;
+	var toStr = Object.prototype.toString;
+
+	var isArray = function isArray(arr) {
+		if (typeof Array.isArray === 'function') {
+			return Array.isArray(arr);
+		}
+
+		return toStr.call(arr) === '[object Array]';
+	};
+
+	var isPlainObject = function isPlainObject(obj) {
+		if (!obj || toStr.call(obj) !== '[object Object]') {
+			return false;
+		}
+
+		var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+		var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+		// Not own constructor property must be Object
+		if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+			return false;
+		}
+
+		// Own properties are enumerated firstly, so to speed up,
+		// if last one is own, then all properties are own.
+		var key;
+		for (key in obj) { /**/ }
+
+		return typeof key === 'undefined' || hasOwn.call(obj, key);
+	};
+
+	module.exports = function extend() {
+		var options, name, src, copy, copyIsArray, clone;
+		var target = arguments[0];
+		var i = 1;
+		var length = arguments.length;
+		var deep = false;
+
+		// Handle a deep copy situation
+		if (typeof target === 'boolean') {
+			deep = target;
+			target = arguments[1] || {};
+			// skip the boolean and the target
+			i = 2;
+		}
+		if (target == null || (typeof target !== 'object' && typeof target !== 'function')) {
+			target = {};
+		}
+
+		for (; i < length; ++i) {
+			options = arguments[i];
+			// Only deal with non-null/undefined values
+			if (options != null) {
+				// Extend the base object
+				for (name in options) {
+					src = target[name];
+					copy = options[name];
+
+					// Prevent never-ending loop
+					if (target !== copy) {
+						// Recurse if we're merging plain objects or arrays
+						if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+							if (copyIsArray) {
+								copyIsArray = false;
+								clone = src && isArray(src) ? src : [];
+							} else {
+								clone = src && isPlainObject(src) ? src : {};
+							}
+
+							// Never move original objects, clone them
+							target[name] = extend(deep, clone, copy);
+
+						// Don't bring in undefined values
+						} else if (typeof copy !== 'undefined') {
+							target[name] = copy;
+						}
+					}
+				}
+			}
+		}
+
+		// Return the modified object
+		return target;
+	};
+
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var json5 = __webpack_require__(30)
 	var markdownParserHighlight = __webpack_require__(32)
 	module.exports = function (content, props, info) {
@@ -7564,7 +7765,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var extend = __webpack_require__(31)
@@ -7576,12 +7777,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports) {
 
 	module.exports = {
 		"name": "markrun",
-		"version": "0.18.0",
+		"version": "0.22.0-alpha",
 		"description": "Let your markdown to run, ````js to <pre> & <script>",
 		"main": "index.js",
 		"scripts": {
@@ -7612,7 +7813,8 @@ return /******/ (function(modules) { // webpackBootstrap
 			"lodash": "^4.17.2",
 			"marked": "^0.3.6",
 			"md5": "^2.1.0",
-			"path": "^0.12.7"
+			"path": "^0.12.7",
+			"sparejs": "^0.4.0"
 		},
 		"devDependencies": {
 			"deasync": "^0.1.8",
@@ -7627,7 +7829,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 39 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -24715,10 +24917,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(40)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(43)(module)))
 
 /***/ },
-/* 40 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {

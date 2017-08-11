@@ -395,3 +395,21 @@ markrun.setOptions({
 })
 markrun(md)
 ```
+
+## Bad API
+
+>  As a last resort
+
+```js
+// bad
+markrun(md, {
+    badAPI: {
+        output: function (html) {
+            return html.replace(/\.md/g, './html')
+        }
+    }
+})
+// good
+var html = markrun('md')
+html = html.replace(/\.md/g, './html')
+```
