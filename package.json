@@ -4,8 +4,7 @@
   "description": "Let your markdown to run, ````js to <pre> & <script>",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --timeout 60000 &&./node_modules/mocha/bin/mocha test/setOptions.es --timeout 60000",
-    "build": "webpack && ./node_modules/uglify-js/bin/uglifyjs ./dist/markrun.js -o ./dist/markrun.min.js"
+    "test": "./node_modules/mocha/bin/mocha --timeout 60000 &&./node_modules/mocha/bin/mocha test/setOptions.es --timeout 60000"
   },
   "repository": {
     "type": "git",
