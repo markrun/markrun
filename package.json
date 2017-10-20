@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/markrun/markrun/issues"
   },
-  "homepage": "https://github.com/markrun/markrun#readme",
+  "homepage": "https://github.com/markrun/markrun",
   "dependencies": {
     "ejs": "^2.5.2",
     "extend": "^3.0.0",
