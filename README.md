@@ -9,7 +9,7 @@
 ## 📦 Install
 
 ```shell
-npm i markrun -D
+npm i markrun
 ```
 
 **[Online demo](http://markrun.github.io/markrun/)**
