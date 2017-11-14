@@ -36,7 +36,7 @@ var path = require('path')
 fs.writeFileSync(path.join(__dirname, 'demo.html'), html)
 ```
 
-> [defaultoptions](./lib/defaultoptions.js)
+> [defaultOptions](./lib/defaultOptions.js)
 
 ## markrun.string
 
