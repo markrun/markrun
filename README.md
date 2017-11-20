@@ -4,7 +4,7 @@
 
 [![Build Status](https://api.travis-ci.org/markrun/markrun.svg)](https://travis-ci.org/markrun/markrun) [![NPM version](https://img.shields.io/npm/v/markrun.svg?style=flat)](https://npmjs.org/package/markrun) [![NPM downloads](http://img.shields.io/npm/dm/markrun.svg?style=flat)](https://npmjs.org/package/markrun)
 
-![preview](/doc/media/preview.png)
+[![preview](/doc/media/preview.png)](https://markrun.github.io/markrun/)
 
 ## 📦 Install
 
